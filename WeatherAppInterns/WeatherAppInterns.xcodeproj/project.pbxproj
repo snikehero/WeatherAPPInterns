@@ -12,6 +12,7 @@
 		4AB4BFD32A13CDF70090863D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB4BFD22A13CDF70090863D /* Assets.xcassets */; };
 		4AB4BFD62A13CDF70090863D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB4BFD52A13CDF70090863D /* Preview Assets.xcassets */; };
 		4AC2F3CC2A13E4420001130A /* MoisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2F3CB2A13E4420001130A /* MoisesView.swift */; };
+		710DB3C72A13E5C200188990 /* UlisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710DB3C62A13E5C200188990 /* UlisesView.swift */; };
 		E63D67722A13E32000DD8852 /* GerardoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D67712A13E32000DD8852 /* GerardoView.swift */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +23,7 @@
 		4AB4BFD22A13CDF70090863D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AB4BFD52A13CDF70090863D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4AC2F3CB2A13E4420001130A /* MoisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoisesView.swift; sourceTree = "<group>"; };
+		710DB3C62A13E5C200188990 /* UlisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UlisesView.swift; sourceTree = "<group>"; };
 		E63D67712A13E32000DD8852 /* GerardoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GerardoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +61,7 @@
 				4AB4BFD02A13CDF60090863D /* ContentView.swift */,
 				4AC2F3CB2A13E4420001130A /* MoisesView.swift */,
 				E63D67712A13E32000DD8852 /* GerardoView.swift */,
+				710DB3C62A13E5C200188990 /* UlisesView.swift */,
 				4AB4BFD22A13CDF70090863D /* Assets.xcassets */,
 				4AB4BFD42A13CDF70090863D /* Preview Content */,
 			);
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB4BFD12A13CDF60090863D /* ContentView.swift in Sources */,
+				710DB3C72A13E5C200188990 /* UlisesView.swift in Sources */,
 				E63D67722A13E32000DD8852 /* GerardoView.swift in Sources */,
 				4AC2F3CC2A13E4420001130A /* MoisesView.swift in Sources */,
 				4AB4BFCF2A13CDF60090863D /* WeatherAppInternsApp.swift in Sources */,
