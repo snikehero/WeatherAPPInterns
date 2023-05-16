@@ -9,7 +9,14 @@ import SwiftUI
 
 struct GerardoView: View {
     var body: some View {
-        Text("Prueba")
+        VStack {
+            Text("Prueba")
+            Text("Prueba")
+            Text("Prueba")
+            Text("Prueba")
+            Text("Prueba")
+            Text("Prueba")
+        }
     }
 }
 
