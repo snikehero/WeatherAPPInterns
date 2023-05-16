@@ -13,6 +13,8 @@
 		4AB4BFD32A13CDF70090863D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB4BFD22A13CDF70090863D /* Assets.xcassets */; };
 		4AB4BFD62A13CDF70090863D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB4BFD52A13CDF70090863D /* Preview Assets.xcassets */; };
 		4AC2F3CC2A13E4420001130A /* MoisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2F3CB2A13E4420001130A /* MoisesView.swift */; };
+		4AC2F3D22A1401B60001130A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2F3D12A1401B60001130A /* WelcomeView.swift */; };
+		4AC2F3D62A1405F40001130A /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2F3D52A1405F40001130A /* DeviceLocationService.swift */; };
 		710DB3C72A13E5C200188990 /* UlisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710DB3C62A13E5C200188990 /* UlisesView.swift */; };
 		E63D67722A13E32000DD8852 /* GerardoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D67712A13E32000DD8852 /* GerardoView.swift */; };
 /* End PBXBuildFile section */
@@ -25,6 +27,8 @@
 		4AB4BFD22A13CDF70090863D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AB4BFD52A13CDF70090863D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4AC2F3CB2A13E4420001130A /* MoisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoisesView.swift; sourceTree = "<group>"; };
+		4AC2F3D12A1401B60001130A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		4AC2F3D52A1405F40001130A /* DeviceLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLocationService.swift; sourceTree = "<group>"; };
 		710DB3C62A13E5C200188990 /* UlisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UlisesView.swift; sourceTree = "<group>"; };
 		E63D67712A13E32000DD8852 /* GerardoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GerardoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,10 +63,10 @@
 		4AB4BFCD2A13CDF60090863D /* WeatherAppInterns */ = {
 			isa = PBXGroup;
 			children = (
+				4AC2F3D02A1401570001130A /* Views */,
+				4AC2F3CD2A13FEB50001130A /* Managers */,
 				4AB4BFCE2A13CDF60090863D /* WeatherAppInternsApp.swift */,
 				4268E05D2A13E82700FB403C /* AngelView.swift */,
-				4AB4BFD02A13CDF60090863D /* ContentView.swift */,
-				4AC2F3CB2A13E4420001130A /* MoisesView.swift */,
 				E63D67712A13E32000DD8852 /* GerardoView.swift */,
 				710DB3C62A13E5C200188990 /* UlisesView.swift */,
 				4AB4BFD22A13CDF70090863D /* Assets.xcassets */,
@@ -77,6 +81,24 @@
 				4AB4BFD52A13CDF70090863D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4AC2F3CD2A13FEB50001130A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4AC2F3D52A1405F40001130A /* DeviceLocationService.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		4AC2F3D02A1401570001130A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4AB4BFD02A13CDF60090863D /* ContentView.swift */,
+				4AC2F3CB2A13E4420001130A /* MoisesView.swift */,
+				4AC2F3D12A1401B60001130A /* WelcomeView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,9 +174,11 @@
 				4AB4BFD12A13CDF60090863D /* ContentView.swift in Sources */,
 				710DB3C72A13E5C200188990 /* UlisesView.swift in Sources */,
 				E63D67722A13E32000DD8852 /* GerardoView.swift in Sources */,
+				4AC2F3D22A1401B60001130A /* WelcomeView.swift in Sources */,
 				4AC2F3CC2A13E4420001130A /* MoisesView.swift in Sources */,
 				4268E05E2A13E82700FB403C /* AngelView.swift in Sources */,
 				4AB4BFCF2A13CDF60090863D /* WeatherAppInternsApp.swift in Sources */,
+				4AC2F3D62A1405F40001130A /* DeviceLocationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +309,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherAppInterns/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please give your Location Information";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -313,6 +338,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherAppInterns/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please give your Location Information";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
