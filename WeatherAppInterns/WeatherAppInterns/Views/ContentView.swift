@@ -10,23 +10,26 @@ import SwiftUI
 struct ContentView: View {
    var body: some View {
       ZStack{
-         ScrollView{
-            VStack {
-               SummaryView(city: "Aguascalientes", actTemp: 28, minTemp: 12, maxTemp: 32)
-               HourlyView()
-               VStack(spacing: 10){
-                  ForEach(1..<8) { row in
-                     DaysView(day: "Lunes", emoji: "☀️", minTemp: 12 , maxTemp: 31)
-                     
+         VStack {
+            ScrollView{
+               VStack {
+                  SummaryView(city: "Aguascalientes", actTemp: 28, minTemp: 12, maxTemp: 32)
+                  HourlyView()
+                  VStack(spacing: 10){
+                     ForEach(1..<8) { row in
+                        DaysView(day: "Lunes", emoji: "☀️", minTemp: 12 , maxTemp: 31)
+                        
+                     }
                   }
+                  .padding()
+                  .background(Color("ButtonColor"))
+                  .clipShape(RoundedRectangle(cornerRadius: 15))
                }
-               .padding()
-               .background(Color("ButtonColor"))
-               .clipShape(RoundedRectangle(cornerRadius: 15))
             }
-         }
-         .padding()
+            .padding()
          .background(Color("BackgroundColor"))
+         }
+         NavBarView()
       }
    }
    
@@ -102,9 +105,6 @@ struct DaysView: View{
       
    }
 }
-
-
-
 
 
 
