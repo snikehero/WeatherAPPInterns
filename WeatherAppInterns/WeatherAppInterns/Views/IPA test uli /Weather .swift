@@ -12,13 +12,24 @@ public struct Weather {
   let temperature: String
   let description: String
   let iconName: String
-  
+  let tempMin: String
+  let tempMax: String
+  let pressure: String
+  let humidity: String
+  let windSpeed: Double
   
   init(response: APIResponse) {
     city = response.name
-    temperature = "\(Int(response.main.temp))"
+    temperature = "\(Double(response.main.temp))"
+    tempMin = "\(Double(response.main.tempMin))"
+    tempMax = "\(Double(response.main.tempMax))"
+    pressure = "\(Int(response.main.pressure))"
+    humidity = "\(Int(response.main.humidity))"
     description = response.weather.first?.description ?? ""
     iconName = response.weather.first?.iconName ?? ""
+
+    windSpeed = response.wind.speed 
+
   }
   
 }

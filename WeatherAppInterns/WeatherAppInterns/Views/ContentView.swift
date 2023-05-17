@@ -12,8 +12,9 @@ struct ContentView: View {
     AngelView()
      MoisesView()
      GerardoView()
-     UlisesView()
-      
+      //UlisesView()
+     //UlisesView(viewModel: WeatherViewModel(weatherService: WeatherService()))
+    //WelcomeView(viewModel: WeatherViewModel(weatherService: WeatherService()))
    }
 }
 

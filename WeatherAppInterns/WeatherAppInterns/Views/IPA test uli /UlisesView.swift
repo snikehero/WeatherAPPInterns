@@ -23,6 +23,9 @@ struct UlisesView: View {
         .font(.largeTitle)
         .padding()
       Text(viewModel.weatherDescription)
+      Text(viewModel.windSpeed.formatted())
+      Text(viewModel.tempMin)
+      Text(viewModel.tempMax)
     }.onAppear(perform: viewModel.refresh)
   }
   

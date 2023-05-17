@@ -41,6 +41,8 @@ public final class WeatherService: NSObject {
         self.completionHandler?(weather)
       }
     }.resume()
+    print(coordinates.latitude)
+    print(coordinates.longitude)
   }
 }
 
@@ -62,10 +64,23 @@ struct APIResponse: Decodable {
   let name: String
   let main: APIMain
   let weather: [APIWeather]
+  let wind: APIWind
+//  let wind: APIWind
 }
 
 struct APIMain: Decodable {
   let temp: Double
+  let tempMin: Double
+  let tempMax: Double
+  let pressure: Double
+  let humidity: Double
+  enum CodingKeys: String, CodingKey {
+    case temp = "temp"
+    case tempMin = "temp_min"
+    case tempMax = "temp_max"
+    case pressure = "pressure"
+    case humidity = "humidity"
+  }
 }
 
 struct APIWeather: Decodable {
@@ -77,3 +92,19 @@ struct APIWeather: Decodable {
     case iconName = "main"
   }
 }
+struct APIWind: Decodable {
+  let speed: Double
+  enum CodingKeys: String, CodingKey {
+    case speed = "speed"
+  }
+}
+//struct APIWind: Decodable {
+//  let speed: Double
+//  let deg: Double
+//  let gust: Double
+//  enum CodingKeys: String, CodingKey {
+//    case speed = "speed"
+//    case deg = "deg"
+//    case gust = "gust"
+//  }
+//}
