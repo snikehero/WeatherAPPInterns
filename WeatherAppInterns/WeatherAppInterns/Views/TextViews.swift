@@ -19,7 +19,9 @@ struct BigNumberText: View{
    var text: String
    var body: some View{
       Text(text)
-         .font(.largeTitle)
+         .font(Font.system(size: 90))
+         .fontWeight(.light)
+         
    }
 }
 
@@ -27,6 +29,7 @@ struct TitleText: View{
    var text: String
    var body: some View{
       Text(text)
+         .font(Font.system(size: 28))
    }
 }
 
@@ -34,6 +37,8 @@ struct NormalText: View{
    var text:String
    var body: some View{
       Text(text)
+         .font(Font.system(size: 18))
+         .foregroundColor(.black)
    }
    
 }
