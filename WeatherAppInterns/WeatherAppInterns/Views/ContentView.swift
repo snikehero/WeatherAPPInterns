@@ -8,34 +8,50 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-       ScrollView{
-          VStack {
-             SummaryView()
-             HourlyView()
-             ForEach(1..<8) { row in
-                DaysView(day: "Lunes", emoji: "☀️", minTemp: 12 , maxTemp: 31)
-
-             }
-          }
-       }
-        .padding()
-        .background(.blue)
-    }
+   var body: some View {
+      ZStack{
+         VStack {
+            ScrollView{
+               VStack {
+                  SummaryView(city: "Aguascalientes", actTemp: 28, minTemp: 12, maxTemp: 32)
+                  HourlyView()
+                  VStack(spacing: 10){
+                     ForEach(1..<8) { row in
+                        DaysView(day: "Lunes", emoji: "☀️", minTemp: 12 , maxTemp: 31)
+                        
+                     }
+                  }
+                  .padding()
+                  .background(Color("ButtonColor"))
+                  .clipShape(RoundedRectangle(cornerRadius: 15))
+               }
+            }
+            .padding()
+         .background(Color("BackgroundColor"))
+         }
+         NavBarView()
+      }
+   }
+   
 }
 
 
 struct SummaryView: View{
+   var city: String
+   var actTemp: Int
+   var minTemp: Int
+   var maxTemp: Int
+   
    var body: some View{
          VStack{
-            TitleText(text: "Aguascalientes")
-            BigNumberText(text: "68º")
+            TitleText(text: city)
+            BigNumberText(text: "\(String(actTemp))º")
             HStack{
-               NormalText(text: "Min: 68")
-               NormalText(text: "Max: 78")
+               NormalText(text: "Min: \(String(minTemp))")
+               NormalText(text: "Max: \(String(maxTemp))")
             }
       }
-         .background(.white)
+
    }
 }
 
@@ -56,7 +72,8 @@ struct HourlyView: View{
          }
       }
       .padding()
-      .background(.white)
+      .background(Color("ButtonColor"))
+      .clipShape(RoundedRectangle(cornerRadius: 15))
    }
 }
 
@@ -68,23 +85,27 @@ struct DaysView: View{
    var maxTemp: Int
    
    var body: some View{
-      Button {
-      } label: {
-         HStack{
-            NormalText(text: day)
-            Spacer()
-            NormalText(text: emoji)
-            Spacer()
-            NormalText(text: String(minTemp))
-            Spacer()
-            NormalText(text: "------")
-            Spacer()
-            NormalText(text: String(maxTemp))
+      VStack{
+         Button {
+         } label: {
+            HStack{
+               NormalText(text: day)
+               Spacer()
+               NormalText(text: emoji)
+               Spacer()
+               NormalText(text: String(minTemp))
+               Spacer()
+               NormalText(text: "------")
+               Spacer()
+               NormalText(text: String(maxTemp))
+            }
          }
       }
-      .background(.white)
+      .background(Color("ButtonColor"))
+      
    }
 }
+
 
 
 struct ContentView_Previews: PreviewProvider {
