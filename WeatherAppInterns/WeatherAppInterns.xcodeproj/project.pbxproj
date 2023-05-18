@@ -23,6 +23,7 @@
 		71B49EB12A1558B6003F614D /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B49EB02A1558B6003F614D /* WeatherViewModel.swift */; };
 		71B49EB32A155D52003F614D /* Weather APPP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B49EB22A155D52003F614D /* Weather APPP.swift */; };
 		E63D67722A13E32000DD8852 /* GerardoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D67712A13E32000DD8852 /* GerardoView.swift */; };
+		E63D67782A16AECE00DD8852 /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D67772A16AECE00DD8852 /* ButtonsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		71B49EB02A1558B6003F614D /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		71B49EB22A155D52003F614D /* Weather APPP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather APPP.swift"; sourceTree = "<group>"; };
 		E63D67712A13E32000DD8852 /* GerardoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GerardoView.swift; sourceTree = "<group>"; };
+		E63D67772A16AECE00DD8852 /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				4268E05F2A153D8200FB403C /* TextViews.swift */,
 				4268E0612A153DAA00FB403C /* NavBarView.swift */,
 				71B49EAE2A15478E003F614D /* IPA test uli  */,
+				E63D67772A16AECE00DD8852 /* ButtonsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				710DB3C72A13E5C200188990 /* UlisesView.swift in Sources */,
 				71B49EAB2A154539003F614D /* WeatherService.swift in Sources */,
 				4268E0602A153D8200FB403C /* TextViews.swift in Sources */,
+				E63D67782A16AECE00DD8852 /* ButtonsView.swift in Sources */,
 				E63D67722A13E32000DD8852 /* GerardoView.swift in Sources */,
 				71B49EAD2A154787003F614D /* Weather .swift in Sources */,
 				4AC2F3D22A1401B60001130A /* WelcomeView.swift in Sources */,

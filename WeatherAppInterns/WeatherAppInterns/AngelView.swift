@@ -9,13 +9,17 @@ import SwiftUI
 
 struct AngelView: View {
     var body: some View {
-      ZStack{
          VStack {
             ScrollView{
                VStack {
                   SummaryView(city: "Aguascalientes", actTemp: 28, minTemp: 12, maxTemp: 32)
+                   ButtonSubtitle(text: "Mostly Sunny")
+                       .shadow(color: .black ,radius: 15, x: 2, y: 2)
                   HourlyView()
-                  VStack(spacing: 10){
+                   VStack(alignment: .leading, spacing: 10){
+                      ButtonHeader(text: "10 - DAY FORECAST", systemImage: "calendar")
+                      HeaderDivider()
+                      
                      ForEach(1..<8) { row in
                         DaysView(day: "Lunes", emoji: "☀️", minTemp: 12 , maxTemp: 31)
                         
@@ -27,10 +31,8 @@ struct AngelView: View {
                }
             }
             .padding()
-         .background(Color("BackgroundColor"))
          }
-         NavBarView()
-      }
+      
    }
    
 }
@@ -47,8 +49,10 @@ struct SummaryView: View{
             TitleText(text: city)
             BigNumberText(text: "\(String(actTemp))º")
             HStack{
-               NormalText(text: "Min: \(String(minTemp))")
-               NormalText(text: "Max: \(String(maxTemp))")
+               ButtonSubtitle(text: "H: \(String(minTemp))º")
+                    .shadow(color: .black ,radius: 15, x: 2, y: 2)
+               ButtonSubtitle(text: "L: \(String(maxTemp))º")
+                    .shadow(color: .black ,radius: 15, x: 2, y: 2)
             }
       }
 
@@ -58,8 +62,9 @@ struct SummaryView: View{
 struct HourlyView: View{
    var body: some View{
       VStack{
-        NormalText(text: "Cielos parcialmente numblados Lorem ipsum dolor sit amet")
-            ScrollView(.horizontal){
+        ButtonDescription(text: "Cloudy conditions will continue for the rest of the day. Wind gusts are up tp 20 km/h ")
+          HeaderDivider()
+            ScrollView(.horizontal, showsIndicators: false){
                   HStack{
                      ForEach(1..<25) { element in
                         VStack(spacing: 10) {
@@ -108,5 +113,6 @@ struct DaysView: View{
 struct AngelView_Previews: PreviewProvider {
     static var previews: some View {
         AngelView()
+            .background(Color("BackgroundColor"))
     }
 }
