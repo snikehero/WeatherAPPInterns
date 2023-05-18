@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WelcomeView: View {
   @ObservedObject var viewModel : WeatherViewModel
+ 
   var body: some View {
     VStack {
       Text("Datos recabados de la API")

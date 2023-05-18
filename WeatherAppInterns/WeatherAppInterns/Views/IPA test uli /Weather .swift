@@ -27,9 +27,19 @@ public struct Weather {
     humidity = "\(Int(response.main.humidity))"
     description = response.weather.first?.description ?? ""
     iconName = response.weather.first?.iconName ?? ""
-
-    windSpeed = response.wind.speed 
-
+    windSpeed = response.wind.speed
+    
   }
   
 }
+//public struct List {
+//  //let weather: Weather
+//  let city: String
+//  let weatherData: Weather
+//  init(response: WeatherList)
+//  {
+//    //weather = response.list
+//    city = response.city.name
+//    weatherData = respon
+//  }
+//}

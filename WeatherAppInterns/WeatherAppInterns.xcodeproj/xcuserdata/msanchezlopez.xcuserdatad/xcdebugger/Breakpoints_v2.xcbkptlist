@@ -3,4 +3,166 @@
    uuid = "C240C201-4AF4-49B0-B0D0-1D98C517D524"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C803B6D4-2969-42FD-B60E-E04269D5BCFC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherAppInterns/Views/IPA test uli /WeatherService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C803B6D4-2969-42FD-B60E-E04269D5BCFC - 2a4f2ac8976f8bac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppInterns.WeatherService.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "WeatherAppInterns"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/msanchezlopez/Documents/GitHub/weatherappinterns/WeatherAppInterns/WeatherAppInterns/Views/IPA%20test%20uli%20/WeatherService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "C803B6D4-2969-42FD-B60E-E04269D5BCFC - 2a4f2ac8976f8b6a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppInterns.WeatherService.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "WeatherAppInterns"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/msanchezlopez/Documents/GitHub/weatherappinterns/WeatherAppInterns/WeatherAppInterns/Views/IPA%20test%20uli%20/WeatherService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "184">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A2411B4D-4E18-4E02-8839-11B47C79F54E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherAppInterns/Views/IPA test uli /WeatherViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "init(weatherService:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A2411B4D-4E18-4E02-8839-11B47C79F54E - 95881ada2ed880b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppInterns.WeatherViewModel.__allocating_init(weatherService: WeatherAppInterns.WeatherService) -&gt; WeatherAppInterns.WeatherViewModel"
+                  moduleName = "WeatherAppInterns"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/msanchezlopez/Documents/GitHub/weatherappinterns/WeatherAppInterns/WeatherAppInterns/Views/IPA%20test%20uli%20/WeatherViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "A2411B4D-4E18-4E02-8839-11B47C79F54E - 9c23367725d4bf2b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppInterns.WeatherViewModel.init(weatherService: WeatherAppInterns.WeatherService) -&gt; WeatherAppInterns.WeatherViewModel"
+                  moduleName = "WeatherAppInterns"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/msanchezlopez/Documents/GitHub/weatherappinterns/WeatherAppInterns/WeatherAppInterns/Views/IPA%20test%20uli%20/WeatherViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "164">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FF718608-0634-4BEA-8DF0-5A497F00B649"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherAppInterns/Views/IPA test uli /WeatherViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "refresh()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "45A71788-CCCD-4CC7-A045-303230908B05"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherAppInterns/Views/IPA test uli /WeatherViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "WeatherViewModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "45A71788-CCCD-4CC7-A045-303230908B05 - 95881ada2ed880b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppInterns.WeatherViewModel.__allocating_init(weatherService: WeatherAppInterns.WeatherService) -&gt; WeatherAppInterns.WeatherViewModel"
+                  moduleName = "WeatherAppInterns"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/msanchezlopez/Documents/GitHub/weatherappinterns/WeatherAppInterns/WeatherAppInterns/Views/IPA%20test%20uli%20/WeatherViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "45A71788-CCCD-4CC7-A045-303230908B05 - 9c23367725d4bf2b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WeatherAppInterns.WeatherViewModel.init(weatherService: WeatherAppInterns.WeatherService) -&gt; WeatherAppInterns.WeatherViewModel"
+                  moduleName = "WeatherAppInterns"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/msanchezlopez/Documents/GitHub/weatherappinterns/WeatherAppInterns/WeatherAppInterns/Views/IPA%20test%20uli%20/WeatherViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "164">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

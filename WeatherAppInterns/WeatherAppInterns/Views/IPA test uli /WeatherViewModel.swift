@@ -37,7 +37,7 @@ class WeatherViewModel: ObservableObject {
   func refresh() {
     weatherService.loadWeatherData { weather in
       DispatchQueue.main.async{
-        self.cityname = weather.city
+        self.cityname = "\(weather.city)"
         self.temperature = "\(weather.temperature)°C"
         self.tempMin = "\(weather.tempMin)°C"
         self.tempMax = "\(weather.tempMax)°C"
@@ -49,6 +49,14 @@ class WeatherViewModel: ObservableObject {
         //self.clouds = weather.clouds
         //self.windSpeed = weather.windSpeed
       }
+      
     }
+//    weatherService.loadWeatherData2 { list in
+//      DispatchQueue.main.async{
+//        self.cityname = list.city
+//      
+//      }
+//    }
   }
+  
 }
