@@ -43,12 +43,14 @@ struct MyWeather: Decodable {
   let tempMax: Double
   let pressure: Double
   let fellsLike: Double
+  let humidity: Int
   enum CodingKeys: String, CodingKey { //Llamar los casos de las variables igual al json
     case temp = "temp"
     case tempMin = "temp_min"
     case tempMax = "temp_max"
     case pressure = "pressure"
     case fellsLike = "feels_like"
+    case humidity = "humidity"
   }
 }
 struct MyNewWeather: Decodable {
@@ -89,8 +91,12 @@ struct MyWind: Decodable {
 struct MyCity: Decodable {
   let id: Double
   let name: String
+  let sunrise: Double
+  let sunset: Double
   enum CodingKeys: String, CodingKey {
     case id = "id"
     case name = "name"
+    case sunrise = "sunrise"
+    case sunset = "sunset"
   }
 }

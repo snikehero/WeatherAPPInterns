@@ -56,12 +56,16 @@ struct Sunset: View {
 }
 
 struct Wind: View {
+  var title: String
+  var description: String
     var body: some View {
         VStack {
             HStack {
                 ButtonHeader(text: "WIND", systemImage: "wind")
                 Spacer()
             }
+          ButtonTitle(text: title)
+          ButtonDescription(text: description)
             HeaderDivider()
             Spacer()
         }.padding()
@@ -153,12 +157,16 @@ struct Visibility: View {
 }
 
 struct Pressure: View {
+  var title: String
+  var description: String
     var body: some View {
         VStack {
             HStack {
                 ButtonHeader(text: "PRESSURE", systemImage: "gauge.medium")
                 Spacer()
             }
+          ButtonTitle(text: title)
+          ButtonDescription(text: description)
             HeaderDivider()
             Spacer()
         }.padding()

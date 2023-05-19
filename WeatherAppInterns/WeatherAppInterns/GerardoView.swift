@@ -59,7 +59,7 @@ struct GerardoView: View {
                             Button{
                                 print("Wind")
                             } label: {
-                                Wind()
+                              Wind(title: "Prueba", description: "Prueba")
                                     .modifier(ExtraInfoButton())
                             }
                             
@@ -98,7 +98,7 @@ struct GerardoView: View {
                             Button{
                                 print("Pressure")
                             } label: {
-                                Pressure()
+                                Pressure(title: "Presion", description: "descripcion")
                                     .modifier(ExtraInfoButton())
                             }
                             

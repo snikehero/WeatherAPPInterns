@@ -168,7 +168,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "8DFFA7BA-532D-4035-93FC-A63B49EDB275"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeatherAppInterns/Views/ApiTestMoises/DataView.swift"
@@ -176,8 +176,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "82"
             endingLineNumber = "82"
-            landmarkName = "body"
-            landmarkType = "24">
+            landmarkName = "getWeatherForecast(for:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "8DFFA7BA-532D-4035-93FC-A63B49EDB275 - 5940cca4e1e2691e"

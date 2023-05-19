@@ -17,8 +17,8 @@ struct DataView: View {
     var body: some View {
     NavigationView {
       VStack{
-        
-        
+
+
         HStack {
           TextField("Enter Location", text: $location)
             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -44,15 +44,15 @@ struct DataView: View {
                 {
                   Text(hourly.weather[0].description.capitalized)
                   Text("High: \(hourly.main.tempMax, specifier: "%.0f")")
-                  
+
                   Text("Low: \(hourly.main.tempMin, specifier: "%.0f")")
-                  
+
                   Text("Presion: \(hourly.main.pressure, specifier: "%.0f")")
-                  
+
                   Text("Sensacion: \(hourly.main.fellsLike, specifier: "%.0f")")
-                 
+
                   Text("Velocidad: \(hourly.wind.speed, specifier: "%.1f")")
-                  
+
                 }
               }
             }
@@ -67,9 +67,9 @@ struct DataView: View {
     }
   }
   func getWeatherForecast(for location: String){
-    
+
     let apiService = ApiService.shared
-    
+
     CLGeocoder().geocodeAddressString(location) { placemarks, error in
       if let error = error {
         print(error.localizedDescription)
@@ -94,6 +94,7 @@ struct DataView: View {
 //              print("Id: ",times.weather[0].id)
 //              print("Icon URL: ", times.weather[0].weatherIconURL)
             //      }
+
           case .failure(let apiError):
             switch apiError {
             case .error(let errorString):
@@ -101,12 +102,11 @@ struct DataView: View {
             }
           }
         }
-        
+        print("Lat: \(lat), Lon: \(lon)")
       }
     }
-    
-    
-    
+
+
 
   }
 }
