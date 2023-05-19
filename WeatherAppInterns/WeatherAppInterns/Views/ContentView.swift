@@ -15,7 +15,7 @@ struct ContentView: View {
     //UlisesView()
     //UlisesView(viewModel: WeatherViewModel(weatherService: WeatherService()))
     //WelcomeView(viewModel: WeatherViewModel(weatherService: WeatherService()))
-      DataView()
+      GerardoView()
   }
 }
 

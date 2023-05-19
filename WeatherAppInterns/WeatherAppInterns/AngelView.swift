@@ -33,6 +33,7 @@ struct AngelView: View {
                }
                .padding()
           }
+           
           //NavBarView()
        }
       
