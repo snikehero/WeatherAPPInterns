@@ -9,24 +9,28 @@ import SwiftUI
 
 struct NavBarView: View {
     var body: some View {
-       HStack{
-          Button {
-            //Open maps view
-          } label: {
-             ButtonView(systemName: "map")
-          }
+       VStack {
           Spacer()
-          Button {
-            //Open maps view
-          } label: {
-             ButtonView(systemName: "list.dash")
-          }
+          HStack{
+             Button {
+               //Open maps view
+             } label: {
+                ButtonView(systemName: "map")
+             }
+             Spacer()
+             Button {
+               //Open maps view
+             } label: {
+                ButtonView(systemName: "list.dash")
+             }
 
-       }
-       .padding( .init(top: 20, leading:20, bottom: 50, trailing: 20 ))
+          }
+          .padding( .init(top: 10, leading:20, bottom: 10, trailing: 20 ))
        .background(Color("ButtonColor"))
+       }
     }
 }
+
 
 struct ButtonView: View {
    var systemName: String

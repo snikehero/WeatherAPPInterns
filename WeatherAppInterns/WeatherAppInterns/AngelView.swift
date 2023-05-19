@@ -9,29 +9,32 @@ import SwiftUI
 
 struct AngelView: View {
     var body: some View {
-         VStack {
-            ScrollView{
-               VStack {
-                  SummaryView(city: "Aguascalientes", actTemp: 28, minTemp: 12, maxTemp: 32)
-                   ButtonSubtitle(text: "Mostly Sunny")
-                       .shadow(color: .black ,radius: 15, x: 2, y: 2)
-                  HourlyView()
-                   VStack(alignment: .leading, spacing: 10){
-                      ButtonHeader(text: "10 - DAY FORECAST", systemImage: "calendar")
-                      HeaderDivider()
-                      
-                     ForEach(1..<8) { row in
-                        DaysView(day: "Lunes", emoji: "☀️", minTemp: 12 , maxTemp: 31)
-                        
+       ZStack {
+          VStack {
+               ScrollView{
+                  VStack {
+                     SummaryView(city: "Aguascalientes", actTemp: 28, minTemp: 12, maxTemp: 32)
+                      ButtonSubtitle(text: "Mostly Sunny")
+                          .shadow(color: .black ,radius: 15, x: 2, y: 2)
+                     HourlyView()
+                      VStack(alignment: .leading, spacing: 10){
+                         ButtonHeader(text: "10 - DAY FORECAST", systemImage: "calendar")
+                         HeaderDivider()
+                         
+                        ForEach(1..<8) { row in
+                           DaysView(day: "Lunes", emoji: "☀️", minTemp: 12 , maxTemp: 31)
+                           
+                        }
                      }
+                     .padding()
+                     .background(Color("ButtonColor"))
+                     .clipShape(RoundedRectangle(cornerRadius: 15))
                   }
-                  .padding()
-                  .background(Color("ButtonColor"))
-                  .clipShape(RoundedRectangle(cornerRadius: 15))
                }
-            }
-            .padding()
-         }
+               .padding()
+          }
+          //NavBarView()
+       }
       
    }
    
