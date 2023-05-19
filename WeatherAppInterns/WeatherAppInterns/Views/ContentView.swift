@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-  var body: some View {
-    //    AngelView()
-    //     MoisesView()
-    //     GerardoView()
-    //UlisesView()
-    //UlisesView(viewModel: WeatherViewModel(weatherService: WeatherService()))
-    //WelcomeView(viewModel: WeatherViewModel(weatherService: WeatherService()))
-      DataView()
-  }
+   var body: some View {
+//    AngelView()
+//     MoisesView()
+//     GerardoView()
+      //UlisesView()
+     //UlisesView(viewModel: WeatherViewModel(weatherService: WeatherService()))
+    WelcomeView(viewModel: WeatherViewModel(weatherService: WeatherService()))
+   }
 }
 
 
