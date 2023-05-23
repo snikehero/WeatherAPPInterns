@@ -10,6 +10,7 @@ import Combine
 struct DataView: View {
   @StateObject private var forecastListVM = ForecastListViewModel()
   @StateObject var deviceLocationService = DeviceLocationService.shared
+  @StateObject private var dailyForecastListVM = DailyForecastListViewmodel()
   @State var tokens: Set<AnyCancellable> = []
   @State var coordinates: (lat: Double, lon: Double) = (0,0)
     var body: some View {
@@ -18,10 +19,12 @@ struct DataView: View {
           Button {
             forecastListVM.getWeatherForecast()
            forecastListVM.getCity()
+            dailyForecastListVM.getDailyWeatherForecast()
          } label: {
             Image(systemName: "magnifyingglass.circle.fill")
              .font(.title3)
          }
+        Text(dailyForecastListVM.dailyForecasts.first?.day ?? "0")
         Text(forecastListVM.city)
         List(forecastListVM.forecasts, id: \.day) { day in
             VStack(alignment: .leading){
@@ -49,20 +52,18 @@ struct DataView: View {
                     Text(day.windGust)
                     Text(day.windDeg)
                   }
-                  
-
-
                 }
-                
               }
             }
           }
           .listStyle(PlainListStyle())
       }
+      
       .padding(.horizontal)
       .navigationTitle("Mobile Weather")
     }.onAppear()
       {
+        
         observeCoordinatesUpdates()
         observeLocationAccessDenied()
         deviceLocationService.requestLocationUpdates()
@@ -99,3 +100,4 @@ struct DataView_Previews: PreviewProvider {
     DataView()
   }
 }
+
