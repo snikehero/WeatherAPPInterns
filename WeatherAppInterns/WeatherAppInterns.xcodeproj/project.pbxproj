@@ -11,6 +11,7 @@
 		4268E0602A153D8200FB403C /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4268E05F2A153D8200FB403C /* TextViews.swift */; };
 		4268E0622A153DAA00FB403C /* NavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4268E0612A153DAA00FB403C /* NavBarView.swift */; };
 		4A3B1C102A170A030099E242 /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1C0F2A170A030099E242 /* DemoView.swift */; };
+		4A5ABB192A1D203D009BB13C /* DemoView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5ABB182A1D203D009BB13C /* DemoView2.swift */; };
 		4AB4BFCF2A13CDF60090863D /* WeatherAppInternsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB4BFCE2A13CDF60090863D /* WeatherAppInternsApp.swift */; };
 		4AB4BFD12A13CDF60090863D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB4BFD02A13CDF60090863D /* ContentView.swift */; };
 		4AB4BFD32A13CDF70090863D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB4BFD22A13CDF70090863D /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		4268E05F2A153D8200FB403C /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 		4268E0612A153DAA00FB403C /* NavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarView.swift; sourceTree = "<group>"; };
 		4A3B1C0F2A170A030099E242 /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
+		4A5ABB182A1D203D009BB13C /* DemoView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView2.swift; sourceTree = "<group>"; };
 		4AB4BFCB2A13CDF60090863D /* WeatherAppInterns.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherAppInterns.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB4BFCE2A13CDF60090863D /* WeatherAppInternsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppInternsApp.swift; sourceTree = "<group>"; };
 		4AB4BFD02A13CDF60090863D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				71B49EAE2A15478E003F614D /* IPA test uli  */,
 				E63D67772A16AECE00DD8852 /* ButtonsView.swift */,
 				4A3B1C0F2A170A030099E242 /* DemoView.swift */,
+				4A5ABB182A1D203D009BB13C /* DemoView2.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				71B49EAB2A154539003F614D /* WeatherService.swift in Sources */,
 				4AEE29202A15C06B00C37B31 /* DataView.swift in Sources */,
 				4268E0602A153D8200FB403C /* TextViews.swift in Sources */,
+				4A5ABB192A1D203D009BB13C /* DemoView2.swift in Sources */,
 				4AE221262A1C525200BA42D9 /* ForecastListViewModel.swift in Sources */,
 				E63D67782A16AECE00DD8852 /* ButtonsView.swift in Sources */,
 				4AE221242A1C4FCF00BA42D9 /* ForecastViewModel.swift in Sources */,

@@ -14,7 +14,7 @@ struct AngelView: View {
           VStack {
                ScrollView{
                   VStack {
-                     SummaryView(city: "Aguascalientes", actTemp: 28, minTemp: 12, maxTemp: 32)
+                     //SummaryView(city: "Aguascalientes", actTemp: 28, minTemp: 12, maxTemp: 32)
                       ButtonSubtitle(text: "Mostly Sunny")
                           .shadow(color: .black ,radius: 15, x: 2, y: 2)
                      HourlyView(forecast: $forecast)
@@ -144,9 +144,9 @@ struct AngelView: View {
 
 struct SummaryView: View{
    var city: String
-   var actTemp: Double
-   var minTemp: Double
-   var maxTemp: Double
+   var actTemp: String
+   var minTemp: String
+   var maxTemp: String
    
    var body: some View{
          VStack{

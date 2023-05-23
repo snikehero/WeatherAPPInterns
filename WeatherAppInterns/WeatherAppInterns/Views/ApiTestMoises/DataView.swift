@@ -49,16 +49,13 @@ struct DataView: View {
                     Text(day.windGust)
                     Text(day.windDeg)
                   }
-                  
-
-
                 }
-                
               }
             }
           }
           .listStyle(PlainListStyle())
       }
+      
       .padding(.horizontal)
       .navigationTitle("Mobile Weather")
     }.onAppear()
