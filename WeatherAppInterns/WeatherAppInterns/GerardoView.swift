@@ -25,6 +25,8 @@ struct PrecipitationMap: View {
 
 
 struct GerardoView: View {
+    @State var isPrecipitationShowing = false
+    
     var body: some View {
         
         ZStack {
@@ -59,12 +61,13 @@ struct GerardoView: View {
                             Button{
                                 print("Wind")
                             } label: {
-                              Wind(title: "Prueba", description: "Prueba")
+                                Wind(title: "Prueba", description: "Prueba")
                                     .modifier(ExtraInfoButton())
                             }
                             
                             Button{
                                 print("Precipitation")
+                                isPrecipitationShowing = true
                             } label: {
                                 Precipitation(title: "0 mm", subtitle: "in last 24h", description: "None expected in next 10 days.")
                                     .modifier(ExtraInfoButton())
@@ -104,9 +107,13 @@ struct GerardoView: View {
                             
                         }
                     }
+                    .sheet(isPresented: $isPrecipitationShowing) {
+                        ExtraInfoView(isPrecipitationShowing: $isPrecipitationShowing)
+                    }
                 }
-                Spacer()
-                NavBarView()
+                .safeAreaInset(edge: .bottom) {
+                    NavBarView()
+                }
             }
             
         }
