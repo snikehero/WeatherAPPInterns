@@ -6,25 +6,22 @@
 //
 
 import SwiftUI
-
+import Combine
 struct DataView: View {
   @StateObject private var forecastListVM = ForecastListViewModel()
+  @StateObject var deviceLocationService = DeviceLocationService.shared
+  @State var tokens: Set<AnyCancellable> = []
+  @State var coordinates: (lat: Double, lon: Double) = (0,0)
     var body: some View {
     NavigationView {
       VStack{
-
-
-        HStack {
-          TextField("Enter Location", text: $forecastListVM.location)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
           Button {
             forecastListVM.getWeatherForecast()
-            forecastListVM.getCity()
-          } label: {
+           forecastListVM.getCity()
+         } label: {
             Image(systemName: "magnifyingglass.circle.fill")
-              .font(.title3)
-          }
-        }
+             .font(.title3)
+         }
         Text(forecastListVM.city)
         List(forecastListVM.forecasts, id: \.day) { day in
             VStack(alignment: .leading){
@@ -47,10 +44,16 @@ struct DataView: View {
                   Text(day.weatherDescription)
                   Text(day.clouds)
                   Text(day.windSpeed)
+                  HStack {
+                    Text(day.precipitation)
+                    Text(day.windGust)
+                    Text(day.windDeg)
+                  }
                   
 
 
                 }
+                
               }
             }
           }
@@ -58,8 +61,37 @@ struct DataView: View {
       }
       .padding(.horizontal)
       .navigationTitle("Mobile Weather")
-    }
+    }.onAppear()
+      {
+        observeCoordinatesUpdates()
+        observeLocationAccessDenied()
+        deviceLocationService.requestLocationUpdates()
+       
+      }
   }
+  func observeCoordinatesUpdates()
+   {
+     deviceLocationService.coordinatesPublisher
+       .receive(on: DispatchQueue.main)
+       .sink {completion in
+         if case .failure (let error) = completion {
+           print(error)
+         }
+       } receiveValue: { coordinates in
+         self.coordinates = (coordinates.latitude, coordinates.longitude)
+         forecastListVM.coordinates = (coordinates.latitude, coordinates.longitude)
+       }
+       .store(in: &tokens)
+   }
+   
+   func observeLocationAccessDenied() {
+     deviceLocationService.deniedLocationAccessPublisher
+       .receive(on: DispatchQueue.main)
+       .sink {
+         print("Show some kind of alert to the user")
+       }
+       .store(in: &tokens)
+   }
 }
 
 struct DataView_Previews: PreviewProvider {
