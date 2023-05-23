@@ -7,11 +7,27 @@
 
 import SwiftUI
 
+
+
 struct TextViews: View {
    var text: String
     var body: some View {
       Text(text)
           .bold()
+    }
+}
+
+struct ExtraInfoHeader: View {
+    var systemImage: String
+    var title: String
+    
+    var body: some View {
+        HStack {
+            Image(systemName: systemImage)
+            Text(title)
+                .font(.headline)
+        }
+        .foregroundColor(.white)
     }
 }
 
@@ -92,6 +108,19 @@ struct ButtonDescription: View {
             .font(.subheadline)
             .foregroundColor(.white)
             .multilineTextAlignment(.leading)
+    }
+}
+
+struct ExtraInfoTextBox: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .padding()
+            .multilineTextAlignment(.leading)
+            .background(Color("ButtonFilledTextColor"))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .padding([.trailing, .leading])
     }
 }
 

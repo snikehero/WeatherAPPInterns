@@ -108,7 +108,7 @@ struct GerardoView: View {
                         }
                     }
                     .sheet(isPresented: $isPrecipitationShowing) {
-                        ExtraInfoView(isPrecipitationShowing: $isPrecipitationShowing)
+                        PrecipitationExtraInfo(isPrecipitationShowing: $isPrecipitationShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "There has been 0 mm of precipitation in the last 24 hours. Today's total precipitation will be 0 mm", precipitation: "0mm")
                     }
                 }
                 .safeAreaInset(edge: .bottom) {

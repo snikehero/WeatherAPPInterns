@@ -28,7 +28,7 @@
 		4AEE291C2A15C03000C37B31 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE291B2A15C03000C37B31 /* ApiService.swift */; };
 		4AEE291E2A15C05000C37B31 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE291D2A15C05000C37B31 /* Forecast.swift */; };
 		4AEE29202A15C06B00C37B31 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE291F2A15C06B00C37B31 /* DataView.swift */; };
-		E61535DD2A1D110A0063BC53 /* ExtraInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61535DC2A1D110A0063BC53 /* ExtraInfoView.swift */; };
+		E61535DD2A1D110A0063BC53 /* PrecipitationExtraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61535DC2A1D110A0063BC53 /* PrecipitationExtraInfo.swift */; };
 		E63D67722A13E32000DD8852 /* GerardoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D67712A13E32000DD8852 /* GerardoView.swift */; };
 		E63D67782A16AECE00DD8852 /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D67772A16AECE00DD8852 /* ButtonsView.swift */; };
 /* End PBXBuildFile section */
@@ -57,7 +57,7 @@
 		4AEE291D2A15C05000C37B31 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		4AEE291F2A15C06B00C37B31 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		71B49EAF2A155001003F614D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		E61535DC2A1D110A0063BC53 /* ExtraInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraInfoView.swift; sourceTree = "<group>"; };
+		E61535DC2A1D110A0063BC53 /* PrecipitationExtraInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecipitationExtraInfo.swift; sourceTree = "<group>"; };
 		E63D67712A13E32000DD8852 /* GerardoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GerardoView.swift; sourceTree = "<group>"; };
 		E63D67772A16AECE00DD8852 /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,7 +163,7 @@
 		E61535DF2A1D1A700063BC53 /* ExtraInfoViews */ = {
 			isa = PBXGroup;
 			children = (
-				E61535DC2A1D110A0063BC53 /* ExtraInfoView.swift */,
+				E61535DC2A1D110A0063BC53 /* PrecipitationExtraInfo.swift */,
 				4268E06B2A1D43B600FB403C /* DetailsView.swift */,
 			);
 			path = ExtraInfoViews;
@@ -247,7 +247,7 @@
 				4268E0602A153D8200FB403C /* TextViews.swift in Sources */,
 				4AE221262A1C525200BA42D9 /* ForecastListViewModel.swift in Sources */,
 				4A5ABB2F2A1D408B009BB13C /* DailyForecastListViewModel.swift in Sources */,
-				E61535DD2A1D110A0063BC53 /* ExtraInfoView.swift in Sources */,
+				E61535DD2A1D110A0063BC53 /* PrecipitationExtraInfo.swift in Sources */,
 				E63D67782A16AECE00DD8852 /* ButtonsView.swift in Sources */,
 				4AE221242A1C4FCF00BA42D9 /* ForecastViewModel.swift in Sources */,
 				E63D67722A13E32000DD8852 /* GerardoView.swift in Sources */,
