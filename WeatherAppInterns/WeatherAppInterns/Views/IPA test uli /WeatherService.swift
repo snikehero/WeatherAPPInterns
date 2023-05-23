@@ -25,8 +25,6 @@ public final class WeatherService: NSObject {
     self.completionHandler = completionHandler
     locationManager.requestWhenInUseAuthorization()
     locationManager.startUpdatingLocation()
-    
-    
   }
 //  public func loadWeatherData2(completionHandler2: @escaping((List) ->Void))
 //  {
