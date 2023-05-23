@@ -11,6 +11,7 @@ class ForecastListViewModel: ObservableObject {
   var coordinates: (lat: Double, lon: Double) = (0,0)
   @Published var forecasts: [ForecastViewModel] = []
   @Published var city: String = ""
+  private let APIKEY = "23892ea6d93b8685d75fae33906a91ed"
   var location: String = ""
   
   func getWeatherForecast(){
@@ -24,7 +25,7 @@ class ForecastListViewModel: ObservableObject {
 //      if let lat = placemarks?.first?.location?.coordinate.latitude,
 //         let lon = placemarks?.first?.location?.coordinate.longitude {
         print("Coordenadas antes: \(self.coordinates.lat), \(self.coordinates.lon)")
-        apiService.getJSON(urlString: "https://api.openweathermap.org/data/2.5/forecast?lat=\(self.coordinates.lat)&lon=\(self.coordinates.lon)&appid=23892ea6d93b8685d75fae33906a91ed&units=metric") { (result: Result<Forecast,ApiService.APIError>) in
+      apiService.getJSON(urlString: "https://api.openweathermap.org/data/2.5/forecast?lat=\(self.coordinates.lat)&lon=\(self.coordinates.lon)&appid=\(self.APIKEY)&units=metric") { (result: Result<Forecast,ApiService.APIError>) in
           switch result {
           case .success(let forecast):
             //print(forecast)

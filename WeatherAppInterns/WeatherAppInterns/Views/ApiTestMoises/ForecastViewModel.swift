@@ -34,10 +34,10 @@ struct ForecastViewModel {
     forecast.weather.description.capitalized
   }
  var high: String {
-   return "H: \(Self.numberFormatter.string(for: forecast.main.temp_max) ?? "0")Grados "
+   return " \(Self.numberFormatter.string(for: forecast.main.temp_max) ?? "0")"
   }
   var low: String {
-    return "L: \(Self.numberFormatter.string(for: forecast.main.temp_min) ?? "0")Grados "
+    return " \(Self.numberFormatter.string(for: forecast.main.temp_min) ?? "0")"
    }
   var fellsLike: String {
     return "Feels: \(Self.numberFormatter.string(for: forecast.main.feels_like) ?? "0") Grados"
