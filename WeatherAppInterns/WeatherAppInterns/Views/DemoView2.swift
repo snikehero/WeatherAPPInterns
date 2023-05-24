@@ -9,6 +9,7 @@ struct DemoView2: View {
   @StateObject private var dailyForecastListVM = DailyForecastListViewmodel()
   @State var tokens: Set<AnyCancellable> = []
   @State var coordinates: (lat: Double, lon: Double) = (0,0)
+  @State var isPrecipitationShowing = false
   let dataFormatter = DateFormatter()
   let dataFormatter2 = DateFormatter()
   init() {
@@ -49,9 +50,8 @@ struct DemoView2: View {
                     ButtonSubtitle(text: forecastListVM.forecasts.first?.overview ?? "0")
                       .shadow(color: .black ,radius: 15, x: 2, y: 2)
                     //HourlyView(date: "", currentTemp: "")
-                    HourlyView2()
-                    AirPollutionView(airPollutionIndexString: "10", airPollutionIndexNumber: 5)
-                    
+                    HourlyView2(forecasts: $forecastListVM.forecasts)
+                      
                     VStack(alignment: .leading, spacing: 10){
                       ButtonHeader(text: "10 - DAY FORECAST", systemImage: "calendar")
                       HeaderDivider()
@@ -102,6 +102,7 @@ struct DemoView2: View {
                 
                 Button{
                   print("Precipitation")
+                  isPrecipitationShowing = true
                 } label: {
                   Precipitation(title: "\(forecastListVM.forecasts.first?.precipitation ?? "0")", subtitle: "in last 24h", description: "None expected in next 10 days.")
                     .modifier(ExtraInfoButton())
@@ -128,7 +129,7 @@ struct DemoView2: View {
                 Button{
                   print("Visibility")
                 } label: {
-                  Visibility(title: "\(forecastListVM.forecasts.first?.visibility ?? "0")km", description: "It's perfectly clear right now")
+                  Visibility(title: "\(forecastListVM.forecasts.first?.visibility ?? "0")km", description: "\(forecastListVM.forecasts.first?.visibilityDescription ?? "N/A")")
                     .modifier(ExtraInfoButton())
                 }
                 
@@ -142,6 +143,9 @@ struct DemoView2: View {
               }
               
             }
+          .sheet(isPresented: $isPrecipitationShowing) {
+              PrecipitationExtraInfo(isPrecipitationShowing: $isPrecipitationShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "There has been 0 mm of precipitation in the last 24 hours. Today's total precipitation will be 0 mm", precipitation: "0mm")
+          }
           }
           Spacer()
           NavBarView()
@@ -152,6 +156,7 @@ struct DemoView2: View {
           observeCoordinatesUpdates()
           observeLocationAccessDenied()
           deviceLocationService.requestLocationUpdates()
+          
           
         }
         
@@ -187,8 +192,8 @@ struct DemoView2: View {
   }
 
 struct HourlyView2: View{
-  @StateObject var forecastListVM = ForecastListViewModel()
-  var testing = true
+  @Binding var forecasts: [ForecastViewModel]
+  var testing = false
    var body: some View{
       VStack{
         ButtonDescription(text: "Condiciones ")
@@ -196,25 +201,18 @@ struct HourlyView2: View{
             ScrollView(.horizontal, showsIndicators: false){
                   HStack{
                     
-                    if let forecast = $forecastListVM.forecasts.first
-                    {
-                      
-                      ForEach(1..<39) { element in
-                        VStack(spacing: 10) {
-                          NormalText(text: forecastListVM.forecasts[element].day ?? "")
-                          NormalText(text: "☀️")
-                          NormalText(text: forecastListVM.forecasts[element].high
-                          ?? "")
-                          
-                        }
+                    ForEach($forecasts, id: \.id) { element in
+                      VStack(spacing: 10) {
+                        NormalText(text: element.wrappedValue.day)
+                        NormalText(text: "☀️")
+                        NormalText(text: element.wrappedValue.high)                        
                       }
-                      
                     }
                }
                   .onAppear() {
                     if(testing == false)
                     {
-                      forecastListVM.getWeatherForecast()
+                      //forecasts.getWeatherForecast()
                       
                     }
                   }

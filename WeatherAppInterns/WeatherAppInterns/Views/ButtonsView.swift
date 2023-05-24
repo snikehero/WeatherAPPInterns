@@ -201,10 +201,40 @@ struct SelectedRoundedFill: View {
                 )
     }
 }
+struct AirPollutionView: View {
+  var title: String
+  var subtitle: String
+  var description: String
+    var body: some View {
+      VStack(alignment: .leading) {
+        ButtonHeader(text: "Air Quality".uppercased(), systemImage: "aqi.medium")
+        HeaderDivider()
+        ButtonSubtitle(text: subtitle)
+        ButtonDescription(text: description)
+        //agregar la grafica y modificar su valor dependiendo de airpollution.indexRectangle()
+        Rectangle()
+            .fill(LinearGradient(
+              gradient: .init(colors: [Color.red, Color.blue]),
+              startPoint: .init(x: 0.5, y: 0),
+              endPoint: .init(x: 0.5, y: 0.6)
+            ))
+            .frame(width: 300, height: 10)
+          .frame(width: 300, height: 200)
+          
+      }
+      .frame(maxWidth: 350)
+        .multilineTextAlignment(.leading)
+        .padding()
+        .background(Color("ButtonColor"))
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .padding([.trailing, .leading])
+    }
+}
 
 struct ButtonsView: View {
     var body: some View {
         XMarkButton()
+      AirPollutionView(title: "", subtitle: "", description: "")
     }
 }
 
