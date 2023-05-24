@@ -35,6 +35,22 @@ struct ChartMock: View {
 }
 //################## TEST DATA ##########################
 
+struct SelectedRoundedFill: View {
+    var text: String
+    var body: some View{
+        Text(text)
+            .fontWeight(.semibold)
+            .padding()
+            .foregroundColor(Color("ExtraInfoBackgroundColor"))
+            
+            .background(
+                Circle()
+                    .fill(.white)
+                    .frame(maxWidth: 30, maxHeight: 30)
+                )
+    }
+}
+
 struct PrecipitationExtraInfo: View {
     @Binding var isPrecipitationShowing : Bool
     @State private var selectedTab = 0
@@ -58,12 +74,19 @@ struct PrecipitationExtraInfo: View {
                                     ForEach(0..<10) { element in
                                         VStack(spacing : 1){
                                             Text(currentDay)
+                                                .fontWeight(.semibold)
                                             Button(action: {
                                                 selectedTab = element // Cambiar a la pestaña 0
                                             }) {
-                                                Text(String(numberDay))
-                                                    .foregroundColor(selectedTab == element ? .blue : .gray)
-                                                    .padding()
+                                                if selectedTab == element {
+                                                    SelectedRoundedFill(text: String(numberDay))
+                                                } else {
+                                                    
+                                                    Text(String(numberDay))
+                                                        .fontWeight(.semibold)
+                                                        .foregroundColor(.white)
+                                                        .padding()
+                                                }
                                             }
                                         }
                                     }
@@ -72,12 +95,15 @@ struct PrecipitationExtraInfo: View {
                             
                             Text(Date(), style: .date)
                             HeaderDivider().padding()
-                            ButtonTitle(text: precipitation)
-                            ButtonSubtitle(text: "In last 24h")
+                            HStack {
+                                VStack (alignment: .leading){
+                                    ButtonTitle(text: precipitation)
+                                    ButtonSubtitle(text: "In last 24h")
+                                }
+                                Spacer()
+                            }.padding(.leading)
                             
-                            
-                            
-                            
+                           
                             TabView(selection: $selectedTab) {
                                 ForEach(0..<11){ i in
                                     ChartMock()
