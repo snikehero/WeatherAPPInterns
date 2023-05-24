@@ -10,6 +10,7 @@ import Foundation
 
 struct DailyForecastViewModel {
   let dailyForecast: DailyForecast.Daily
+  
   private static var dateFormatter: DateFormatter {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "EEEE"
@@ -27,7 +28,14 @@ struct DailyForecastViewModel {
     numberFormatter.numberStyle = .percent
     return numberFormatter
   }
-  
+//  func convert(_ temp: Double) -> Double {
+//    let celsius = temp - 273.5
+//    if system == 0 {
+//      return celsius
+//    } else {
+//      return celsius * 9 / 5 + 32
+//    }
+//  }
   var day: String {
     //return Self.dateFormatter.string(from: NSDate(timeIntervalSince1970:(dailyForecast.dt) as Date)
     return "\(Self.dateFormatter.string(from: NSDate(timeIntervalSince1970: dailyForecast.dt) as Date))"

@@ -33,10 +33,13 @@ struct DemoView2: View {
                 ScrollView{
                   VStack {
                     HStack {
+
                       Button {
                         forecastListVM.getWeatherForecast()
                         forecastListVM.getCity()
                         dailyForecastListVM.getDailyWeatherForecast()
+                        forecastListVM.location = "location"
+                        dailyForecastListVM.location = "location"
                       } label: {
                         Image(systemName: "magnifyingglass.circle.fill")
                           .font(.title3)
@@ -47,6 +50,8 @@ struct DemoView2: View {
                       .shadow(color: .black ,radius: 15, x: 2, y: 2)
                     //HourlyView(date: "", currentTemp: "")
                     HourlyView2()
+                    AirPollutionView(airPollutionIndexString: "10", airPollutionIndexNumber: 5)
+                    
                     VStack(alignment: .leading, spacing: 10){
                       ButtonHeader(text: "10 - DAY FORECAST", systemImage: "calendar")
                       HeaderDivider()
@@ -64,17 +69,12 @@ struct DemoView2: View {
                       .padding()
                       .background(Color("ButtonColor"))
                       .clipShape(RoundedRectangle(cornerRadius: 15))
-                      
-                      
                     }
-                    
                   }
                   .padding()
                 }
-                
                 //NavBarView()
               }
-              
               HStack (spacing: 15){
                 Button{
                   print("UVIndex")
@@ -188,7 +188,7 @@ struct DemoView2: View {
 
 struct HourlyView2: View{
   @StateObject var forecastListVM = ForecastListViewModel()
-
+  var testing = true
    var body: some View{
       VStack{
         ButtonDescription(text: "Condiciones ")
@@ -212,7 +212,11 @@ struct HourlyView2: View{
                     }
                }
                   .onAppear() {
-                    forecastListVM.getWeatherForecast()
+                    if(testing == false)
+                    {
+                      forecastListVM.getWeatherForecast()
+                      
+                    }
                   }
                 
          }

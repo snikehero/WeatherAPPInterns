@@ -11,8 +11,10 @@ struct DataView: View {
   @StateObject private var forecastListVM = ForecastListViewModel()
   @StateObject var deviceLocationService = DeviceLocationService.shared
   @StateObject private var dailyForecastListVM = DailyForecastListViewmodel()
+  @StateObject private var airPollutionListVM = AirPollutionListViewModel()
   @State var tokens: Set<AnyCancellable> = []
   @State var coordinates: (lat: Double, lon: Double) = (0,0)
+  
     var body: some View {
     NavigationView {
       VStack{
@@ -20,10 +22,20 @@ struct DataView: View {
             forecastListVM.getWeatherForecast()
            forecastListVM.getCity()
             dailyForecastListVM.getDailyWeatherForecast()
-         } label: {
+            airPollutionListVM.getAirPollution()
+            forecastListVM.location = "location"
+            dailyForecastListVM.location = "location"
+          } label: {
             Image(systemName: "magnifyingglass.circle.fill")
              .font(.title3)
          }
+        Button{
+          print("AirPoluttion")
+        } label: {
+          AirPollutionView(airPollutionIndexString: airPollutionListVM.airPollutions.first?.index ?? "0", airPollutionIndexNumber: Int(airPollutionListVM.airPollutions.first?.index ?? "0") ?? 0)
+            .modifier(ExtraInfoButton())
+        }
+        
         Text(dailyForecastListVM.dailyForecasts.first?.day ?? "0")
         Text(forecastListVM.city.cityName)
         Text(forecastListVM.city.sunrise	)
@@ -53,20 +65,13 @@ struct DataView: View {
                     Text(day.precipitation)
                     Text(day.windGust)
                     Text(day.windDeg)
+                    
                   }
                 }
               }
             }
           }
           .listStyle(PlainListStyle())
-        List(dailyForecastListVM.dailyForecasts, id: \.day) {
-           day in
-          VStack {
-            
-            Text(day.day)
-            Text(day.maxTemp)
-          }
-        }
       }
       
       .padding(.horizontal)
@@ -103,6 +108,24 @@ struct DataView: View {
        }
        .store(in: &tokens)
    }
+}
+struct AirPollutionView: View {
+  var airPollutionIndexString: String
+  var airPollutionIndexNumber: Int
+  var body: some View {
+    VStack {
+      Button {
+        
+      } label: {
+        HStack {
+          NormalText(text: airPollutionIndexString)
+        }
+      }
+    
+    }
+    .background(Color("ButtonColor"))
+    //Text(airPollutionIndexString)
+  }
 }
 
 struct DataView_Previews: PreviewProvider {

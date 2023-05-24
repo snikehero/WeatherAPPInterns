@@ -9,7 +9,6 @@ import Foundation
 
 struct ForecastViewModel {
   let forecast: Forecast.List
-
   private static var dateFormatter: DateFormatter {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "EEEE, d, HH:mm"
@@ -27,13 +26,14 @@ struct ForecastViewModel {
     numberFormatter.numberStyle = .percent
     return numberFormatter
   }
+
   var day: String {
     return "\(Self.dateFormatter.string(from: NSDate(timeIntervalSince1970: forecast.dt) as Date))"  }
   var overview: String {
     forecast.weather[0].description.capitalized
   }
   var current: String {
-    return "\(Self.numberFormatter.string(for: forecast.main  .temp) ?? "0" )"
+    return "\(Self.numberFormatter.string(for: forecast.main.temp) ?? "0" )"
   }
  var high: String {
    return "\(Self.numberFormatter.string(for: forecast.main.temp_max) ?? "0")"
@@ -71,7 +71,8 @@ struct ForecastViewModel {
   var precipitation: String {
     return "\(forecast.pop)"
   }
-//  var icon: String {
-//    return "\(forecast.weather[0].icon)"
-//  }
+  var weatherIconURL: URL {
+    let urlString = "https://openweathermap.org/img/wn/\(forecast.weather[0].icon)@2x.png"
+    return URL(string: urlString)!
+  }
 }
