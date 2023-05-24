@@ -8,6 +8,13 @@
 import SwiftUI
 import Charts
 
+enum ExtraInfo: String, CaseIterable, Identifiable {
+    var id: Self {
+            return self
+        }
+    
+    case Temperature, UVIndex = "UV Index", Wind, Precipitation, feelsLike = "Feels Like", Humidity, Visibility, Pressure
+}
 //################## TEST DATA ##########################
 struct ToyShape: Identifiable {
     var type: String
@@ -35,25 +42,12 @@ struct ChartMock: View {
 }
 //################## TEST DATA ##########################
 
-struct SelectedRoundedFill: View {
-    var text: String
-    var body: some View{
-        Text(text)
-            .fontWeight(.semibold)
-            .padding()
-            .foregroundColor(Color("ExtraInfoBackgroundColor"))
-            
-            .background(
-                Circle()
-                    .fill(.white)
-                    .frame(maxWidth: 30, maxHeight: 30)
-                )
-    }
-}
+
 
 struct PrecipitationExtraInfo: View {
     @Binding var isPrecipitationShowing : Bool
     @State private var selectedTab = 0
+
     var currentDay: String
     var numberDay: Int
     var date: Date
@@ -101,6 +95,7 @@ struct PrecipitationExtraInfo: View {
                                     ButtonSubtitle(text: "In last 24h")
                                 }
                                 Spacer()
+                                ExtraInfoScreenPicker()
                             }.padding(.leading)
                             
                            
@@ -181,9 +176,21 @@ struct PrecipitationExtraInfo: View {
 struct ExtraInfoView_Previews: PreviewProvider {
     static private var isPrecipitationShowing = Binding.constant(false)
     
+    
     static var previews: some View {
         PrecipitationExtraInfo(isPrecipitationShowing: isPrecipitationShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "There has been 0 mm of precipitation in the last 24 hours. Today's total precipitation will be 0 mm", precipitation: "0mm")
     }
 }
 
 
+
+struct ExtraInfoScreenPicker: View {
+    @State private var selectedInfo = "Precipitation"
+    var body: some View {
+        Picker("Picker", selection: $selectedInfo) {
+            ForEach(ExtraInfo.allCases){e in
+                Text("\(e.rawValue)").tag(e.rawValue)
+            }
+        }.foregroundColor(.white)
+    }
+}

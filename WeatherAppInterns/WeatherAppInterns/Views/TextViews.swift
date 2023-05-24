@@ -116,8 +116,10 @@ struct ExtraInfoTextBox: View {
     
     var body: some View {
         Text(text)
-            .padding()
+            
+            .frame(maxWidth: 350)
             .multilineTextAlignment(.leading)
+            .padding()
             .background(Color("ButtonFilledTextColor"))
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .padding([.trailing, .leading])
@@ -133,6 +135,7 @@ struct TextViews_Previews: PreviewProvider {
               TitleText(text: "Aguascalientes")
               BigNumberText(text: "68")
               NormalText(text: "Mostly Sunny")
+                ExtraInfoTextBox(text: "Today, the visibility will be perfectly clrear, at 26 to 26km")
             }
         }
 

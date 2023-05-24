@@ -186,6 +186,22 @@ struct XMarkButton: View {
     }
 }
 
+struct SelectedRoundedFill: View {
+    var text: String
+    var body: some View{
+        Text(text)
+            .fontWeight(.semibold)
+            .padding()
+            .foregroundColor(Color("ExtraInfoBackgroundColor"))
+            
+            .background(
+                Circle()
+                    .fill(.white)
+                    .frame(maxWidth: 30, maxHeight: 30)
+                )
+    }
+}
+
 struct ButtonsView: View {
     var body: some View {
         XMarkButton()
