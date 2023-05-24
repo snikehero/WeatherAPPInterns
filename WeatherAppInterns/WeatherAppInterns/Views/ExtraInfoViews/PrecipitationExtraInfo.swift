@@ -15,6 +15,20 @@ enum ExtraInfo: String, CaseIterable, Identifiable {
     
     case Temperature, UVIndex = "UV Index", Wind, Precipitation, feelsLike = "Feels Like", Humidity, Visibility, Pressure
 }
+
+struct ExtraInfoSection: View {
+    var header: String
+    var text: String
+    
+    var body: some View {
+        VStack {
+            NormalText(text: header)
+                .padding(.top)
+            ExtraInfoTextBox(text: text)
+        }
+    }
+}
+
 //################## TEST DATA ##########################
 struct ToyShape: Identifiable {
     var type: String
@@ -146,9 +160,7 @@ struct PrecipitationExtraInfo: View {
                             .frame(width: 300, height: 300)
                             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                             
-                            NormalText(text: "Daily Summary")
-                            ExtraInfoTextBox(text: dailySummary)
-                            
+                            ExtraInfoSection(header: "Daily Summary", text: dailySummary)
                             
                         }
                         .foregroundColor(.white)

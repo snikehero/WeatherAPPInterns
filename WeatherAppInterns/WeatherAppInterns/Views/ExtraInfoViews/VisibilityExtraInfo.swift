@@ -75,13 +75,8 @@ struct VisibilityExtraInfo: View {
                             .frame(width: 300, height: 300)
                             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                             
-                            NormalText(text: "Daily Summary")
-                            ExtraInfoTextBox(text: dailySummary)
-                            NormalText(text: "About Visibility")
-                                .padding(.top)
-                            ExtraInfoTextBox(text: AboutConstants.visibility.rawValue)
-                            
-                            
+                            ExtraInfoSection(header: "Daily Summary", text: dailySummary)
+                            ExtraInfoSection(header: "About Visibility", text: AboutConstants.visibility.rawValue)
                         }
                         .foregroundColor(.white)
                     }
