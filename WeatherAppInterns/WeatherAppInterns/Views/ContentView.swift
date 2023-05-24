@@ -19,11 +19,13 @@ struct ContentView: View {
     
     
     //MoisesView()
-    DataView()
+    //DataView()
     //UlisesView(viewModel: WeatherViewModel(weatherService: WeatherService()))
     //AngelView()
     //GerardoView()
     //DemoView()
+    DemoView2()
+    //DataView()
   }
 }
 

@@ -44,16 +44,16 @@ struct DemoView: View {
                       }
                     }
                     if let forecast = forecast {
-                      SummaryView(city: forecast.city.name, actTemp: forecast.list[0].main.temp, minTemp: forecast.list[0].main.tempMin, maxTemp: forecast.list[0].main.tempMax)
+                     // SummaryView(city: forecast.city.name, actTemp: forecast.list[0].main.temp, minTemp: forecast.list[0].main.tempMin, maxTemp: forecast.list[0].main.tempMax)
                       ButtonSubtitle(text: forecast.list[0].weather[0].description)
                         .shadow(color: .black ,radius: 15, x: 2, y: 2)
-                      HourlyView(forecast: $forecast)
+                      //HourlyView()
                       VStack(alignment: .leading, spacing: 10){
                         ButtonHeader(text: "10 - DAY FORECAST", systemImage: "calendar")
                         HeaderDivider()
                         
                         ForEach(1..<8) { row in
-                          DaysView(forecast: $forecast, day: "Lunes", emoji: "☀️", minTemp: 12 , maxTemp: 31)
+                          //DaysView(day: "Lunes", emoji: "☀️", minTemp: 12 , maxTemp: 31)
                           
                         }
                       }

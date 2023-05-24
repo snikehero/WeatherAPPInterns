@@ -14,16 +14,16 @@ struct AngelView: View {
           VStack {
                ScrollView{
                   VStack {
-                     SummaryView(city: "Aguascalientes", actTemp: 28, minTemp: 12, maxTemp: 32)
+                     //SummaryView(city: "Aguascalientes", actTemp: 28, minTemp: 12, maxTemp: 32)
                       ButtonSubtitle(text: "Mostly Sunny")
                           .shadow(color: .black ,radius: 15, x: 2, y: 2)
-                     HourlyView(forecast: $forecast)
+                    // HourlyView()
                       VStack(alignment: .leading, spacing: 10){
                          ButtonHeader(text: "10 - DAY FORECAST", systemImage: "calendar")
                          HeaderDivider()
                          
                         ForEach(1..<8) { row in
-                          DaysView(forecast: $forecast, day: "Lunes", emoji: "☀️", minTemp: 12 , maxTemp: 31)
+                          //DaysView(day: "Lunes", emoji: "☀️", minTemp: 12 , maxTemp: 31)
                            
                         }
                      }
@@ -144,9 +144,9 @@ struct AngelView: View {
 
 struct SummaryView: View{
    var city: String
-   var actTemp: Double
-   var minTemp: Double
-   var maxTemp: Double
+   var actTemp: String
+   var minTemp: String
+   var maxTemp: String
    
    var body: some View{
          VStack{
@@ -164,13 +164,8 @@ struct SummaryView: View{
 }
 
 struct HourlyView: View{
-  @Binding var forecast: MyWeatherList?
-  var date = Date()
-  func formatDate(_ date: Date) -> String {
-         let dateFormatter = DateFormatter()
-         dateFormatter.dateFormat = "EEEE, h:mm a" // Format for day and time
-         return dateFormatter.string(from: date)
-     }
+  var date: String
+  var currentTemp: String
    var body: some View{
       VStack{
         ButtonDescription(text: "Condiciones ")
@@ -179,9 +174,10 @@ struct HourlyView: View{
                   HStack{
                     ForEach(1..<39) { element in
                         VStack(spacing: 10) {
-                          NormalText(text: "\(formatDate(forecast?.list[element].dt ?? Date()))")
+                          NormalText(text: date)
                            NormalText(text: "☀️")
-                          NormalText(text: "\(forecast?.list[element].main.temp ?? 0)")
+                          NormalText(text: currentTemp)
+                         
                         }
                       
                   }
@@ -195,11 +191,10 @@ struct HourlyView: View{
 }
 
 struct DaysView: View{
-  @Binding var forecast: MyWeatherList?
    var day: String
    var emoji: String
-   var minTemp: Int
-   var maxTemp: Int
+   var minTemp: String
+   var maxTemp: String
    
    var body: some View{
       VStack{

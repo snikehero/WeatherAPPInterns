@@ -12,7 +12,7 @@ struct DailyForecastViewModel {
   let dailyForecast: DailyForecast.Daily
   private static var dateFormatter: DateFormatter {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "EEEE, d, HH:mm"
+    dateFormatter.dateFormat = "EEEE"
     return dateFormatter
   }
   
@@ -29,13 +29,15 @@ struct DailyForecastViewModel {
   }
   
   var day: String {
-    return Self.dateFormatter.string(from: dailyForecast.dt)
+    //return Self.dateFormatter.string(from: NSDate(timeIntervalSince1970:(dailyForecast.dt) as Date)
+    return "\(Self.dateFormatter.string(from: NSDate(timeIntervalSince1970: dailyForecast.dt) as Date))"
+    // b(dataFormatter2.string(from: NSDate(timeIntervalSince1970: (forecast?.city.sunset)!) as Date))
   }
   var maxTemp: String {
-    return "\(Self.numberFormatterDecimal.string(for: dailyForecast.temp.max) ?? "0")"
+    return "\(Self.numberFormatter.string(for: dailyForecast.temp.max) ?? "0")°"
   }
   var minTemp: String {
-    return "\(Self.numberFormatterDecimal.string(for: dailyForecast.temp.min) ?? "0")"
+    return "\(Self.numberFormatter.string(for: dailyForecast.temp.min) ?? "0")°"
   }
   
   

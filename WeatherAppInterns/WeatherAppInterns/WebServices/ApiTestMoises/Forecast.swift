@@ -105,7 +105,7 @@ struct MyCity: Decodable {
 
 struct Forecast: Decodable {
   struct List: Codable {
-    let dt: Date
+    let dt: Double
     struct Main: Codable {
       let temp: Double
       let feels_like: Double
@@ -120,6 +120,11 @@ struct Forecast: Decodable {
     struct Weather: Codable {
       let id: Int
       let description: String
+//      let icon: String
+//      var weatherIconURL: URL {
+//        let urlString = "https://openweathermap.org/img/wn/\(icon)@2x.png"
+//        return URL(string: urlString)!
+//      }
     }
     let weather: [Weather]
     struct Clouds: Codable {

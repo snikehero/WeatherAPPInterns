@@ -25,7 +25,9 @@ struct DataView: View {
              .font(.title3)
          }
         Text(dailyForecastListVM.dailyForecasts.first?.day ?? "0")
-        Text(forecastListVM.city)
+        Text(forecastListVM.city.cityName)
+        Text(forecastListVM.city.sunrise	)
+        Text(forecastListVM.city.sunset)
         List(forecastListVM.forecasts, id: \.day) { day in
             VStack(alignment: .leading){
               Text(day.day)
@@ -57,6 +59,14 @@ struct DataView: View {
             }
           }
           .listStyle(PlainListStyle())
+        List(dailyForecastListVM.dailyForecasts, id: \.day) {
+           day in
+          VStack {
+            
+            Text(day.day)
+            Text(day.maxTemp)
+          }
+        }
       }
       
       .padding(.horizontal)
