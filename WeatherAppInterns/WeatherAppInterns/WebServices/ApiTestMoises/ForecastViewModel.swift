@@ -75,4 +75,18 @@ struct ForecastViewModel {
     let urlString = "https://openweathermap.org/img/wn/\(forecast.weather[0].icon)@2x.png"
     return URL(string: urlString)!
   }
+   
+  var visibilityDescription: String {
+    if forecast.visibility >= 10{
+      return "Clear"
+    }
+    else
+    {
+      return "Not Clear"
+    }
+  }
+  var id: UUID {
+    return UUID()
+  }
+
 }

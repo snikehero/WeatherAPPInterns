@@ -135,7 +135,7 @@ struct TextViews_Previews: PreviewProvider {
               TitleText(text: "Aguascalientes")
               BigNumberText(text: "68")
               NormalText(text: "Mostly Sunny")
-                ExtraInfoTextBox(text: "Today, the visibility will be perfectly clrear, at 26 to 26km")
+              ExtraInfoTextBox(text: "Today, the visibility will be perfectly clrear, at 26 to 26km")
             }
         }
 

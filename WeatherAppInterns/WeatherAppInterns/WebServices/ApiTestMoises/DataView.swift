@@ -32,8 +32,7 @@ struct DataView: View {
         Button{
           print("AirPoluttion")
         } label: {
-          AirPollutionView(airPollutionIndexString: airPollutionListVM.airPollutions.first?.index ?? "0", airPollutionIndexNumber: Int(airPollutionListVM.airPollutions.first?.index ?? "0") ?? 0)
-            .modifier(ExtraInfoButton())
+          AirPollutionView(title: "\(airPollutionListVM.airPollutions.first?.index ?? "0")", subtitle: "Aceptable", description: "La calidad del aire es similar a la de ayer a esta hora")
         }
         
         Text(dailyForecastListVM.dailyForecasts.first?.day ?? "0")
@@ -109,24 +108,7 @@ struct DataView: View {
        .store(in: &tokens)
    }
 }
-struct AirPollutionView: View {
-  var airPollutionIndexString: String
-  var airPollutionIndexNumber: Int
-  var body: some View {
-    VStack {
-      Button {
-        
-      } label: {
-        HStack {
-          NormalText(text: airPollutionIndexString)
-        }
-      }
-    
-    }
-    .background(Color("ButtonColor"))
-    //Text(airPollutionIndexString)
-  }
-}
+
 
 struct DataView_Previews: PreviewProvider {
   static var previews: some View {
