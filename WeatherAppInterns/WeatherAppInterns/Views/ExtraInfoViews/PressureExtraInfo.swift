@@ -15,7 +15,7 @@ struct PressureExtraInfo: View {
     var numberDay: Int
     var date: Date
     var dailySummary: String
-    var pressure: Int
+    var pressure: String
     
     var body: some View {
         NavigationStack{
@@ -102,6 +102,6 @@ struct PressureExtraInfo: View {
 struct PressureExtraInfo_Previews: PreviewProvider {
     static private var isPressureShowing = Binding.constant(false)
     static var previews: some View {
-        PressureExtraInfo(isPressureShowing: isPressureShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Pressure is currently 1,006 hPa and falling. Today, the average pressure will be 1,010 hPa, and the lowest pressure will be 1,006 hPa.", pressure: 1006)
+        PressureExtraInfo(isPressureShowing: isPressureShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Pressure is currently 1,006 hPa and falling. Today, the average pressure will be 1,010 hPa, and the lowest pressure will be 1,006 hPa.", pressure: "String")
     }
 }

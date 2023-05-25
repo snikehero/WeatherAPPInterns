@@ -38,5 +38,25 @@ struct AirPollutionViewModel {
   var nh3: String {
     return "\(airPollution.components.nh3)"
   }
+  
+ var airPollutionDescription: String {
+   switch airPollution.main.aqi {
+   case 1:
+     return "Good"
+   case 2:
+     return "Fair"
+   case 3:
+     return "Moderate"
+   case 4:
+     return "Poor"
+   case 5:
+     return "Very Poor"
+   default:
+     return "Normal"
+   }
+   
+  
+   
+ }
 }
 

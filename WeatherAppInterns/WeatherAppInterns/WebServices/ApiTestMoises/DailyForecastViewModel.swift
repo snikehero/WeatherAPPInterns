@@ -47,6 +47,41 @@ struct DailyForecastViewModel {
   var minTemp: String {
     return "\(Self.numberFormatter.string(for: dailyForecast.temp.min) ?? "0")°"
   }
-  
+  var uvi: String {
+    return "\(Self.numberFormatter.string(for: dailyForecast.uvi) ?? "0")"
+    //return "\(dailyForecast.uvi)"
+  }
+  var subtitle: String {
+    switch dailyForecast.uvi.rounded() {
+    case 0...2:
+      return "Low"
+    case 3...5:
+      return "Moderate"
+    case 6...7:
+      return "High"
+    case 8...10:
+      return "Very High"
+    case 11...20:
+      return "Extreme"
+    default:
+      return "Normal"
+    }
+  }
+  var description: String {
+    switch dailyForecast.uvi.rounded() {
+    case 0...2:
+      return "Wear sunglasses on bright days."
+    case 3...5:
+      return "Stay in shade near midday"
+    case 6...7:
+      return "Reduce time in the sun."
+    case 8...10:
+      return "Minimize sun exposure"
+    case 11...20:
+      return "Try to avoid sun exposure"
+    default:
+      return "Normal"
+    }
+  }
   
 }
