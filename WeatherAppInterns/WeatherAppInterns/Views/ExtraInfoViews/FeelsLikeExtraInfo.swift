@@ -16,8 +16,8 @@ struct FeelsLikeExtraInfo: View {
     var numberDay: Int
     var date: Date
     var dailySummary: String
-    var feelsLike: Int
-    var actual: Int
+    var feelsLike: String
+    var actual: String
     
     var body: some View {
         NavigationStack{
@@ -107,6 +107,6 @@ struct FeelsLikeExtraInfo: View {
 struct FeelsLikeExtraInfo_Previews: PreviewProvider {
     static private var isFeelsLikeShowing = Binding.constant(false)
     static var previews: some View {
-        FeelsLikeExtraInfo(isFeelsLikeShowing: isFeelsLikeShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "The temperature currently feels like 31º but it is actually 33º. Wind is making it feel cooler. Today's temperature range felt like 16º to 31º", feelsLike: 31, actual: 33)
+        FeelsLikeExtraInfo(isFeelsLikeShowing: isFeelsLikeShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "The temperature currently feels like 31º but it is actually 33º. Wind is making it feel cooler. Today's temperature range felt like 16º to 31º", feelsLike: "31", actual: "33")
     }
 }

@@ -127,13 +127,13 @@ struct GerardoView: View {
                     }.sheet(isPresented: $isWindShowing) {
                         WindExtraInfo(isWindShowing: $isWindShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Wind is currently 14 km/h from the west-northwest. Today, wind speeds are 3 to 16 km/h, with gusts up to 34 km/h.", wind: "14 km/h", gusts: "31 km/h")
                     }.sheet(isPresented: $isFeelsLikeShowing) {
-                        FeelsLikeExtraInfo(isFeelsLikeShowing: $isFeelsLikeShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "The temperature currently feels like 31º but it is actually 33º. Wind is making it feel cooler. Today's temperature range felt like 16º to 31º", feelsLike: 31, actual: 33)
+                        FeelsLikeExtraInfo(isFeelsLikeShowing: $isFeelsLikeShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "The temperature currently feels like 31º but it is actually 33º. Wind is making it feel cooler. Today's temperature range felt like 16º to 31º", feelsLike: "31", actual: "33")
                     }.sheet(isPresented: $isHumidityShowing) {
-                        HumidityExtraInfo(isHumidityShowing: $isHumidityShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Today, the average humidity is 27%- The dew point is 1º to 6º", humidity: 27, dewPoint: 2)
+                        HumidityExtraInfo(isHumidityShowing: $isHumidityShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Today, the average humidity is 27%- The dew point is 1º to 6º", humidity: "27", dewPoint: "2")
                     }.sheet(isPresented: $isPressureShowing) {
-                        PressureExtraInfo(isPressureShowing: $isPressureShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Pressure is currently 1,006 hPa and falling. Today, the average pressure will be 1,010 hPa, and the lowest pressure will be 1,006 hPa.", pressure: 1006)
+                        PressureExtraInfo(isPressureShowing: $isPressureShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Pressure is currently 1,006 hPa and falling. Today, the average pressure will be 1,010 hPa, and the lowest pressure will be 1,006 hPa.", pressure: "1006")
                     }.sheet(isPresented: $isUVIndexShowing) {
-                        UvIndexExtraInfo(isUVIndexShowing: $isUVIndexShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Sun protection recommended. Levels of Moderate or higher are reached from 9:00 to 18:00.", uvIndex: 3, uvIndexDescription: "Moderate")
+                        UvIndexExtraInfo(isUVIndexShowing: $isUVIndexShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Sun protection recommended. Levels of Moderate or higher are reached from 9:00 to 18:00.", uvIndex: "3", uvIndexDescription: "Moderate")
                     }
                 }
                 .safeAreaInset(edge: .bottom) {

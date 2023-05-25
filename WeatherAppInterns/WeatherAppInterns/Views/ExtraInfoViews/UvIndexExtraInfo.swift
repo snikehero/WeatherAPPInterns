@@ -15,7 +15,7 @@ struct UvIndexExtraInfo: View {
     var numberDay: Int
     var date: Date
     var dailySummary: String
-    var uvIndex: Int
+    var uvIndex: String
     var uvIndexDescription: String // Calculated value
     
     var body: some View {
@@ -105,6 +105,6 @@ struct UvIndexExtraInfo_Previews: PreviewProvider {
     static private var isUVIndexShowing = Binding.constant(false)
 
     static var previews: some View {
-        UvIndexExtraInfo(isUVIndexShowing: isUVIndexShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Sun protection recommended. Levels of Moderate or higher are reached from 9:00 to 18:00.", uvIndex: 3, uvIndexDescription: "Moderate")
+        UvIndexExtraInfo(isUVIndexShowing: isUVIndexShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Sun protection recommended. Levels of Moderate or higher are reached from 9:00 to 18:00.", uvIndex: "3", uvIndexDescription: "Moderate")
     }
 }
