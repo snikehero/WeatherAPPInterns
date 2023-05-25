@@ -69,16 +69,8 @@ struct GerardoView: View {
                                 print("Wind")
                                 isWindShowing = true
                             } label: {
-                                ZStack {
-                                    Image("Compass")
-                                        .modifier(ExtraInfoButton())
-                                    Image("Arrow")
-                                        .rotationEffect(.degrees(90))
-                                    Text("34")
-                                        .foregroundColor(.white)
-                                        .font(.title)
-                                        .fontWeight(.bold)
-                                }
+                                Wind(title: "Wind", description: "0mm")
+                                    .modifier(ExtraInfoButton())
                             }
                             
                             Button{

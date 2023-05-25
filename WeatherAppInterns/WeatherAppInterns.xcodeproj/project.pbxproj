@@ -42,14 +42,10 @@
 		7114EB892A2006C000F6F684 /* WeatherWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7114EB852A2006BE00F6F684 /* WeatherWidget.intentdefinition */; };
 		7114EB8A2A2006C000F6F684 /* WeatherWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7114EB852A2006BE00F6F684 /* WeatherWidget.intentdefinition */; };
 		7114EB8D2A2006C000F6F684 /* WeatherWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7114EB782A2006BE00F6F684 /* WeatherWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7114EB962A2009C600F6F684 /* MostlyClear.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7114EB922A2009C600F6F684 /* MostlyClear.mp4 */; };
-		7114EB972A2009C600F6F684 /* MostlyClear.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7114EB922A2009C600F6F684 /* MostlyClear.mp4 */; };
 		7114EB982A2009C600F6F684 /* SootyCloudy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7114EB932A2009C600F6F684 /* SootyCloudy.mp4 */; };
 		7114EB992A2009C600F6F684 /* SootyCloudy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7114EB932A2009C600F6F684 /* SootyCloudy.mp4 */; };
 		7114EB9A2A2009C600F6F684 /* MostlySunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7114EB942A2009C600F6F684 /* MostlySunny.mp4 */; };
 		7114EB9B2A2009C600F6F684 /* MostlySunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7114EB942A2009C600F6F684 /* MostlySunny.mp4 */; };
-		7114EB9C2A2009C600F6F684 /* SunnyCloudy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7114EB952A2009C600F6F684 /* SunnyCloudy.mp4 */; };
-		7114EB9D2A2009C600F6F684 /* SunnyCloudy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7114EB952A2009C600F6F684 /* SunnyCloudy.mp4 */; };
 		E61535DD2A1D110A0063BC53 /* PrecipitationExtraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61535DC2A1D110A0063BC53 /* PrecipitationExtraInfo.swift */; };
 		E61535E12A1E74990063BC53 /* UvIndexExtraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61535E02A1E74990063BC53 /* UvIndexExtraInfo.swift */; };
 		E61535E32A1E74BA0063BC53 /* WindExtraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61535E22A1E74BA0063BC53 /* WindExtraInfo.swift */; };
@@ -60,6 +56,7 @@
 		E61535EE2A1E78EF0063BC53 /* AboutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61535ED2A1E78EF0063BC53 /* AboutConstants.swift */; };
 		E63D67722A13E32000DD8852 /* GerardoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D67712A13E32000DD8852 /* GerardoView.swift */; };
 		E63D67782A16AECE00DD8852 /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D67772A16AECE00DD8852 /* ButtonsView.swift */; };
+		E69E0DE52A2024D600F434E9 /* SootyCloudy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E69E0DE42A2024D600F434E9 /* SootyCloudy.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,10 +120,8 @@
 		7114EB852A2006BE00F6F684 /* WeatherWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = WeatherWidget.intentdefinition; sourceTree = "<group>"; };
 		7114EB862A2006C000F6F684 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7114EB882A2006C000F6F684 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7114EB922A2009C600F6F684 /* MostlyClear.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MostlyClear.mp4; sourceTree = "<group>"; };
 		7114EB932A2009C600F6F684 /* SootyCloudy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SootyCloudy.mp4; sourceTree = "<group>"; };
 		7114EB942A2009C600F6F684 /* MostlySunny.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MostlySunny.mp4; sourceTree = "<group>"; };
-		7114EB952A2009C600F6F684 /* SunnyCloudy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SunnyCloudy.mp4; sourceTree = "<group>"; };
 		71B49EAF2A155001003F614D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E61535DC2A1D110A0063BC53 /* PrecipitationExtraInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecipitationExtraInfo.swift; sourceTree = "<group>"; };
 		E61535E02A1E74990063BC53 /* UvIndexExtraInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UvIndexExtraInfo.swift; sourceTree = "<group>"; };
@@ -138,6 +133,7 @@
 		E61535ED2A1E78EF0063BC53 /* AboutConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutConstants.swift; sourceTree = "<group>"; };
 		E63D67712A13E32000DD8852 /* GerardoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GerardoView.swift; sourceTree = "<group>"; };
 		E63D67772A16AECE00DD8852 /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
+		E69E0DE42A2024D600F434E9 /* SootyCloudy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SootyCloudy.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,10 +206,9 @@
 			isa = PBXGroup;
 			children = (
 				4AB4BFD52A13CDF70090863D /* Preview Assets.xcassets */,
-				7114EB922A2009C600F6F684 /* MostlyClear.mp4 */,
 				7114EB942A2009C600F6F684 /* MostlySunny.mp4 */,
 				7114EB932A2009C600F6F684 /* SootyCloudy.mp4 */,
-				7114EB952A2009C600F6F684 /* SunnyCloudy.mp4 */,
+				E69E0DE42A2024D600F434E9 /* SootyCloudy.mp4 */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -397,9 +392,8 @@
 				7114EB982A2009C600F6F684 /* SootyCloudy.mp4 in Resources */,
 				7114EB9A2A2009C600F6F684 /* MostlySunny.mp4 in Resources */,
 				4AB4BFD62A13CDF70090863D /* Preview Assets.xcassets in Resources */,
+				E69E0DE52A2024D600F434E9 /* SootyCloudy.mp4 in Resources */,
 				4AB4BFD32A13CDF70090863D /* Assets.xcassets in Resources */,
-				7114EB962A2009C600F6F684 /* MostlyClear.mp4 in Resources */,
-				7114EB9C2A2009C600F6F684 /* SunnyCloudy.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,9 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7114EB9D2A2009C600F6F684 /* SunnyCloudy.mp4 in Resources */,
 				7114EB872A2006C000F6F684 /* Assets.xcassets in Resources */,
-				7114EB972A2009C600F6F684 /* MostlyClear.mp4 in Resources */,
 				7114EB992A2009C600F6F684 /* SootyCloudy.mp4 in Resources */,
 				7114EB9B2A2009C600F6F684 /* MostlySunny.mp4 in Resources */,
 			);

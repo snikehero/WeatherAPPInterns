@@ -59,16 +59,35 @@ struct Wind: View {
   var title: String
   var description: String
     var body: some View {
-        VStack {
-            HStack {
-                ButtonHeader(text: "WIND", systemImage: "wind")
-                Spacer()
-            }
-          ButtonTitle(text: title)
-          ButtonDescription(text: description)
-            HeaderDivider()
+        
+            ZStack {
+                VStack {
+                    Spacer()
+                    Image("Compass")
+                        .resizable()
+                        .frame(maxWidth: 130, maxHeight: 130)
+                    .modifier(ExtraInfoButton())
+                }
+                    
+                Image("Arrow")
+                    .rotationEffect(.degrees(90))
+                Text("34")
+                    .foregroundColor(.white)
+                    .font(.title)
+                    .fontWeight(.bold)
+                
+                VStack {
+                    HStack {
+                        ButtonHeader(text: "WIND", systemImage: "wind")
+                        Spacer()
+                    }
+                    HeaderDivider()
+                    Spacer()
+                }
+                .padding()
+        
             Spacer()
-        }.padding()
+        }
         
     }
 }
@@ -165,9 +184,10 @@ struct Pressure: View {
                 ButtonHeader(text: "PRESSURE", systemImage: "gauge.medium")
                 Spacer()
             }
+            HeaderDivider()
           ButtonTitle(text: title)
           ButtonDescription(text: description)
-            HeaderDivider()
+            
             Spacer()
         }.padding()
     }
@@ -233,7 +253,9 @@ struct AirPollutionView: View {
 
 struct ButtonsView: View {
     var body: some View {
-        XMarkButton()
+        Wind(title: "Wind", description: "0mm")
+            .modifier(ExtraInfoButton())
+//        XMarkButton()
       AirPollutionView(title: "", subtitle: "", description: "")
     }
 }
