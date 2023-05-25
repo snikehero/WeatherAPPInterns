@@ -10,7 +10,6 @@ import Foundation
 struct DailyForecast: Decodable {
   struct Daily: Codable {
     let dt: Double
-    let uvi: Double
     struct temp: Codable {
       let min: Double
       let max: Double

@@ -15,8 +15,8 @@ struct HumidityExtraInfo: View {
     var numberDay: Int
     var date: Date
     var dailySummary: String
-    var humidity: String
-    var dewPoint: String
+    var humidity: Int
+    var dewPoint: Int
     
     var body: some View {
         NavigationStack{
@@ -105,7 +105,7 @@ struct HumidityExtraInfo: View {
 struct HumidityExtraInfo_Previews: PreviewProvider {
     static private var isHumidityShowing = Binding.constant(false)
     static var previews: some View {
-        HumidityExtraInfo(isHumidityShowing: isHumidityShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Today, the average humidity is 27%- The dew point is 1º to 6º", humidity: "27", dewPoint: "2")
+        HumidityExtraInfo(isHumidityShowing: isHumidityShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Today, the average humidity is 27%- The dew point is 1º to 6º", humidity: 27, dewPoint: 2)
     }
 }
 
