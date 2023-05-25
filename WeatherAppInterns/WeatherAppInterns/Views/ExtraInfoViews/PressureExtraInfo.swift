@@ -58,7 +58,7 @@ struct PressureExtraInfo: View {
 
                                 }
                                 Spacer()
-                                ExtraInfoScreenPicker()
+                                ExtraInfoScreenPicker(selectedInfo: "Pressure")
                             }.padding(.leading)
                             
                            

@@ -60,7 +60,7 @@ struct FeelsLikeExtraInfo: View {
                                     ButtonSubtitle(text: "Actual \(actual)º")
                                 }
                                 Spacer()
-                                ExtraInfoScreenPicker()
+                                ExtraInfoScreenPicker(selectedInfo: "Feels Like")
                             }.padding(.leading)
                             
                            

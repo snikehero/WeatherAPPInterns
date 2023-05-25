@@ -60,7 +60,7 @@ struct WindExtraInfo: View {
                                     ButtonSubtitle(text: "Gusts: \(gusts)")
                                 }
                                 Spacer()
-                                ExtraInfoScreenPicker()
+                                ExtraInfoScreenPicker(selectedInfo: "Wind")
                             }.padding(.leading)
                             
                            

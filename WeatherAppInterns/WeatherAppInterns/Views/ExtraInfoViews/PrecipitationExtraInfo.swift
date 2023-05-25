@@ -10,8 +10,8 @@ import Charts
 
 enum ExtraInfo: String, CaseIterable, Identifiable {
     var id: Self {
-            return self
-        }
+        return self
+    }
     
     case Temperature, UVIndex = "UV Index", Wind, Precipitation, feelsLike = "Feels Like", Humidity, Visibility, Pressure
 }
@@ -61,7 +61,7 @@ struct ChartMock: View {
 struct PrecipitationExtraInfo: View {
     @Binding var isPrecipitationShowing : Bool
     @State private var selectedTab = 0
-
+    
     var currentDay: String
     var numberDay: Int
     var date: Date
@@ -109,10 +109,10 @@ struct PrecipitationExtraInfo: View {
                                     ButtonSubtitle(text: "In last 24h")
                                 }
                                 Spacer()
-                                ExtraInfoScreenPicker()
+                                ExtraInfoScreenPicker(selectedInfo: "Precipitation")
                             }.padding(.leading)
                             
-                           
+                            
                             TabView(selection: $selectedTab) {
                                 ForEach(0..<11){ i in
                                     ChartMock()
@@ -197,7 +197,7 @@ struct ExtraInfoView_Previews: PreviewProvider {
 
 
 struct ExtraInfoScreenPicker: View {
-    @State private var selectedInfo = "Precipitation"
+    @State var selectedInfo: String
     var body: some View {
         Picker("Picker", selection: $selectedInfo) {
             ForEach(ExtraInfo.allCases){e in

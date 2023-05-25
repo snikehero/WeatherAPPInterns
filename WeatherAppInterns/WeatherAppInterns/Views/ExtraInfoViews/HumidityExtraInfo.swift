@@ -59,7 +59,7 @@ struct HumidityExtraInfo: View {
                                     ButtonSubtitle(text: "Dew point:  \(dewPoint)º")
                                 }
                                 Spacer()
-                                ExtraInfoScreenPicker()
+                                ExtraInfoScreenPicker(selectedInfo: "Humidity")
                             }.padding(.leading)
                             
                            

@@ -59,7 +59,7 @@ struct VisibilityExtraInfo: View {
                                     ButtonSubtitle(text: "PERFECTLY CLEAR")
                                 }
                                 Spacer()
-                                ExtraInfoScreenPicker()
+                                ExtraInfoScreenPicker(selectedInfo: "Visibility")
                             }.padding(.leading)
                             
                            

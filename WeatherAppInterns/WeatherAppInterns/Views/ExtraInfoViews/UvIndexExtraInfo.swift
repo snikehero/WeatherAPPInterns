@@ -59,7 +59,7 @@ struct UvIndexExtraInfo: View {
                                     ButtonSubtitle(text: "World Health Organization UVI")
                                 }
                                 Spacer()
-                                ExtraInfoScreenPicker()
+                                ExtraInfoScreenPicker(selectedInfo: "UV Index")
                             }.padding(.leading)
                             
                            
