@@ -58,6 +58,8 @@ struct Sunset: View {
 struct Wind: View {
   var title: String
   var description: String
+    var degrees: String
+    
     var body: some View {
         
             ZStack {
@@ -70,7 +72,7 @@ struct Wind: View {
                 }
                     
                 Image("Arrow")
-                    .rotationEffect(.degrees(90))
+                    .rotationEffect(.degrees(Double(degrees) ?? 0))
                 Text("34")
                     .foregroundColor(.white)
                     .font(.title)
@@ -253,7 +255,7 @@ struct AirPollutionView: View {
 
 struct ButtonsView: View {
     var body: some View {
-        Wind(title: "Wind", description: "0mm")
+        Wind(title: "Wind", description: "0mm", degrees: "90")
             .modifier(ExtraInfoButton())
 //        XMarkButton()
       AirPollutionView(title: "", subtitle: "", description: "")

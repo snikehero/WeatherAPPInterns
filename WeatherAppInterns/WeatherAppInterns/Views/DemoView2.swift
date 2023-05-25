@@ -109,7 +109,7 @@ struct DemoView2: View {
                 print("Wind")
                 isWindShowing = true
               } label: {
-                Wind(title: "\(forecastListVM.forecasts.first?.windSpeed ?? "0")", description: "Descripcion")
+                  Wind(title: "\(forecastListVM.forecasts.first?.windSpeed ?? "0")", description: "Descripcion", degrees: "\(forecastListVM.forecasts.first?.windDeg ?? "0")")
                   .modifier(ExtraInfoButton())
               }
               

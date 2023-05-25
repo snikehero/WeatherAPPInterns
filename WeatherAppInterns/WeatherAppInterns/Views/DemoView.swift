@@ -92,7 +92,7 @@ struct DemoView: View {
                 Button{
                   print("Wind")
                 } label: {
-                  Wind(title: "\(forecast?.list[0].wind.speed ?? 0)", description: "Descripcion")
+                  Wind(title: "\(forecast?.list[0].wind.speed ?? 0)", description: "Descripcion", degrees: "90")
                     .modifier(ExtraInfoButton())
                 }
                 

@@ -69,7 +69,7 @@ struct GerardoView: View {
                                 print("Wind")
                                 isWindShowing = true
                             } label: {
-                                Wind(title: "Wind", description: "0mm")
+                                Wind(title: "Wind", description: "0mm", degrees: "90")
                                     .modifier(ExtraInfoButton())
                             }
                             
