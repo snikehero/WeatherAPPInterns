@@ -41,6 +41,7 @@
 		E61535E92A1E74E60063BC53 /* VisibilityExtraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61535E82A1E74E60063BC53 /* VisibilityExtraInfo.swift */; };
 		E61535EB2A1E74FA0063BC53 /* PressureExtraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61535EA2A1E74FA0063BC53 /* PressureExtraInfo.swift */; };
 		E61535EE2A1E78EF0063BC53 /* AboutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61535ED2A1E78EF0063BC53 /* AboutConstants.swift */; };
+		E61536002A1FEE510063BC53 /* MostlySunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E61535FF2A1FEE510063BC53 /* MostlySunny.mp4 */; };
 		E63D67722A13E32000DD8852 /* GerardoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D67712A13E32000DD8852 /* GerardoView.swift */; };
 		E63D67782A16AECE00DD8852 /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D67772A16AECE00DD8852 /* ButtonsView.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +83,7 @@
 		E61535E82A1E74E60063BC53 /* VisibilityExtraInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityExtraInfo.swift; sourceTree = "<group>"; };
 		E61535EA2A1E74FA0063BC53 /* PressureExtraInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureExtraInfo.swift; sourceTree = "<group>"; };
 		E61535ED2A1E78EF0063BC53 /* AboutConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutConstants.swift; sourceTree = "<group>"; };
+		E61535FF2A1FEE510063BC53 /* MostlySunny.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MostlySunny.mp4; sourceTree = "<group>"; };
 		E63D67712A13E32000DD8852 /* GerardoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GerardoView.swift; sourceTree = "<group>"; };
 		E63D67772A16AECE00DD8852 /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 		4AB4BFD42A13CDF70090863D /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				E61535FF2A1FEE510063BC53 /* MostlySunny.mp4 */,
 				4AB4BFD52A13CDF70090863D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -280,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB4BFD62A13CDF70090863D /* Preview Assets.xcassets in Resources */,
+				E61536002A1FEE510063BC53 /* MostlySunny.mp4 in Resources */,
 				4AB4BFD32A13CDF70090863D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

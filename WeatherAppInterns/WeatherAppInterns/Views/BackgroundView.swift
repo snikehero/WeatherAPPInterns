@@ -43,7 +43,7 @@ class LoopingPlayerUIView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         // Load the resource -> h
-        let fileUrl = Bundle.main.url(forResource: "SunnyCloudy", withExtension: "mp4")!
+        let fileUrl = Bundle.main.url(forResource: "MostlySunny", withExtension: "mp4")!
         let asset = AVAsset(url: fileUrl)
         let item = AVPlayerItem(asset: asset)
         // Setup the player
