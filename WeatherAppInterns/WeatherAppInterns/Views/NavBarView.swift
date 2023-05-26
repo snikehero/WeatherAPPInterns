@@ -9,8 +9,6 @@ import SwiftUI
 
 struct NavBarView: View {
     var body: some View {
-       VStack {
-          
           HStack{
              Button {
                //Open maps view
@@ -18,6 +16,7 @@ struct NavBarView: View {
                 ButtonView(systemName: "map")
              }
              Spacer()
+              
              Button {
                //Open maps view
              } label: {
@@ -25,10 +24,7 @@ struct NavBarView: View {
              }
 
           }
-          .padding( .init(top: 10, leading:20, bottom: 10, trailing: 20 ))
-          .background(.ultraThinMaterial)
-       }
-       
+
     }
 }
 
