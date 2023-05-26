@@ -159,6 +159,7 @@ struct SummaryView: View{
                     .shadow(color: .black ,radius: 15, x: 2, y: 2)
             }
       }
+     
 
    }
 }
@@ -213,7 +214,6 @@ struct DaysView: View{
             }
          }
       }
-      .background(Color("ButtonColor"))
     }
 }
 

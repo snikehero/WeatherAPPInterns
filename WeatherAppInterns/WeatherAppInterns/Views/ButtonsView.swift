@@ -11,7 +11,7 @@ struct ExtraInfoButton: ViewModifier {
     func body(content: Content) -> some View {
         content
             .frame(width: 170, height: 170)
-            .background(Color("ButtonColor"))
+            .background(.ultraThinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 15))
             .opacity(60)
     }
@@ -241,15 +241,15 @@ struct AirPollutionView: View {
               endPoint: .init(x: 0.5, y: 0.6)
             ))
             .frame(width: 300, height: 10)
-          .frame(width: 300, height: 200)
+          .frame(width: 300, height: 30)
           
       }
       .frame(maxWidth: 350)
         .multilineTextAlignment(.leading)
         .padding()
-        .background(Color("ButtonColor"))
+        .background(.ultraThinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .padding([.trailing, .leading])
+        
     }
 }
 

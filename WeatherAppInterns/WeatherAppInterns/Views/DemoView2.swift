@@ -26,9 +26,10 @@ struct DemoView2: View {
   var body: some View {
     
     ZStack {
-      Color("BackgroundColor")
-        .ignoresSafeArea()
-        .opacity(50)
+      BackgroundView()
+//      Color("BackgroundColor")
+//        .ignoresSafeArea()
+//        .opacity(50)
       
       VStack {
         Spacer()
@@ -76,7 +77,7 @@ struct DemoView2: View {
                       
                     }
                     .padding()
-                    .background(Color("ButtonColor"))
+                    .background(.ultraThinMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 15))
                   }
                 }
@@ -228,16 +229,16 @@ struct HourlyView2: View{
   var testing = false
   var body: some View{
     VStack{
-      ButtonDescription(text: "Condiciones ")
+      ButtonDescription(text: "Cloudy conditions expected ")
       HeaderDivider()
       ScrollView(.horizontal, showsIndicators: false){
         HStack{
           
           ForEach($forecasts, id: \.id) { element in
             VStack(spacing: 10) {
-              NormalText(text: element.wrappedValue.day)
+              NormalText(text: element.wrappedValue.hourDay)
               NormalText(text: "☀️")
-              NormalText(text: element.wrappedValue.high)
+              NormalText(text: "\(element.wrappedValue.high)º")
             }
           }
         }
@@ -252,34 +253,11 @@ struct HourlyView2: View{
       }
     }
     .padding()
-    .background(Color("ButtonColor"))
+    .background(.ultraThinMaterial)
     .clipShape(RoundedRectangle(cornerRadius: 15))
   }
 }
-struct DaysView2: View{
-  var day: Date
-  var minTemp: String
-  var maxTemp: String
-  var body: some View{
-    VStack{
-      Button {
-      } label: {
-        HStack{
-          NormalText(text: "")
-          Spacer()
-          NormalText(text: minTemp)
-          Spacer()
-          NormalText(text: maxTemp)
-          Spacer()
-          NormalText(text: "------")
-          Spacer()
-          NormalText(text: "asdadsa")
-        }
-      }
-    }
-    .background(Color("ButtonColor"))
-  }
-}
+
 
 struct DemoView2_Previews: PreviewProvider {
   static var previews: some View {

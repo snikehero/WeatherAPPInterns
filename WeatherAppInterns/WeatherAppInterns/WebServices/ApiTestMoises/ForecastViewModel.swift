@@ -19,6 +19,11 @@ struct ForecastViewModel {
     dateFormatter.dateFormat = "EEEE"
     return dateFormatter
   }
+  private static var dateFormatterHourDay: DateFormatter {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "HH"
+    return dateFormatter
+  }
   private static var dateFormatterDayNumber: DateFormatter {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "d"
@@ -41,8 +46,11 @@ struct ForecastViewModel {
   var exactDayName: String {
     return "\(Self.dateFormatterDay.string(from: NSDate(timeIntervalSince1970: forecast.dt )as Date))"
   }
+  var hourDay: String {
+    return "\(Self.dateFormatterHourDay.string(from: NSDate(timeIntervalSince1970: forecast.dt) as Date))"
+  }
   var day: String {
-    return "\(Self.dateFormatter.string(from: NSDate(timeIntervalSince1970: forecast.dt) as Date))"  }
+    return "\(Self.dateFormatterDayNumber.string(from: NSDate(timeIntervalSince1970: forecast.dt) as Date))"  }
   var overview: String {
     forecast.weather[0].description.capitalized
   }
