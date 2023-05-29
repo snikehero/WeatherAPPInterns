@@ -26,6 +26,39 @@ struct DemoView2: View {
     var body: some View {
         
         NavigationStack {
+  @StateObject var forecastListVM = ForecastListViewModel()
+  @StateObject var deviceLocationService = DeviceLocationService.shared
+  @StateObject private var dailyForecastListVM = DailyForecastListViewmodel()
+  @State var tokens: Set<AnyCancellable> = []
+  @State var coordinates: (lat: Double, lon: Double) = (0,0)
+  @State var isPrecipitationShowing = false
+  @State var isVisibilityShowing = false
+  @State var isWindShowing = false
+  @State var isUVIndexShowing = false
+  @State var isFeelsLikeShowing = false
+  @State var isHumidityShowing = false
+  @State var isPressureShowing = false
+  @State var airPollutionListVM = AirPollutionListViewModel()
+  let dataFormatter = DateFormatter()
+  let dataFormatter2 = DateFormatter()
+  init() {
+    dataFormatter.dateFormat = "EEEE, d, HH:mm"
+    dataFormatter2.dateFormat = "HH:mm"
+  }
+  var body: some View {
+    
+    ZStack {
+      //BackgroundView()
+//      Color("BackgroundColor")
+//        .ignoresSafeArea()
+//        .opacity(50)
+      
+      VStack {
+        Spacer()
+        ScrollView (showsIndicators: false){
+          
+          VStack (spacing: 10){
+            
             ZStack {
                 BackgroundView()
                 //      Color("BackgroundColor")
