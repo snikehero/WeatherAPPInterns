@@ -27,7 +27,7 @@ struct DemoView2: View {
         
         NavigationStack {
             ZStack {
-                BackgroundView()
+                //BackgroundView()
                 //      Color("BackgroundColor")
                 //        .ignoresSafeArea()
                 //        .opacity(50)
