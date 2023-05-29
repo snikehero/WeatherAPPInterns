@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+struct HeaderDivider: View {
+    var body: some View {
+        Divider()
+            .background(Color.white
+                .opacity(0.6))
+    }
+}
+
 struct ExtraInfoButton: ViewModifier {
     func body(content: Content) -> some View {
         content

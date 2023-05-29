@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct VisibilityExtraInfo: View {
-    @Binding var isVisibilityShowing : Bool
+    @Binding var isShowing : Bool
     @State private var selectedTab = 0
 
     var currentDay: String
@@ -90,7 +90,7 @@ struct VisibilityExtraInfo: View {
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button{
-                        isVisibilityShowing = false
+                        isShowing.toggle()
                     } label: {
                         XMarkButton()
                     }
@@ -101,8 +101,8 @@ struct VisibilityExtraInfo: View {
 }
 
 struct VisibilityExtraInfo_Previews: PreviewProvider {
-    static private var isVisibilityShowing = Binding.constant(false)
+    static private var isShowing = Binding.constant(false)
     static var previews: some View {
-        VisibilityExtraInfo(isVisibilityShowing: isVisibilityShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Today, the visibility will be perfectly clear, at 26 to 26km", visibility: "0km")
+        VisibilityExtraInfo(isShowing: isShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Today, the visibility will be perfectly clear, at 26 to 26km", visibility: "0km")
     }
 }

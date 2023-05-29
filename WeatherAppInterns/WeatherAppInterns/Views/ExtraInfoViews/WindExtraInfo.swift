@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct WindExtraInfo: View {
-    @Binding var isWindShowing : Bool
+    @Binding var isShowing : Bool
     @State private var selectedTab = 0
 
     var currentDay: String
@@ -92,7 +92,7 @@ struct WindExtraInfo: View {
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button{
-                        isWindShowing = false
+                        isShowing.toggle()
                     } label: {
                         XMarkButton()
                     }
@@ -103,8 +103,8 @@ struct WindExtraInfo: View {
 }
 
 struct WindExtraInfo_Previews: PreviewProvider {
-    static private var isWindShowing = Binding.constant(false)
+    static private var isShowing = Binding.constant(false)
     static var previews: some View {
-        WindExtraInfo(isWindShowing: isWindShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Wind is currently 14 km/h from the west-northwest. Today, wind speeds are 3 to 16 km/h, with gusts up to 34 km/h.", wind: "14 km/h", gusts: "31 km/h")
+        WindExtraInfo(isShowing: isShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Wind is currently 14 km/h from the west-northwest. Today, wind speeds are 3 to 16 km/h, with gusts up to 34 km/h.", wind: "14 km/h", gusts: "31 km/h")
     }
 }

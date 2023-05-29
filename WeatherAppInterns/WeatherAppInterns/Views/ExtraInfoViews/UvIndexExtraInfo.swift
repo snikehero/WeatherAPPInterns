@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UvIndexExtraInfo: View {
-    @Binding var isUVIndexShowing : Bool
+    @Binding var isShowing : Bool
     @State private var selectedTab = 0
 
     var currentDay: String
@@ -90,7 +90,7 @@ struct UvIndexExtraInfo: View {
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button{
-                        isUVIndexShowing = false
+                        isShowing.toggle()
                     } label: {
                         XMarkButton()
                     }
@@ -102,9 +102,9 @@ struct UvIndexExtraInfo: View {
 }
 
 struct UvIndexExtraInfo_Previews: PreviewProvider {
-    static private var isUVIndexShowing = Binding.constant(false)
+    static private var isShowing = Binding.constant(false)
 
     static var previews: some View {
-        UvIndexExtraInfo(isUVIndexShowing: isUVIndexShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Sun protection recommended. Levels of Moderate or higher are reached from 9:00 to 18:00.", uvIndex: "3", uvIndexDescription: "Moderate")
+        UvIndexExtraInfo(isShowing: isShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Sun protection recommended. Levels of Moderate or higher are reached from 9:00 to 18:00.", uvIndex: "3", uvIndexDescription: "Moderate")
     }
 }

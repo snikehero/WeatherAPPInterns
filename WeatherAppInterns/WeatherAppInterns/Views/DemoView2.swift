@@ -18,16 +18,6 @@ struct DemoView2: View {
     @State var selectedSheet: showingSheets = .precipitation
     @State var isShowing = false
     
-    // ####################################
-    @State var isPrecipitationShowing = false
-    @State var isVisibilityShowing = false
-    @State var isWindShowing = false
-    @State var isUVIndexShowing = false
-    @State var isFeelsLikeShowing = false
-    @State var isHumidityShowing = false
-    @State var isPressureShowing = false
-    // ####################################
-    
     @State var airPollutionListVM = AirPollutionListViewModel()
     let dataFormatter = DateFormatter()
     let dataFormatter2 = DateFormatter()
@@ -101,7 +91,9 @@ struct DemoView2: View {
                             HStack (spacing: 15){
                                 Button{
                                     print("UVIndex")
-                                    isUVIndexShowing = true
+                                    
+                                    selectedSheet = .uvIndex
+                                    isShowing.toggle()
                                 } label: {
                                     UVIndex(title: dailyForecastListVM.dailyForecasts.first?.uvi ?? "0", subtitle: dailyForecastListVM.dailyForecasts.first?.subtitle ?? "normal", description: dailyForecastListVM.dailyForecasts.first?.description ?? "use")
                                         .modifier(ExtraInfoButton())
@@ -121,7 +113,8 @@ struct DemoView2: View {
                                 // TRY CREATING A BUTTONVIEW RECEIVING CALLBACK
                                 Button{
                                     print("Wind")
-                                    isWindShowing = true
+                                    selectedSheet = .wind
+                                    isShowing.toggle()
                                 } label: {
                                     Wind(title: "\(forecastListVM.forecasts.first?.windSpeed ?? "0")", description: "Descripcion", degrees: "\(forecastListVM.forecasts.first?.windDeg ?? "0")")
                                         .modifier(ExtraInfoButton())
@@ -130,7 +123,6 @@ struct DemoView2: View {
                                 
                                 Button{
                                     print("Precipitation")
-                                    isPrecipitationShowing = true
                                     
                                     selectedSheet = .precipitation
                                     isShowing.toggle()
@@ -145,7 +137,8 @@ struct DemoView2: View {
                                 
                                 Button{
                                     print("FeelsLike")
-                                    isFeelsLikeShowing = true
+                                    selectedSheet = .feelsLike
+                                    isShowing.toggle()
                                     
                                 } label: {
                                     FeelsLike(title: "\(forecastListVM.forecasts.first?.fellsLike ?? "0")", description: forecastListVM.forecasts.first?.feelsLikeDescription ?? "Normal")
@@ -154,7 +147,8 @@ struct DemoView2: View {
                                 
                                 Button{
                                     print("Humidity")
-                                    isHumidityShowing = true
+                                    selectedSheet = .humidity
+                                    isShowing.toggle()
                                 } label: {
                                     Humidity(title: "\(forecastListVM.forecasts.first?.humidity ?? "0")%", description: "The dew point is 4º right now.")
                                         .modifier(ExtraInfoButton())
@@ -164,7 +158,8 @@ struct DemoView2: View {
                             HStack {
                                 Button{
                                     print("Visibility")
-                                    isVisibilityShowing = true
+                                    selectedSheet = .visibility
+                                    isShowing.toggle()
                                 } label: {
                                     Visibility(title: "\(forecastListVM.forecasts.first?.visibility ?? "0")km", description: "\(forecastListVM.forecasts.first?.visibilityDescription ?? "N/A")")
                                         .modifier(ExtraInfoButton())
@@ -172,7 +167,8 @@ struct DemoView2: View {
                                 
                                 Button{
                                     print("Pressure")
-                                    isPressureShowing = true
+                                    selectedSheet = .pressure
+                                    isShowing.toggle()
                                 } label: {
                                     Pressure(title: "\(forecastListVM.forecasts.first?.pressure ?? "0")", description: forecastListVM.forecasts.first?.pressureDescription ?? "normal")
                                         .modifier(ExtraInfoButton())
@@ -184,19 +180,22 @@ struct DemoView2: View {
                         .sheet(isPresented: $isShowing){
                             switch selectedSheet {
                             case .precipitation:
-                                PrecipitationExtraInfo(isPrecipitationShowing: $isPrecipitationShowing, currentDay: forecastListVM.forecasts.first?.exactDayName ?? "D", numberDay: 26, date: Date(), dailySummary: "There has been \(forecastListVM.forecasts.first?.precipitation ?? "0") % of precipitation in the last 24 hours. Today's total precipitation will be \(forecastListVM.forecasts.first?.precipitation ?? "0")", precipitation: forecastListVM.forecasts.first?.precipitation ?? "0")
+                                PrecipitationExtraInfo(isShowing: $isShowing, currentDay: forecastListVM.forecasts.first?.exactDayName ?? "D", numberDay: 26, date: Date(), dailySummary: "There has been \(forecastListVM.forecasts.first?.precipitation ?? "0") % of precipitation in the last 24 hours. Today's total precipitation will be \(forecastListVM.forecasts.first?.precipitation ?? "0")", precipitation: forecastListVM.forecasts.first?.precipitation ?? "0")
                             case .visibility:
-                                VisibilityExtraInfo(isVisibilityShowing: $isVisibilityShowing, currentDay: forecastListVM.forecasts.first?.exactDayName ?? "D", numberDay: 26, date: Date(), dailySummary: "Today, the visibility will be \(forecastListVM.forecasts.first?.visibilityDescription ?? "0"), at \(forecastListVM.forecasts.first?.visibility ?? "0")km to \(forecastListVM.forecasts.first?.visibility ?? "0")km", visibility: "\(forecastListVM.forecasts.first?.visibility ?? "0")km")
+                                VisibilityExtraInfo(isShowing: $isShowing, currentDay: forecastListVM.forecasts.first?.exactDayName ?? "D", numberDay: 26, date: Date(), dailySummary: "Today, the visibility will be \(forecastListVM.forecasts.first?.visibilityDescription ?? "0"), at \(forecastListVM.forecasts.first?.visibility ?? "0")km to \(forecastListVM.forecasts.first?.visibility ?? "0")km", visibility: "\(forecastListVM.forecasts.first?.visibility ?? "0")km")
                             case .wind:
-                                WindExtraInfo(isWindShowing: $isWindShowing, currentDay: forecastListVM.forecasts.first?.exactDayName ?? "D", numberDay: 26, date: Date(), dailySummary: "Wind is currently \(forecastListVM.forecasts.first?.windSpeed ?? "0") km/h from the west-northwest. Today, wind speeds are \(forecastListVM.forecasts.first?.windSpeed ?? "0") km/h to \(forecastListVM.forecasts.last?.windSpeed ?? "0") km/h, with gusts up to \(forecastListVM.forecasts.first?.windGust ?? "0") km/h.", wind: "\(forecastListVM.forecasts.first?.windSpeed ?? "0") km/h", gusts: "\(forecastListVM.forecasts.first?.windGust ?? "0") km/h")
+                                WindExtraInfo(isShowing: $isShowing, currentDay: forecastListVM.forecasts.first?.exactDayName ?? "D", numberDay: 26, date: Date(), dailySummary: "Wind is currently \(forecastListVM.forecasts.first?.windSpeed ?? "0") km/h from the west-northwest. Today, wind speeds are \(forecastListVM.forecasts.first?.windSpeed ?? "0") km/h to \(forecastListVM.forecasts.last?.windSpeed ?? "0") km/h, with gusts up to \(forecastListVM.forecasts.first?.windGust ?? "0") km/h.", wind: "\(forecastListVM.forecasts.first?.windSpeed ?? "0") km/h", gusts: "\(forecastListVM.forecasts.first?.windGust ?? "0") km/h")
                             case .uvIndex:
-                                FeelsLikeExtraInfo(isFeelsLikeShowing: $isFeelsLikeShowing, currentDay: forecastListVM.forecasts.first?.exactDayName ?? "D", numberDay: 26, date: Date(), dailySummary: "The temperature currently feels like \(forecastListVM.forecasts.first?.fellsLike ?? "0")º but it is actually \(forecastListVM.forecasts.first?.current ?? "0")º. \(forecastListVM.forecasts.first?.feelsLikeDescription ?? "0"). Today's temperature range felt like 16º to 31º", feelsLike: "\(forecastListVM.forecasts.first?.fellsLike ?? "0")", actual: "\(forecastListVM.forecasts.first?.current ?? "0")")
+                                UvIndexExtraInfo(isShowing: $isShowing, currentDay: forecastListVM.forecasts.first?.exactDayName ?? "D", numberDay: 26, date: Date(), dailySummary: "\(dailyForecastListVM.dailyForecasts.first?.description ?? "normal"). Levels of \(dailyForecastListVM.dailyForecasts.first?.subtitle ?? "normal") or higher are reached from 9:00 to 18:00.", uvIndex: "\(dailyForecastListVM.dailyForecasts.first?.uvi ?? "0")", uvIndexDescription:"\(dailyForecastListVM.dailyForecasts.first?.subtitle ?? "0")" )
                             case .feelsLike:
-                                HumidityExtraInfo(isHumidityShowing: $isHumidityShowing, currentDay: forecastListVM.forecasts.first?.exactDayName ?? "D", numberDay: 26, date: Date(), dailySummary: "Today, the average humidity is \(forecastListVM.forecasts.first?.humidity ?? "0")%- The dew point is 1º to 6º", humidity: "\(forecastListVM.forecasts.first?.humidity ?? "0")", dewPoint: "2")
+                                FeelsLikeExtraInfo(isShowing: $isShowing, currentDay: forecastListVM.forecasts.first?.exactDayName ?? "D", numberDay: 26, date: Date(), dailySummary: "The temperature currently feels like \(forecastListVM.forecasts.first?.fellsLike ?? "0")º but it is actually \(forecastListVM.forecasts.first?.current ?? "0")º. \(forecastListVM.forecasts.first?.feelsLikeDescription ?? "0"). Today's temperature range felt like 16º to 31º", feelsLike: "\(forecastListVM.forecasts.first?.fellsLike ?? "0")", actual: "\(forecastListVM.forecasts.first?.current ?? "0")")
+                                
                             case .humidity:
-                                PressureExtraInfo(isPressureShowing: $isPressureShowing, currentDay: forecastListVM.forecasts.first?.exactDayName ?? "D", numberDay: 26, date: Date(), dailySummary: "Pressure is currently \(forecastListVM.forecasts.first?.pressure ?? "0") hPa and falling. Today, the average pressure will be 1,010 hPa, and the lowest pressure will be 1,006 hPa.", pressure: "\(forecastListVM.forecasts.first?.pressure ?? "0")")
+                                HumidityExtraInfo(isShowing: $isShowing, currentDay: forecastListVM.forecasts.first?.exactDayName ?? "D", numberDay: 26, date: Date(), dailySummary: "Today, the average humidity is \(forecastListVM.forecasts.first?.humidity ?? "0")%- The dew point is 1º to 6º", humidity: "\(forecastListVM.forecasts.first?.humidity ?? "0")", dewPoint: "2")
+                                
                             case .pressure:
-                                UvIndexExtraInfo(isUVIndexShowing: $isUVIndexShowing, currentDay: forecastListVM.forecasts.first?.exactDayName ?? "D", numberDay: 26, date: Date(), dailySummary: "\(dailyForecastListVM.dailyForecasts.first?.description ?? "normal"). Levels of \(dailyForecastListVM.dailyForecasts.first?.subtitle ?? "normal") or higher are reached from 9:00 to 18:00.", uvIndex: "\(dailyForecastListVM.dailyForecasts.first?.uvi ?? "0")", uvIndexDescription:"\(dailyForecastListVM.dailyForecasts.first?.subtitle ?? "0")" )
+                                PressureExtraInfo(isShowing: $isShowing, currentDay: forecastListVM.forecasts.first?.exactDayName ?? "D", numberDay: 26, date: Date(), dailySummary: "Pressure is currently \(forecastListVM.forecasts.first?.pressure ?? "0") hPa and falling. Today, the average pressure will be 1,010 hPa, and the lowest pressure will be 1,006 hPa.", pressure: "\(forecastListVM.forecasts.first?.pressure ?? "0")")
+                                
                             }
                         }
                     }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PressureExtraInfo: View {
-    @Binding var isPressureShowing : Bool
+    @Binding var isShowing : Bool
     @State private var selectedTab = 0
 
     var currentDay: String
@@ -89,7 +89,7 @@ struct PressureExtraInfo: View {
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button{
-                        isPressureShowing = false
+                        isShowing.toggle()
                     } label: {
                         XMarkButton()
                     }
@@ -100,8 +100,8 @@ struct PressureExtraInfo: View {
 }
 
 struct PressureExtraInfo_Previews: PreviewProvider {
-    static private var isPressureShowing = Binding.constant(false)
+    static private var isShowing = Binding.constant(false)
     static var previews: some View {
-        PressureExtraInfo(isPressureShowing: isPressureShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Pressure is currently 1,006 hPa and falling. Today, the average pressure will be 1,010 hPa, and the lowest pressure will be 1,006 hPa.", pressure: "String")
+        PressureExtraInfo(isShowing: isShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Pressure is currently 1,006 hPa and falling. Today, the average pressure will be 1,010 hPa, and the lowest pressure will be 1,006 hPa.", pressure: "String")
     }
 }

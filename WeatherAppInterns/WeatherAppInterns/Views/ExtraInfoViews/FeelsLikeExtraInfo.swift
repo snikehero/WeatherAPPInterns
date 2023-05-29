@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct FeelsLikeExtraInfo: View {
-    @Binding var isFeelsLikeShowing : Bool
+    @Binding var isShowing : Bool
     @State private var selectedTab = 0
 
     var currentDay: String
@@ -92,7 +92,7 @@ struct FeelsLikeExtraInfo: View {
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button{
-                        isFeelsLikeShowing = false
+                        isShowing.toggle()
                     } label: {
                         XMarkButton()
                     }
@@ -105,8 +105,8 @@ struct FeelsLikeExtraInfo: View {
 
 
 struct FeelsLikeExtraInfo_Previews: PreviewProvider {
-    static private var isFeelsLikeShowing = Binding.constant(false)
+    static private var isShowing = Binding.constant(false)
     static var previews: some View {
-      FeelsLikeExtraInfo(isFeelsLikeShowing: isFeelsLikeShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "The temperature currently feels like 31º but it is actually 33º. Wind is making it feel cooler. Today's temperature range felt like 16º to 31º", feelsLike: "31", actual: "33")
+      FeelsLikeExtraInfo(isShowing: isShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "The temperature currently feels like 31º but it is actually 33º. Wind is making it feel cooler. Today's temperature range felt like 16º to 31º", feelsLike: "31", actual: "33")
     }
 }

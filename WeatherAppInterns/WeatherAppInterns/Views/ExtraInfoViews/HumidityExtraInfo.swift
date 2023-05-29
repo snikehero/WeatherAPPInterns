@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HumidityExtraInfo: View {
-    @Binding var isHumidityShowing : Bool
+    @Binding var isShowing : Bool
     @State private var selectedTab = 0
 
     var currentDay: String
@@ -92,7 +92,7 @@ struct HumidityExtraInfo: View {
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button{
-                        isHumidityShowing = false
+                        isShowing.toggle()
                     } label: {
                         XMarkButton()
                     }
@@ -103,9 +103,9 @@ struct HumidityExtraInfo: View {
 }
 
 struct HumidityExtraInfo_Previews: PreviewProvider {
-    static private var isHumidityShowing = Binding.constant(false)
+    static private var isShowing = Binding.constant(false)
     static var previews: some View {
-        HumidityExtraInfo(isHumidityShowing: isHumidityShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Today, the average humidity is 27%- The dew point is 1º to 6º", humidity: "27", dewPoint: "2")
+        HumidityExtraInfo(isShowing: isShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Today, the average humidity is 27%- The dew point is 1º to 6º", humidity: "27", dewPoint: "2")
     }
 }
 

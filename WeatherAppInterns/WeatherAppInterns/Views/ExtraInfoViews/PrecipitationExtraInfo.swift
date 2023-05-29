@@ -59,7 +59,7 @@ struct ChartMock: View {
 
 
 struct PrecipitationExtraInfo: View {
-    @Binding var isPrecipitationShowing : Bool
+    @Binding var isShowing : Bool
     
     @State private var selectedTab = 0
     
@@ -122,41 +122,6 @@ struct PrecipitationExtraInfo: View {
                                         }
                                         .tag(i)
                                 }
-                                //                                Text("PRUEBA")
-                                //                                    .tabItem {
-                                //                                        EmptyView()
-                                //                                    }
-                                //                                    .tag(0)
-                                //
-                                //                                Text("Contenido de la vista 2")
-                                //                                    .tabItem {
-                                //                                        EmptyView()
-                                //                                    }
-                                //                                    .tag(1)
-                                //
-                                //                                Text("Contenido de la vista 3")
-                                //                                    .tabItem {
-                                //                                        EmptyView()
-                                //                                    }
-                                //                                    .tag(2)
-                                //
-                                //                               Text("Contenido de la vista 4")
-                                //                                   .tabItem {
-                                //                                       EmptyView()
-                                //                                   }
-                                //                                   .tag(3)
-                                //
-                                //                               Text("Contenido de la vista 5")
-                                //                                   .tabItem {
-                                //                                       EmptyView()
-                                //                                   }
-                                //                                   .tag(4)
-                                //
-                                //                               Text("Contenido de la vista 6")
-                                //                                   .tabItem {
-                                //                                       EmptyView()
-                                //                                   }
-                                //                                   .tag(5)
                             }
                             .frame(width: 300, height: 300)
                             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -178,7 +143,7 @@ struct PrecipitationExtraInfo: View {
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button{
-                        isPrecipitationShowing = false
+                        isShowing.toggle()
                     } label: {
                         XMarkButton()
                     }
@@ -189,12 +154,12 @@ struct PrecipitationExtraInfo: View {
 }
 
 struct ExtraInfoView_Previews: PreviewProvider {
-    static private var isPrecipitationShowing = Binding.constant(false)
+    static private var isShowing = Binding.constant(false)
     
     
     
     static var previews: some View {
-        PrecipitationExtraInfo(isPrecipitationShowing: isPrecipitationShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "There has been 0 mm of precipitation in the last 24 hours. Today's total precipitation will be 0 mm", precipitation: "0mm")
+        PrecipitationExtraInfo(isShowing: isShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "There has been 0 mm of precipitation in the last 24 hours. Today's total precipitation will be 0 mm", precipitation: "0mm")
     }
 }
 
