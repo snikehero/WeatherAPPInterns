@@ -60,6 +60,7 @@ struct ChartMock: View {
 
 struct PrecipitationExtraInfo: View {
     @Binding var isPrecipitationShowing : Bool
+    
     @State private var selectedTab = 0
     
     var currentDay: String
@@ -170,6 +171,8 @@ struct PrecipitationExtraInfo: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                // try with a switch statement
+                // state variable with name
                 ToolbarItem(placement: .principal) {
                     ExtraInfoHeader(systemImage: "drop.fill", title: "Precipitation")
                 }
@@ -187,6 +190,7 @@ struct PrecipitationExtraInfo: View {
 
 struct ExtraInfoView_Previews: PreviewProvider {
     static private var isPrecipitationShowing = Binding.constant(false)
+    
     
     
     static var previews: some View {

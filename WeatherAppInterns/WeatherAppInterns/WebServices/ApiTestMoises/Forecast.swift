@@ -6,6 +6,9 @@
 //
 
 import Foundation
+
+// CREATE MOCK
+
 struct MyWeatherList: Decodable {
   let list: [MyWeatherMain] //Definicion de variables
   let city: MyCity
