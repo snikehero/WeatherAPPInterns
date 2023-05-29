@@ -24,7 +24,8 @@ struct ContentView: View {
     //AngelView()
     //GerardoView()
     //DemoView()
-    DemoView2()
+    //DemoView2()
+    DemoView3()
     //DataView()
   }
 }

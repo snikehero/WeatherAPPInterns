@@ -36,6 +36,9 @@ struct DailyForecastViewModel {
 //      return celsius * 9 / 5 + 32
 //    }
 //  }
+  var id: UUID {
+    return UUID()
+  }
   var day: String {
     //return Self.dateFormatter.string(from: NSDate(timeIntervalSince1970:(dailyForecast.dt) as Date)
     return "\(Self.dateFormatter.string(from: NSDate(timeIntervalSince1970: dailyForecast.dt) as Date))"
