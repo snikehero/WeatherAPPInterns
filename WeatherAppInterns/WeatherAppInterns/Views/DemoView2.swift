@@ -26,7 +26,7 @@ struct DemoView2: View {
   var body: some View {
     
     ZStack {
-      BackgroundView()
+      //BackgroundView()
 //      Color("BackgroundColor")
 //        .ignoresSafeArea()
 //        .opacity(50)
