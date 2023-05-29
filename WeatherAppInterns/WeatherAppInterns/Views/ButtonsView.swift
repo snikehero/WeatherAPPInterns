@@ -56,38 +56,40 @@ struct Sunset: View {
 }
 
 struct Wind: View {
-  var title: String
-  var description: String
+    var title: String
+    var description: String
     var degrees: String
     
     var body: some View {
         
-            ZStack {
-                VStack {
+        ZStack {
+            
+            Image("Compass")
+                .resizable()
+                .frame(maxWidth: 130, maxHeight: 130)
+                .padding(.top, 30)
+            
+            
+            
+            Image("Arrow")
+                .rotationEffect(.degrees(Double(degrees) ?? 0))
+                .padding(.top)
+            Text("34")
+                .foregroundColor(.white)
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.top, 30)
+            
+            VStack {
+                HStack {
+                    ButtonHeader(text: "WIND", systemImage: "wind")
                     Spacer()
-                    Image("Compass")
-                        .resizable()
-                        .frame(maxWidth: 130, maxHeight: 130)
-                    .modifier(ExtraInfoButton())
                 }
-                    
-                Image("Arrow")
-                    .rotationEffect(.degrees(Double(degrees) ?? 0))
-                Text("34")
-                    .foregroundColor(.white)
-                    .font(.title)
-                    .fontWeight(.bold)
-                
-                VStack {
-                    HStack {
-                        ButtonHeader(text: "WIND", systemImage: "wind")
-                        Spacer()
-                    }
-                    HeaderDivider()
-                    Spacer()
-                }
-                .padding()
-        
+                HeaderDivider()
+                Spacer()
+            }
+            .padding()
+            
             Spacer()
         }
         
@@ -178,8 +180,8 @@ struct Visibility: View {
 }
 
 struct Pressure: View {
-  var title: String
-  var description: String
+    var title: String
+    var description: String
     var body: some View {
         VStack {
             HStack {
@@ -187,8 +189,8 @@ struct Pressure: View {
                 Spacer()
             }
             HeaderDivider()
-          ButtonTitle(text: title)
-          ButtonDescription(text: description)
+            ButtonTitle(text: title)
+            ButtonDescription(text: description)
             
             Spacer()
         }.padding()
@@ -215,36 +217,36 @@ struct SelectedRoundedFill: View {
             .fontWeight(.semibold)
             .padding()
             .foregroundColor(Color("ExtraInfoBackgroundColor"))
-            
+        
             .background(
                 Circle()
                     .fill(.white)
                     .frame(maxWidth: 30, maxHeight: 30)
-                )
+            )
     }
 }
 struct AirPollutionView: View {
-  var title: String
-  var subtitle: String
-  var description: String
+    var title: String
+    var subtitle: String
+    var description: String
     var body: some View {
-      VStack(alignment: .leading) {
-        ButtonHeader(text: "Air Quality".uppercased(), systemImage: "aqi.medium")
-        HeaderDivider()
-        ButtonSubtitle(text: subtitle)
-        ButtonDescription(text: description)
-        //agregar la grafica y modificar su valor dependiendo de airpollution.indexRectangle()
-        Rectangle()
-            .fill(LinearGradient(
-              gradient: .init(colors: [Color.red, Color.blue]),
-              startPoint: .init(x: 0.5, y: 0),
-              endPoint: .init(x: 0.5, y: 0.6)
-            ))
-            .frame(width: 300, height: 10)
-          .frame(width: 300, height: 30)
-          
-      }
-      .frame(maxWidth: 350)
+        VStack(alignment: .leading) {
+            ButtonHeader(text: "Air Quality".uppercased(), systemImage: "aqi.medium")
+            HeaderDivider()
+            ButtonSubtitle(text: subtitle)
+            ButtonDescription(text: description)
+            //agregar la grafica y modificar su valor dependiendo de airpollution.indexRectangle()
+            Rectangle()
+                .fill(LinearGradient(
+                    gradient: .init(colors: [Color.red, Color.blue]),
+                    startPoint: .init(x: 0.5, y: 0),
+                    endPoint: .init(x: 0.5, y: 0.6)
+                ))
+                .frame(width: 300, height: 10)
+                .frame(width: 300, height: 30)
+            
+        }
+        .frame(maxWidth: 350)
         .multilineTextAlignment(.leading)
         .padding()
         .background(.ultraThinMaterial)
@@ -255,10 +257,13 @@ struct AirPollutionView: View {
 
 struct ButtonsView: View {
     var body: some View {
-        Wind(title: "Wind", description: "0mm", degrees: "90")
-            .modifier(ExtraInfoButton())
-//        XMarkButton()
-      AirPollutionView(title: "", subtitle: "", description: "")
+        ZStack {
+            Color(.blue)
+            Wind(title: "Wind", description: "0mm", degrees: "90")
+                .modifier(ExtraInfoButton())
+        }
+        //        XMarkButton()
+        AirPollutionView(title: "", subtitle: "", description: "")
     }
 }
 

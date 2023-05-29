@@ -80,7 +80,7 @@ struct UvIndexExtraInfo: View {
                         }
                         .foregroundColor(.white)
                     }
-                }
+                }	
                 
             }
             .navigationBarTitleDisplayMode(.inline)

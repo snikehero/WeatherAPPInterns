@@ -137,7 +137,7 @@ struct GerardoView: View {
                             UvIndexExtraInfo(isUVIndexShowing: $isUVIndexShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Sun protection recommended. Levels of Moderate or higher are reached from 9:00 to 18:00.", uvIndex: "3", uvIndexDescription: "Moderate")
                         }
                     }
-                    
+                    Spacer()
                 }
                 
             }
