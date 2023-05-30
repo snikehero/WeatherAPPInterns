@@ -26,91 +26,91 @@ struct ExtraInfoButton: ViewModifier {
 }
 
 struct HourlyView: View{
-  @Binding var forecasts: [ForecastViewModel]
-  var testing = false
-  var body: some View{
-    VStack{
-      ButtonDescription(text: "\(forecasts.first?.weatherDescription ?? "Cloudy conditions") expected")
-      HeaderDivider()
-      ScrollView(.horizontal, showsIndicators: false){
-        HStack{
-          
-          ForEach($forecasts, id: \.id) { element in
-            VStack(spacing: 10) {
-              NormalText(text: element.wrappedValue.hourDay)
-              NormalText(text: element.wrappedValue.emoji)
-              NormalText(text: "\(element.wrappedValue.high)º")
+    @Binding var forecasts: [ForecastViewModel]
+    var testing = false
+    var body: some View{
+        VStack{
+            ButtonDescription(text: "\(forecasts.first?.weatherDescription ?? "Cloudy conditions") expected")
+            HeaderDivider()
+            ScrollView(.horizontal, showsIndicators: false){
+                HStack{
+                    
+                    ForEach($forecasts, id: \.id) { element in
+                        VStack(spacing: 10) {
+                            NormalText(text: element.wrappedValue.hourDay)
+                            NormalText(text: element.wrappedValue.emoji)
+                            NormalText(text: "\(element.wrappedValue.high)º")
+                        }
+                    }
+                }
+                .onAppear() {
+                    if(testing == false)
+                    {
+                        //forecasts.getWeatherForecast()
+                        
+                    }
+                }
+                
             }
-          }
         }
-        .onAppear() {
-          if(testing == false)
-          {
-            //forecasts.getWeatherForecast()
-            
-          }
-        }
-        
-      }
+        .padding()
+        .background(.ultraThinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 15))
     }
-    .padding()
-    .background(.ultraThinMaterial)
-    .clipShape(RoundedRectangle(cornerRadius: 15))
-  }
 }
 struct SummaryView: View{
-  @Binding var forecasts: [ForecastViewModel]
-  var cityName: String
-   var body: some View{
-         VStack{
+    @Binding var forecasts: [ForecastViewModel]
+    var cityName: String
+    var body: some View{
+        VStack{
             TitleText(text: cityName)
-           BigNumberText(text: "\(forecasts.first?.current ?? "0")º")
+            BigNumberText(text: "\(forecasts.first?.current ?? "0")º")
             HStack{
-              ButtonSubtitle(text: "Low: \(forecasts.first?.low ?? "0")º")
+                ButtonSubtitle(text: "Low: \(forecasts.first?.low ?? "0")º")
                     .shadow(color: .black ,radius: 15, x: 2, y: 2)
-              ButtonSubtitle(text: "High: \(forecasts.first?.high ?? "0")º")
+                ButtonSubtitle(text: "High: \(forecasts.first?.high ?? "0")º")
                     .shadow(color: .black ,radius: 15, x: 2, y: 2)
             }
-      }
-     
-
-   }
+        }
+        
+        
+    }
 }
 struct DaysView: View{
-  @Binding var dailyForecasts: [DailyForecastViewModel]
-   var body: some View{
-     ForEach($dailyForecasts, id: \.id) { element in
-       VStack{
-         Button {
-         } label: {
-           HStack{
-             //day
-             NormalText(text: element.wrappedValue.day)
-             Spacer()
-             //emoji
-             NormalText(text: element.wrappedValue.emoji)
-             Spacer()
-             //minTemp
-             NormalText(text: element.wrappedValue.minTemp)
-             Spacer()
-             NormalText(text: "------")
-             Spacer()
-             //maxtemp
-             NormalText(text: element.wrappedValue.maxTemp)
-           }
-         }
-       }
-     }
+    @Binding var dailyForecasts: [DailyForecastViewModel]
+    var body: some View{
+        ForEach($dailyForecasts, id: \.id) { element in
+            VStack{
+                Button {
+                } label: {
+                    HStack{
+                        //day
+                        NormalText(text: element.wrappedValue.day)
+                        Spacer()
+                        //emoji
+                        NormalText(text: element.wrappedValue.emoji)
+                        Spacer()
+                        //minTemp
+                        NormalText(text: element.wrappedValue.minTemp)
+                        Spacer()
+                        NormalText(text: "------")
+                        Spacer()
+                        //maxtemp
+                        NormalText(text: element.wrappedValue.maxTemp)
+                    }
+                }
+            }
+        }
     }
 }
 struct AirPollutionView: View {
-  @Binding var airPollution: [AirPollutionViewModel]
+    @Binding var airPollution: [AirPollutionViewModel]
     var body: some View {
         VStack(alignment: .leading) {
             ButtonHeader(text: "Air Quality".uppercased(), systemImage: "aqi.medium")
             HeaderDivider()
-          ButtonSubtitle(text: airPollution.first?.index ?? "0")
-          ButtonDescription(text: airPollution.first?.airPollutionDescription ?? "0")
+            ButtonSubtitle(text: airPollution.first?.index ?? "0")
+            ButtonDescription(text: airPollution.first?.airPollutionDescription ?? "0")
             //agregar la grafica y modificar su valor dependiendo de airpollution.indexRectangle()
             Rectangle()
                 .fill(LinearGradient(
@@ -132,16 +132,16 @@ struct AirPollutionView: View {
 }
 //Buttons View
 struct UVIndex: View {
-  @Binding var dailyForecasts: [DailyForecastViewModel]
+    @Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         
         VStack(alignment: .leading) {
             ButtonHeader(text: "UV INDEX", systemImage: "sun.max.fill")
             
             HeaderDivider()
-          ButtonTitle(text: dailyForecasts.first?.uvi ?? "UVI")
-          ButtonSubtitle(text: dailyForecasts.first?.subtitle ?? "Subitle")
-          ButtonDescription(text: dailyForecasts.first?.description ?? "Description")
+            ButtonTitle(text: dailyForecasts.first?.uvi ?? "UVI")
+            ButtonSubtitle(text: dailyForecasts.first?.subtitle ?? "Subitle")
+            ButtonDescription(text: dailyForecasts.first?.description ?? "Description")
             Spacer()
         }
         .padding()
@@ -167,8 +167,8 @@ struct Sunset: View {
 }
 
 struct Wind: View {
-  @Binding var forecasts: [ForecastViewModel]
-  @Binding var dailyForecasts: [DailyForecastViewModel]
+    @Binding var forecasts: [ForecastViewModel]
+    @Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         
         ZStack {
@@ -177,14 +177,14 @@ struct Wind: View {
                 .frame(maxWidth: 130, maxHeight: 130)
                 .padding(.top, 30)
             Image("Arrow")
-            .rotationEffect(.degrees(Double(dailyForecasts.first?.windDeg ?? "0") ?? 0))
+                .rotationEffect(.degrees(Double(dailyForecasts.first?.windDeg ?? "0") ?? 0))
                 .padding(.top, 15)
             Text("34")
                 .foregroundColor(.white)
                 .font(.title)
                 .fontWeight(.bold)
                 .padding(.top, 25)
-
+            
             VStack {
                 HStack {
                     ButtonHeader(text: "WIND", systemImage: "wind")
@@ -202,8 +202,8 @@ struct Wind: View {
 }
 
 struct Precipitation: View {
-  @Binding var forecasts: [ForecastViewModel]
-  @Binding var dailyForecasts: [DailyForecastViewModel]
+    @Binding var forecasts: [ForecastViewModel]
+    @Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         VStack (alignment: .leading){
             HStack {
@@ -211,10 +211,10 @@ struct Precipitation: View {
                 Spacer()
             }
             HeaderDivider()
-          ButtonTitle(text: dailyForecasts.first?.pop ?? "Precipitation")
-          ButtonSubtitle(text: "in last 24 h")
+            ButtonTitle(text: dailyForecasts.first?.pop ?? "Precipitation")
+            ButtonSubtitle(text: "in last 24 h")
             Spacer()
-          ButtonDescription(text: forecasts.first?.popDescription ?? "POP description")
+            ButtonDescription(text: forecasts.first?.popDescription ?? "POP description")
             
             Spacer()
         }.padding()
@@ -222,18 +222,18 @@ struct Precipitation: View {
 }
 
 struct FeelsLike: View {
-  @Binding var forecasts: [ForecastViewModel]
-
-      var body: some View {
+    @Binding var forecasts: [ForecastViewModel]
+    
+    var body: some View {
         VStack (alignment: .leading){
             HStack {
                 ButtonHeader(text: "FEELS LIKE", systemImage: "thermometer.medium")
                 Spacer()
             }
             HeaderDivider()
-          ButtonTitle(text: forecasts.first?.fellsLike ?? "feelslike")
+            ButtonTitle(text: forecasts.first?.fellsLike ?? "feelslike")
             Spacer()
-          ButtonDescription(text: forecasts.first?.feelsLikeDescription ?? "feelslikedescription")
+            ButtonDescription(text: forecasts.first?.feelsLikeDescription ?? "feelslikedescription")
             
             Spacer()
         }.padding()
@@ -241,8 +241,8 @@ struct FeelsLike: View {
 }
 
 struct Humidity: View {
-  @Binding var forecasts: [ForecastViewModel]
-  @Binding var dailyForecasts: [DailyForecastViewModel]
+    @Binding var forecasts: [ForecastViewModel]
+    @Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         VStack (alignment: .leading){
             HStack {
@@ -250,17 +250,17 @@ struct Humidity: View {
                 Spacer()
             }
             HeaderDivider()
-          ButtonTitle(text: dailyForecasts.first?.humidity ?? "Humidity")
+            ButtonTitle(text: dailyForecasts.first?.humidity ?? "Humidity")
             Spacer()
             
-          ButtonDescription(text: "The dew point is \(dailyForecasts.first?.dew_point ?? "0")º right now.")
+            ButtonDescription(text: "The dew point is \(dailyForecasts.first?.dew_point ?? "0")º right now.")
             Spacer()
         }.padding()
     }
 }
 
 struct Visibility: View {
-  @Binding var forecasts: [ForecastViewModel]
+    @Binding var forecasts: [ForecastViewModel]
     var body: some View {
         VStack (alignment: .leading){
             HStack {
@@ -268,10 +268,10 @@ struct Visibility: View {
                 Spacer()
             }
             HeaderDivider()
-          ButtonTitle(text: forecasts.first?.visibility ?? "Visibility")
+            ButtonTitle(text: forecasts.first?.visibility ?? "Visibility")
             Spacer()
             
-          ButtonDescription(text: forecasts.first?.visibilityDescription ??  "Visibility Description")
+            ButtonDescription(text: forecasts.first?.visibilityDescription ??  "Visibility Description")
             
             Spacer()
         }.padding()
@@ -279,8 +279,8 @@ struct Visibility: View {
 }
 
 struct Pressure: View {
-  @Binding var forecasts: [ForecastViewModel]
-  @Binding var dailyForecasts: [DailyForecastViewModel]
+    @Binding var forecasts: [ForecastViewModel]
+    @Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         VStack {
             HStack {
@@ -288,8 +288,8 @@ struct Pressure: View {
                 Spacer()
             }
             HeaderDivider()
-          ButtonTitle(text: dailyForecasts.first?.pressure ?? "Pressure")
-          ButtonDescription(text: forecasts.first?.pressureDescription ?? "Pressure Description")
+            ButtonTitle(text: dailyForecasts.first?.pressure ?? "Pressure")
+            ButtonDescription(text: forecasts.first?.pressureDescription ?? "Pressure Description")
             
             Spacer()
         }.padding()
@@ -326,20 +326,66 @@ struct SelectedRoundedFill: View {
 }
 
 struct ExtraInfoScreenPicker: View {
-  @State var selectedInfo: String
-  var body: some View {
-    Picker("Picker", selection: $selectedInfo) {
-      ForEach(ExtraInfo.allCases){e in
-        Text("\(e.rawValue)").tag(e.rawValue)
-      }
-    }.foregroundColor(.white)
-  }
+    @State var selectedInfo: String
+    var body: some View {
+        Picker("Picker", selection: $selectedInfo) {
+            ForEach(ExtraInfo.allCases){e in
+                Text("\(e.rawValue)").tag(e.rawValue)
+            }
+        }.foregroundColor(.white)
+    }
+}
+
+struct AirQualitySlider: View {
+    @Binding var value: Double
+    
+    @State var lastCoordinateValue: CGFloat = 0.0
+    
+    var body: some View {
+        GeometryReader { gr in
+            let thumbSize = gr.size.height * 0.8
+            let radius = gr.size.height * 0.5
+            let minValue = gr.size.width * 0.015
+            let maxValue = (gr.size.width * 0.98) - thumbSize
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: radius)
+                    .fill(
+                        LinearGradient(gradient: Gradient(colors: [.green, .yellow, .orange, .red, .purple]), startPoint: .leading, endPoint: .trailing)
+                    )
+                HStack {
+                    Circle()
+                        .foregroundColor(Color.white)
+                        .frame(width: thumbSize, height: thumbSize)
+                        .offset(x: (self.value * 29))
+                        .gesture(
+                            DragGesture(minimumDistance: 0)
+                                .onChanged { v in
+                                    if (abs(v.translation.width) < 0.1) {
+                                        self.lastCoordinateValue = self.value
+                                    }
+                                    if v.translation.width > 0 {
+                                        self.value = min(maxValue, self.lastCoordinateValue + v.translation.width)
+                                    } else {
+                                        self.value = max(minValue, self.lastCoordinateValue + v.translation.width)
+                                    }
+                                    
+                                }
+                        )
+                    Spacer()
+                }
+            }
+        }
+        .frame(width: 300, height: 10)
+    }
 }
 
 struct ButtonsView: View {
+    static private var value = Binding.constant(5.0)
     var body: some View {
         ZStack {
-            Color(.blue)
+            
+            AirQualitySlider(value: ButtonsView.value)
         }
         
         
