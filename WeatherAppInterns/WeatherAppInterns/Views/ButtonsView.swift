@@ -281,8 +281,10 @@ struct Pressure: View {
                 Spacer()
             }
             HeaderDivider()
-            ButtonTitle(text: dailyForecasts.first?.pressure ?? "Pressure")
-            ButtonDescription(text: forecasts.first?.pressureDescription ?? "Pressure Description")
+            Spacer()
+//            ButtonTitle(text: dailyForecasts.first?.pressure ?? "Pressure")
+//            ButtonDescription(text: forecasts.first?.pressureDescription ?? "Pressure Description")
+            PressureGauge(value: dailyForecasts.first?.pressure ?? "1000")
             
             Spacer()
         }.padding()
@@ -343,12 +345,34 @@ struct AirQualitySlider: View {
     }
 }
 
+struct PressureGauge: View {
+    var value: String
+    
+    var body: some View{
+        let valueDouble = Double(value) ?? 0.0
+        
+            Gauge(value: valueDouble, in: 0...2000) {
+                Text("Label")
+            } currentValueLabel: {
+                Text(value)
+            } minimumValueLabel: {
+                Text("L")
+            } maximumValueLabel: {
+                Text("H")
+            }
+            .gaugeStyle(.accessoryCircular)
+            .tint(.white)
+            .scaleEffect(1.8)
+        
+    }
+}
+
 struct ButtonsView: View {
     
     var body: some View {
         ZStack {
-            AirQualitySlider(value: "2.5")
-//            PressureGauge(value: "2.5")
+//            AirQualitySlider(value: "2.5")
+            PressureGauge(value: "1010")
         }
         
         
