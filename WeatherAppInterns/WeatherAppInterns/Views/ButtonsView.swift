@@ -352,7 +352,7 @@ struct PressureGauge: View {
         let valueDouble = Double(value) ?? 0.0
         
             Gauge(value: valueDouble, in: 0...2000) {
-                Text("Label")
+                Text("Pressure")
             } currentValueLabel: {
                 Text(value)
             } minimumValueLabel: {
@@ -367,12 +367,40 @@ struct PressureGauge: View {
     }
 }
 
+struct TempSlider: View {
+    var value: String
+    var minValue: String
+    var maxValue: String
+    
+    
+    var body: some View{
+        let valueDouble = Double(value) ?? 0.0
+        let minValueDouble = Double(minValue) ?? 0.0
+        let maxValueDouble = Double(maxValue) ?? 0.0
+        let colors: [Color] = maxValueDouble <= 15 ? [Color(hue: 0.583, saturation: 0.82, brightness: 0.88)] : [.yellow, .orange, .red]
+        
+            Gauge(value: valueDouble, in: minValueDouble...maxValueDouble) {
+                Text("Temperature \(value)")
+            } currentValueLabel: {
+                Text(value)
+            } minimumValueLabel: {
+                Text("\(minValue)º")
+            } maximumValueLabel: {
+                Text("\(maxValue)º")
+            }
+            .gaugeStyle(.accessoryLinear)
+            .tint(Gradient(colors: colors))
+            .frame(width: 300)
+    }
+}
+
 struct ButtonsView: View {
     
     var body: some View {
         ZStack {
 //            AirQualitySlider(value: "2.5")
-            PressureGauge(value: "1010")
+//            PressureGauge(value: "1010")
+            TempSlider(value: "200", minValue: "10", maxValue: "28")
         }
         
         
