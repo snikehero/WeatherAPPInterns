@@ -72,7 +72,7 @@ struct DemoView3: View {
                     .padding()
                   }
                 }
-                HStack (spacing: 15){
+                HStack {
                   Button{
                     print("UVIndex")
                     selectedSheet = .uvIndex

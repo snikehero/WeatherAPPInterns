@@ -332,31 +332,14 @@ struct ExtraInfoScreenPicker: View {
 struct AirQualitySlider: View {
     var value: String
     
-    @State var lastCoordinateValue: CGFloat = 0.0
-    
-    var body: some View {
+    var body: some View{
         var valueDouble = Double(value) ?? 0.0
-        GeometryReader { gr in
-            let thumbSize = gr.size.height * 0.8
-            let radius = gr.size.height * 0.5
-            let minValue = gr.size.width * 0.015
-            let maxValue = (gr.size.width * 0.98) - thumbSize
-            
-            ZStack {
-                RoundedRectangle(cornerRadius: radius)
-                    .fill(
-                        LinearGradient(gradient: Gradient(colors: [.green, .yellow, .orange, .red, .purple]), startPoint: .leading, endPoint: .trailing)
-                    )
-                HStack {
-                    Circle()
-                        .foregroundColor(Color.white)
-                        .frame(width: thumbSize, height: thumbSize)
-                        .offset(x: valueDouble == 1 ? 0 : (valueDouble * 290) / 5)
-                    Spacer()
-                }
-            }
+        Gauge(value: valueDouble, in: 0...5) {
+            Text("Label")
         }
-        .frame(width: 300, height: 10)
+        .gaugeStyle(.accessoryLinear)
+        .tint(Gradient(colors: [.green, .yellow, .orange, .red, .purple]))
+        .frame(width: 300)
     }
 }
 
@@ -364,8 +347,8 @@ struct ButtonsView: View {
     
     var body: some View {
         ZStack {
-            
             AirQualitySlider(value: "2.5")
+//            PressureGauge(value: "2.5")
         }
         
         
