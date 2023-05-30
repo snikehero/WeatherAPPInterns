@@ -61,6 +61,8 @@
 		E63D67782A16AECE00DD8852 /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63D67772A16AECE00DD8852 /* ButtonsView.swift */; };
 		E69E0DE52A2024D600F434E9 /* SootyCloudy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E69E0DE42A2024D600F434E9 /* SootyCloudy.mp4 */; };
 		E6E1A3742A25489700B1AF09 /* showingSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E1A3732A25489700B1AF09 /* showingSheets.swift */; };
+		E6E1A37A2A2653D400B1AF09 /* ExtraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E1A3792A2653D400B1AF09 /* ExtraInfo.swift */; };
+		E6E1A37B2A2653D400B1AF09 /* ExtraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E1A3792A2653D400B1AF09 /* ExtraInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +144,7 @@
 		E63D67772A16AECE00DD8852 /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
 		E69E0DE42A2024D600F434E9 /* SootyCloudy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SootyCloudy.mp4; sourceTree = "<group>"; };
 		E6E1A3732A25489700B1AF09 /* showingSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showingSheets.swift; sourceTree = "<group>"; };
+		E6E1A3792A2653D400B1AF09 /* ExtraInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +292,7 @@
 				E6E1A3732A25489700B1AF09 /* showingSheets.swift */,
 				4AEE291D2A15C05000C37B31 /* Forecast.swift */,
 				4A71016C2A1E8CE900E56F0A /* AirPollution.swift */,
+				E6E1A3792A2653D400B1AF09 /* ExtraInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -454,6 +458,7 @@
 				4268E05E2A13E82700FB403C /* AngelView.swift in Sources */,
 				E61535E32A1E74BA0063BC53 /* WindExtraInfo.swift in Sources */,
 				4AEE291C2A15C03000C37B31 /* ApiService.swift in Sources */,
+				E6E1A37A2A2653D400B1AF09 /* ExtraInfo.swift in Sources */,
 				E61535E52A1E74CA0063BC53 /* FeelsLikeExtraInfo.swift in Sources */,
 				7114EB8A2A2006C000F6F684 /* WeatherWidget.intentdefinition in Sources */,
 				42B5E9782A1EEEBE00EE653B /* BackgroundView.swift in Sources */,
@@ -475,6 +480,7 @@
 				7114EB802A2006BE00F6F684 /* WeatherWidgetBundle.swift in Sources */,
 				7114EB822A2006BE00F6F684 /* WeatherWidgetLiveActivity.swift in Sources */,
 				7114EB842A2006BE00F6F684 /* WeatherWidget.swift in Sources */,
+				E6E1A37B2A2653D400B1AF09 /* ExtraInfo.swift in Sources */,
 				7114EB892A2006C000F6F684 /* WeatherWidget.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
