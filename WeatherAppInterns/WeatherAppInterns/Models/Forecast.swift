@@ -66,3 +66,9 @@ struct Forecast: Decodable {
     case city = "city"
   }
 }
+
+extension Forecast {
+  static var mock: Self {
+    .init(list: [List.init(dt: 0, main: List.Main(temp: 0, feels_like: 0, temp_min: 0, temp_max: 0, pressure: 0, sea_level: 0, grnd_level: 0, humidity: 0), weather: [List.Weather(id: 0, main: "0", description: "0", icon: "0")], clouds: List.Clouds(all: 0), wind: List.Wind(speed: 0, deg: 0, gust: 0), pop: 0, visibility: 0)], city: City.init(id: 0, name: "Mexico", sunrise: 0, sunset: 0))
+  }
+}

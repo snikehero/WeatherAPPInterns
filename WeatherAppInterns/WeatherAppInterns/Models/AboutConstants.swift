@@ -15,4 +15,5 @@ enum AboutConstants: String {
     case humidity = "Relative humidity, commonly known just as humidity, is the amount of moisture in the air compared to what the air can hold. The air can hold more moisture at higher temperatures. A relative humidity near 100% means there may be dew or fog"
     case dewPoint = "The dew point is what the temperature would need to fall to for dew to form. Itt can be a useful way to tell how humid the air feels - the higher the dew point, the more humid it feels. A dew point that matches the current temperature means the relative humidity is 100%, and there may be dew or fog"
     case pressure = "Signifcant, rapid changes in pressure are used to predict changes in the weather. For example, a drop in pressure can mean that rain or snow is on the way, and rising pressure can mean that weather will improve. Pressure is also called barometric pressure or atmospheric pressure."
+    case airQuality = "PM2.5 particles are small enough to enter the bloodstream and tipycally result from wildfires, smokestacks, bateria, or small dust particles."
 }

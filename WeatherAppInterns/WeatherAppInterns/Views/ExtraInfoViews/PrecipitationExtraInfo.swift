@@ -148,8 +148,10 @@ struct PrecipitationExtraInfo: View {
 
 struct ExtraInfoView_Previews: PreviewProvider {
   static private var isShowing = Binding.constant(false)
+  //@Binding var forecasts = [ForecastViewModel.mock]
+  //@Binding var dailyForecasts = [DailyForecastViewModel.mock]
   static var previews: some View {
-    //PrecipitationExtraInfo(isShowing: isShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "There has been 0 mm of precipitation in the last 24 hours. Today's total precipitation will be 0 mm", precipitation: "0mm")
+    //PrecipitationExtraInfo(isShowing: isShowing, forecasts: forecasts, dailyForecasts: dailyForecasts)
     Text("Test")
   }
 }

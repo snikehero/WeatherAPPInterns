@@ -10,7 +10,7 @@ import CoreLocation
 import SwiftUI
 class AirPollutionListViewModel: ObservableObject {
   var coordinates: (lat: Double, lon: Double) = (0,0)
-  @Published var airPollutions: [AirPollutionViewModel] = []
+  @Published var airPollutions: [AirPollutionViewModel] = [AirPollutionViewModel.mock]
   @AppStorage ("location") var location: String = ""
   init() {
     if location != "" {
