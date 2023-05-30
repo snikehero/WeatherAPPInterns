@@ -10,7 +10,7 @@ import CoreLocation
 import SwiftUI
 class DailyForecastListViewmodel: ObservableObject {
   var coordinates: (lat: Double, lon: Double) = (0,0)
-  @Published var dailyForecasts: [DailyForecastViewModel] = []
+  @Published var dailyForecasts: [DailyForecastViewModel] = [DailyForecastViewModel.mock, DailyForecastViewModel.mock,DailyForecastViewModel.mock, DailyForecastViewModel.mock,DailyForecastViewModel.mock, DailyForecastViewModel.mock,DailyForecastViewModel.mock]
   private let APIKEY = "be2939953972b861ba74daace3cb370d"
   @AppStorage ("location") var location: String = ""
   var units: String = "metric"

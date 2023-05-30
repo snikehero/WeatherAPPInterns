@@ -210,3 +210,8 @@ struct ForecastViewModel {
     }
 
 }
+extension ForecastViewModel {
+    static var mock: Self {
+    .init(forecast: Forecast.List(dt: 0, main: Forecast.List.Main(temp: 0, feels_like: 0, temp_min: 0, temp_max: 0, pressure: 0, sea_level: 0, grnd_level: 0, humidity: 0), weather: [Forecast.List.Weather(id: 0, main: "", description: "", icon: "")], clouds: Forecast.List.Clouds(all: 0), wind: Forecast.List.Wind(speed: 0, deg: 0, gust: 0), pop: 0, visibility: 0))
+  }
+}

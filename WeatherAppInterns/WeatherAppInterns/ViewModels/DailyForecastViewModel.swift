@@ -10,6 +10,8 @@ import Foundation
 
 struct DailyForecastViewModel {
   let dailyForecast: DailyForecast.Daily
+  
+  
   private static var dateFormatterDayNumber: DateFormatter {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "d"
@@ -37,14 +39,6 @@ struct DailyForecastViewModel {
     numberFormatter.numberStyle = .percent
     return numberFormatter
   }
-//  func convert(_ temp: Double) -> Double {
-//    let celsius = temp - 273.5
-//    if system == 0 {
-//      return celsius
-//    } else {
-//      return celsius * 9 / 5 + 32
-//    }
-//  }
   var id: UUID {
     return UUID()
   }
@@ -179,4 +173,9 @@ struct DailyForecastViewModel {
     }
     }
   
+}
+extension DailyForecastViewModel {
+  static var mock: Self {
+    .init(dailyForecast: DailyForecast.Daily(dt: 0, pressure: 0, humidity: 0, dew_point: 0, wind_speed: 0, wind_deg: 0, wind_gust: 0, pop: 0, uvi: 0, weather: [DailyForecast.Daily.weather(id: 0, main: "", description: "")], temp: DailyForecast.Daily.temp(min: 0, max: 0, day: 0)))
+  }
 }

@@ -10,8 +10,8 @@ import CoreLocation
 import SwiftUI
 class ForecastListViewModel: ObservableObject {
   var coordinates: (lat: Double, lon: Double) = (0,0)
-  @Published var forecasts: [ForecastViewModel] = []
-  @Published var city: CityViewModel = .init(city: .init(id: 0, name: "", sunrise: 0, sunset: 0))
+  @Published var forecasts: [ForecastViewModel] = [ForecastViewModel.mock,ForecastViewModel.mock,ForecastViewModel.mock,ForecastViewModel.mock,ForecastViewModel.mock,ForecastViewModel.mock,ForecastViewModel.mock] 
+  @Published var city: CityViewModel = CityViewModel.mock
   @AppStorage ("location") var location: String = ""
   init() {
     if location != "" {

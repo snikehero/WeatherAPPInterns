@@ -24,4 +24,11 @@ struct CityViewModel {
      return ("\(Self.dateFormatter.string(from: NSDate(timeIntervalSince1970: city.sunset) as Date))")
      //return ("\(Self.dateFormatter.string(for: city.sunset) ?? "0")")
    }
+ 
+}
+extension CityViewModel {
+  static var mock: Self {
+    .init(city: Forecast.City(id: 0, name: "0", sunrise: 0, sunset: 0))
+  }
+  
 }

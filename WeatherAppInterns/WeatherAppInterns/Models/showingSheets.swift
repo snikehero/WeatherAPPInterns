@@ -8,5 +8,5 @@
 import Foundation
 
 enum showingSheets{
-    case precipitation, visibility, wind, uvIndex, feelsLike, humidity, pressure
+    case precipitation, visibility, wind, uvIndex, feelsLike, humidity, pressure, airQuality
 }
