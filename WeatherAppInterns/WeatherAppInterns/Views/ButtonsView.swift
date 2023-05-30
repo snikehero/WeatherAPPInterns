@@ -112,14 +112,7 @@ struct AirPollutionView: View {
             ButtonSubtitle(text: airPollution.first?.index ?? "0")
             ButtonDescription(text: airPollution.first?.airPollutionDescription ?? "0")
             //agregar la grafica y modificar su valor dependiendo de airpollution.indexRectangle()
-            Rectangle()
-                .fill(LinearGradient(
-                    gradient: .init(colors: [Color.red, Color.blue]),
-                    startPoint: .init(x: 0.5, y: 0),
-                    endPoint: .init(x: 0.5, y: 0.6)
-                ))
-                .frame(width: 300, height: 10)
-                .frame(width: 300, height: 30)
+            AirQualitySlider(value: airPollution.first?.index ?? "0")
             
         }
         .frame(maxWidth: 350)
