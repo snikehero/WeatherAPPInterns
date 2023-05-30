@@ -30,7 +30,7 @@ struct HourlyView: View{
   var testing = false
   var body: some View{
     VStack{
-      ButtonDescription(text: "Cloudy conditions expected ")
+      ButtonDescription(text: "\(forecasts.first?.weatherDescription ?? "Cloudy conditions") expected")
       HeaderDivider()
       ScrollView(.horizontal, showsIndicators: false){
         HStack{
@@ -38,7 +38,7 @@ struct HourlyView: View{
           ForEach($forecasts, id: \.id) { element in
             VStack(spacing: 10) {
               NormalText(text: element.wrappedValue.hourDay)
-              NormalText(text: "☀️")
+              NormalText(text: element.wrappedValue.emoji)
               NormalText(text: "\(element.wrappedValue.high)º")
             }
           }
@@ -88,7 +88,7 @@ struct DaysView: View{
              NormalText(text: element.wrappedValue.day)
              Spacer()
              //emoji
-             NormalText(text: "☀️")
+             NormalText(text: element.wrappedValue.emoji)
              Spacer()
              //minTemp
              NormalText(text: element.wrappedValue.minTemp)
@@ -168,6 +168,7 @@ struct Sunset: View {
 
 struct Wind: View {
   @Binding var forecasts: [ForecastViewModel]
+  @Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         
         ZStack {
@@ -176,7 +177,7 @@ struct Wind: View {
                 .frame(maxWidth: 130, maxHeight: 130)
                 .padding(.top, 30)
             Image("Arrow")
-            .rotationEffect(.degrees(Double(forecasts.first?.windDeg ?? "0") ?? 0))
+            .rotationEffect(.degrees(Double(dailyForecasts.first?.windDeg ?? "0") ?? 0))
                 .padding(.top)
             Text("34")
                 .foregroundColor(.white)
@@ -201,6 +202,7 @@ struct Wind: View {
 
 struct Precipitation: View {
   @Binding var forecasts: [ForecastViewModel]
+  @Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         VStack (alignment: .leading){
             HStack {
@@ -208,7 +210,7 @@ struct Precipitation: View {
                 Spacer()
             }
             HeaderDivider()
-          ButtonTitle(text: forecasts.first?.precipitation ?? "Precipitation")
+          ButtonTitle(text: dailyForecasts.first?.pop ?? "Precipitation")
           ButtonSubtitle(text: "in last 24 h")
             Spacer()
           ButtonDescription(text: forecasts.first?.popDescription ?? "POP description")
@@ -239,6 +241,7 @@ struct FeelsLike: View {
 
 struct Humidity: View {
   @Binding var forecasts: [ForecastViewModel]
+  @Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         VStack (alignment: .leading){
             HStack {
@@ -246,10 +249,10 @@ struct Humidity: View {
                 Spacer()
             }
             HeaderDivider()
-            ButtonTitle(text: forecasts.first?.humidity ?? "Humidity")
+          ButtonTitle(text: dailyForecasts.first?.humidity ?? "Humidity")
             Spacer()
             
-            ButtonDescription(text: "The dew point is 4º right now.")
+          ButtonDescription(text: "The dew point is \(dailyForecasts.first?.dew_point ?? "0")º right now.")
             Spacer()
         }.padding()
     }
@@ -276,6 +279,7 @@ struct Visibility: View {
 
 struct Pressure: View {
   @Binding var forecasts: [ForecastViewModel]
+  @Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         VStack {
             HStack {
@@ -283,7 +287,7 @@ struct Pressure: View {
                 Spacer()
             }
             HeaderDivider()
-          ButtonTitle(text: forecasts.first?.pressure ?? "Pressure")
+          ButtonTitle(text: dailyForecasts.first?.pressure ?? "Pressure")
           ButtonDescription(text: forecasts.first?.pressureDescription ?? "Pressure Description")
             
             Spacer()

@@ -10,13 +10,8 @@ import SwiftUI
 struct PressureExtraInfo: View {
     @Binding var isShowing : Bool
     @State private var selectedTab = 0
-
-    var currentDay: String
-    var numberDay: Int
-    var date: Date
-    var dailySummary: String
-    var pressure: String
-    
+    @Binding var forecasts: [ForecastViewModel]
+    @Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         NavigationStack{
             ZStack{
@@ -28,18 +23,18 @@ struct PressureExtraInfo: View {
                         VStack {
                             ScrollView(.horizontal, showsIndicators: false){
                                 HStack {
-                                    ForEach(0..<10) { element in
+                                    ForEach(0..<7) { element in
                                         VStack(spacing : 1){
-                                            Text(currentDay)
+                                            Text(dailyForecasts[element].exactDayName)
                                                 .fontWeight(.semibold)
                                             Button(action: {
                                                 selectedTab = element // Cambiar a la pestaña 0
                                             }) {
                                                 if selectedTab == element {
-                                                    SelectedRoundedFill(text: String(numberDay))
+                                                    SelectedRoundedFill(text: String(dailyForecasts[element].dayNumber))
                                                 } else {
                                                     
-                                                    Text(String(numberDay))
+                                                    Text(String(dailyForecasts[element].dayNumber))
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(.white)
                                                         .padding()
@@ -54,7 +49,7 @@ struct PressureExtraInfo: View {
                             HeaderDivider().padding()
                             HStack {
                                 VStack (alignment: .leading){
-                                    ButtonTitle(text: "\(pressure) hPa")
+                                  ButtonTitle(text: "\(dailyForecasts[selectedTab].pressure) hPa")
 
                                 }
                                 Spacer()
@@ -74,7 +69,7 @@ struct PressureExtraInfo: View {
                             .frame(width: 300, height: 300)
                             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                             
-                            ExtraInfoSection(header: "Daily Summary", text: dailySummary)
+                            ExtraInfoSection(header: "Daily Summary", text: "Pressure is currently \(dailyForecasts[selectedTab].pressure ) hPa and falling. Today, the average pressure will be \(dailyForecasts[selectedTab].pressure) hPa,")
                             ExtraInfoSection(header: "About Pressure", text: AboutConstants.pressure.rawValue)
                         }
                         .foregroundColor(.white)
@@ -102,6 +97,7 @@ struct PressureExtraInfo: View {
 struct PressureExtraInfo_Previews: PreviewProvider {
     static private var isShowing = Binding.constant(false)
     static var previews: some View {
-        PressureExtraInfo(isShowing: isShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Pressure is currently 1,006 hPa and falling. Today, the average pressure will be 1,010 hPa, and the lowest pressure will be 1,006 hPa.", pressure: "String")
+        //PressureExtraInfo(isShowing: isShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Pressure is currently 1,006 hPa and falling. Today, the average pressure will be 1,010 hPa, and the lowest pressure will be 1,006 hPa.", pressure: "String")
+      Text("Prueba")
     }
 }

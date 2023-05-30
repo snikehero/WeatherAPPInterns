@@ -160,6 +160,53 @@ struct ForecastViewModel {
       return "Normal pressure"
     }
   }
-  
+  var emoji: String {
+    switch forecast.weather.first?.main {
+    case "Thunderstorm":
+      return ("⛈️")
+    case "Drizzle":
+      return ("🌧️")
+    case "Rain":
+      return ("☔️")
+    case "Snow":
+      return ("☃️")
+    case "Mist":
+      return ("🌫️")
+    case "Smoke":
+      return ("🌫️")
+    case "Haze":
+      return ("🌫️")
+    case "Dust":
+      return ("🌫️")
+    case "Fog":
+      return ("🌫️")
+    case "Sand":
+      return ("🌫️")
+    case "Ash":
+      return ("🌫️")
+    case "Squall":
+      return ("🌫️")
+    case "Tornado":
+      return ("🌪️")
+    case "Clear":
+      return ("☀️")
+    case "Clouds":
+      switch forecast.weather.first?.description {
+      case "few clouds":
+        return "🌤️"
+      case "scattered clouds":
+        return "☁️"
+      case "broken clouds":
+        return "☁️"
+      case "overcast clouds":
+        return "☁️"
+      default:
+        return "❌"
+      }
+    default:
+      return "❌"
+      
+    }
+    }
 
 }

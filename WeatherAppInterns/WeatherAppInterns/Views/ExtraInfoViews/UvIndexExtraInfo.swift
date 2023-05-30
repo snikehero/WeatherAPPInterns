@@ -10,14 +10,8 @@ import SwiftUI
 struct UvIndexExtraInfo: View {
     @Binding var isShowing : Bool
     @State private var selectedTab = 0
-
-    var currentDay: String
-    var numberDay: Int
-    var date: Date
-    var dailySummary: String
-    var uvIndex: String
-    var uvIndexDescription: String // Calculated value
-    
+    @Binding var forecasts: [ForecastViewModel]
+    @Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         NavigationStack{
             ZStack{
@@ -29,18 +23,18 @@ struct UvIndexExtraInfo: View {
                         VStack {
                             ScrollView(.horizontal, showsIndicators: false){
                                 HStack {
-                                    ForEach(0..<10) { element in
+                                    ForEach(0..<7) { element in
                                         VStack(spacing : 1){
-                                            Text(currentDay)
+                                          Text(dailyForecasts[element].exactDayName)
                                                 .fontWeight(.semibold)
                                             Button(action: {
                                                 selectedTab = element // Cambiar a la pestaña 0
                                             }) {
                                                 if selectedTab == element {
-                                                    SelectedRoundedFill(text: String(numberDay))
+                                                    SelectedRoundedFill(text: String(dailyForecasts[element].dayNumber))
                                                 } else {
                                                     
-                                                    Text(String(numberDay))
+                                                    Text(String(dailyForecasts[element].dayNumber))
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(.white)
                                                         .padding()
@@ -55,7 +49,7 @@ struct UvIndexExtraInfo: View {
                             HeaderDivider().padding()
                             HStack {
                                 VStack (alignment: .leading){
-                                    ButtonTitle(text: "\(uvIndex) \(uvIndexDescription)")
+                                  ButtonTitle(text: "\(dailyForecasts[selectedTab].uvi ) \(dailyForecasts[selectedTab].description )")
                                     ButtonSubtitle(text: "World Health Organization UVI")
                                 }
                                 Spacer()
@@ -75,7 +69,7 @@ struct UvIndexExtraInfo: View {
                             .frame(width: 300, height: 300)
                             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                             
-                            ExtraInfoSection(header: "Daily Summary", text: dailySummary)
+                          ExtraInfoSection(header: "Daily Summary", text: "\(dailyForecasts[selectedTab].description ). Levels of \(dailyForecasts[selectedTab].subtitle ) or higher are reached from 9:00 to 18:00.")
                             ExtraInfoSection(header: "About the UV Index", text: AboutConstants.uvIndex.rawValue)
                         }
                         .foregroundColor(.white)
@@ -105,6 +99,7 @@ struct UvIndexExtraInfo_Previews: PreviewProvider {
     static private var isShowing = Binding.constant(false)
 
     static var previews: some View {
-        UvIndexExtraInfo(isShowing: isShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Sun protection recommended. Levels of Moderate or higher are reached from 9:00 to 18:00.", uvIndex: "3", uvIndexDescription: "Moderate")
+       // UvIndexExtraInfo(isShowing: isShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "Sun protection recommended. Levels of Moderate or higher are reached from 9:00 to 18:00.", uvIndex: "3", uvIndexDescription: "Moderate")
+      Text("hola")
     }
 }

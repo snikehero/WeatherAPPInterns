@@ -10,7 +10,16 @@ import Foundation
 
 struct DailyForecastViewModel {
   let dailyForecast: DailyForecast.Daily
-  
+  private static var dateFormatterDayNumber: DateFormatter {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "d"
+    return dateFormatter
+  }
+  private static var dateFormatterDay: DateFormatter {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "E"
+    return dateFormatter
+  }
   private static var dateFormatter: DateFormatter {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "EEEE"
@@ -39,6 +48,12 @@ struct DailyForecastViewModel {
   var id: UUID {
     return UUID()
   }
+  var exactDayName: String {
+    return "\(Self.dateFormatterDay.string(from: NSDate(timeIntervalSince1970: dailyForecast.dt )as Date))"
+  }
+  var dayNumber: String {
+    return "\(Self.dateFormatterDayNumber.string(from: NSDate(timeIntervalSince1970: dailyForecast.dt) as Date))"
+  }
   var day: String {
     //return Self.dateFormatter.string(from: NSDate(timeIntervalSince1970:(dailyForecast.dt) as Date)
     return "\(Self.dateFormatter.string(from: NSDate(timeIntervalSince1970: dailyForecast.dt) as Date))"
@@ -53,6 +68,35 @@ struct DailyForecastViewModel {
   var uvi: String {
     return "\(Self.numberFormatter.string(for: dailyForecast.uvi) ?? "0")"
     //return "\(dailyForecast.uvi)"
+  }
+//  let pressure: Double
+//  let humidity: Double
+//  let dew_point: Double
+//  let wind_speed: Double
+//  let wind_deg: Double
+//  let wind_gust: Double
+//  let pop: Double
+//  let uvi: Double
+  var humidity: String {
+    return "\(Self.numberFormatter.string(for: dailyForecast.humidity) ?? "0")"
+  }
+  var dew_point: String {
+    return "\(Self.numberFormatter.string(for: dailyForecast.dew_point) ?? "0")"
+  }
+  var pressure: String {
+    return "\(Self.numberFormatter.string(for: dailyForecast.pressure) ?? "0")"
+  }
+  var windSpeed: String {
+    return "\(Self.numberFormatter.string(for: dailyForecast.wind_speed) ?? "0")"
+  }
+  var windDeg: String {
+    return "\(Self.numberFormatter.string(for: dailyForecast.wind_deg) ?? "0")"
+  }
+  var windGust: String {
+    return "\(Self.numberFormatter.string(for: dailyForecast.wind_gust) ?? "0")"
+  }
+  var pop: String {
+    return "\(Self.numberFormatterDecimal.string(for: dailyForecast.pop ) ?? "0")"
   }
   var subtitle: String {
     switch dailyForecast.uvi.rounded() {
@@ -86,5 +130,53 @@ struct DailyForecastViewModel {
       return "Normal"
     }
   }
+  var emoji: String {
+    switch dailyForecast.weather.first?.main {
+    case "Thunderstorm":
+      return ("⛈️")
+    case "Drizzle":
+      return ("🌧️")
+    case "Rain":
+      return ("☔️")
+    case "Snow":
+      return ("☃️")
+    case "Mist":
+      return ("🌫️")
+    case "Smoke":
+      return ("🌫️")
+    case "Haze":
+      return ("🌫️")
+    case "Dust":
+      return ("🌫️")
+    case "Fog":
+      return ("🌫️")
+    case "Sand":
+      return ("🌫️")
+    case "Ash":
+      return ("🌫️")
+    case "Squall":
+      return ("🌫️")
+    case "Tornado":
+      return ("🌪️")
+    case "Clear":
+      return ("☀️")
+    case "Clouds":
+      switch dailyForecast.weather.first?.description {
+      case "few clouds":
+        return "🌤️"
+      case "scattered clouds":
+        return "☁️"
+      case "broken clouds":
+        return "☁️"
+      case "overcast clouds":
+        return "☁️"
+      default:
+        return "❌"
+      }
+    default:
+      return "❌"
+      
+    }
+    }
   
 }
