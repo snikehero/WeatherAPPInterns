@@ -337,11 +337,12 @@ struct ExtraInfoScreenPicker: View {
 }
 
 struct AirQualitySlider: View {
-    @Binding var value: Double
+    var value: String
     
     @State var lastCoordinateValue: CGFloat = 0.0
     
     var body: some View {
+        var valueDouble = Double(value) ?? 0.0
         GeometryReader { gr in
             let thumbSize = gr.size.height * 0.8
             let radius = gr.size.height * 0.5
@@ -357,21 +358,7 @@ struct AirQualitySlider: View {
                     Circle()
                         .foregroundColor(Color.white)
                         .frame(width: thumbSize, height: thumbSize)
-                        .offset(x: (self.value * 29))
-                        .gesture(
-                            DragGesture(minimumDistance: 0)
-                                .onChanged { v in
-                                    if (abs(v.translation.width) < 0.1) {
-                                        self.lastCoordinateValue = self.value
-                                    }
-                                    if v.translation.width > 0 {
-                                        self.value = min(maxValue, self.lastCoordinateValue + v.translation.width)
-                                    } else {
-                                        self.value = max(minValue, self.lastCoordinateValue + v.translation.width)
-                                    }
-                                    
-                                }
-                        )
+                        .offset(x: valueDouble == 1 ? 0 : (valueDouble * 290) / 5)
                     Spacer()
                 }
             }
@@ -381,11 +368,11 @@ struct AirQualitySlider: View {
 }
 
 struct ButtonsView: View {
-    static private var value = Binding.constant(5.0)
+    
     var body: some View {
         ZStack {
             
-            AirQualitySlider(value: ButtonsView.value)
+            AirQualitySlider(value: "2.5")
         }
         
         
