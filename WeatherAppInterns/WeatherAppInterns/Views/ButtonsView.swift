@@ -178,11 +178,12 @@ struct Wind: View {
                 .padding(.top, 30)
             Image("Arrow")
             .rotationEffect(.degrees(Double(dailyForecasts.first?.windDeg ?? "0") ?? 0))
-                .padding(.top)
+                .padding(.top, 15)
             Text("34")
                 .foregroundColor(.white)
                 .font(.title)
                 .fontWeight(.bold)
+                .padding(.top, 25)
 
             VStack {
                 HStack {
@@ -322,6 +323,17 @@ struct SelectedRoundedFill: View {
                     .frame(maxWidth: 30, maxHeight: 30)
             )
     }
+}
+
+struct ExtraInfoScreenPicker: View {
+  @State var selectedInfo: String
+  var body: some View {
+    Picker("Picker", selection: $selectedInfo) {
+      ForEach(ExtraInfo.allCases){e in
+        Text("\(e.rawValue)").tag(e.rawValue)
+      }
+    }.foregroundColor(.white)
+  }
 }
 
 struct ButtonsView: View {

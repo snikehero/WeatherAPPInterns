@@ -8,13 +8,6 @@
 import SwiftUI
 import Charts
 
-enum ExtraInfo: String, CaseIterable, Identifiable {
-  var id: Self {
-    return self
-  }
-  
-  case Temperature, UVIndex = "UV Index", Wind, Precipitation, feelsLike = "Feels Like", Humidity, Visibility, Pressure
-}
 
 struct ExtraInfoSection: View {
   var header: String
@@ -151,18 +144,5 @@ struct ExtraInfoView_Previews: PreviewProvider {
   static var previews: some View {
     //PrecipitationExtraInfo(isShowing: isShowing, currentDay: "M", numberDay: 26, date: Date(), dailySummary: "There has been 0 mm of precipitation in the last 24 hours. Today's total precipitation will be 0 mm", precipitation: "0mm")
     Text("Test")
-  }
-}
-
-
-
-struct ExtraInfoScreenPicker: View {
-  @State var selectedInfo: String
-  var body: some View {
-    Picker("Picker", selection: $selectedInfo) {
-      ForEach(ExtraInfo.allCases){e in
-        Text("\(e.rawValue)").tag(e.rawValue)
-      }
-    }.foregroundColor(.white)
   }
 }
