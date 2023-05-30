@@ -28,6 +28,7 @@ struct AirQualityExtraInfo: View {
               .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
               
               ExtraInfoSection(header: airQuality.first?.airPollutionDescription ?? "0", text: "Air Quality Index is \(airQuality.first?.index ?? "0"), which is similar to yesterday at about this time.")
+              AirQualitySlider(value: airQuality.first?.index ?? "0")
               ExtraInfoSection(header: "Healh Information", text: airQuality.first?.airPollutionHealth ?? "0")
               ExtraInfoSection(header: "Primary Pollutant", text: AboutConstants.airQuality.rawValue)
             }

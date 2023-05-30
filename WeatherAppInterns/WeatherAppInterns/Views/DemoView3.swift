@@ -47,18 +47,18 @@ struct DemoView3: View {
                       //                        Image(systemName: "magnifyingglass.circle.fill")
                       //                          .font(.title3)
                       //                      }
-                      Button {
-                        selectedSheet = .airQuality
-                        isShowing.toggle()
-                      }label: {
-                        Image(systemName: "magnifyingglass.circle.fill")
-                          .font(.title3)
-                      }
                         SummaryView(forecasts: $forecastListVM.forecasts,cityName: forecastListVM.city.cityName)
                         ButtonSubtitle(text: forecastListVM.forecasts.first?.overview ?? "overview")
                           .shadow(color: .black ,radius: 15, x: 2, y: 2)
                         HourlyView(forecasts: $forecastListVM.forecasts)
+                      Button{
+                        print("AirQuality")
+                        selectedSheet = .airQuality
+                        isShowing.toggle()
+                      } label: {
                         AirPollutionView(airPollution: $airPollutionListVM.airPollutions)
+                      }
+                       
                         VStack(alignment: .leading, spacing: 10){
                           ButtonHeader(text: "8 - DAY FORECAST", systemImage: "calendar")
                           HeaderDivider()
