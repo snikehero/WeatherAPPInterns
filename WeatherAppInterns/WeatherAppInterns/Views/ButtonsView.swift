@@ -322,10 +322,10 @@ struct SelectedRoundedFill: View {
 }
 
 struct ExtraInfoScreenPicker: View {
-    @State var selectedInfo: String
+    @Binding var selectedInfo: showingSheets
     var body: some View {
         Picker("Picker", selection: $selectedInfo) {
-            ForEach(ExtraInfo.allCases){e in
+            ForEach(showingSheets.allCases){e in
                 Text("\(e.rawValue)").tag(e.rawValue)
             }
         }.foregroundColor(.white)

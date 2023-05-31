@@ -12,6 +12,8 @@ struct HumidityExtraInfo: View {
   @State private var selectedTab = 0
   @Binding var forecasts: [ForecastViewModel]
   @Binding var dailyForecasts: [DailyForecastViewModel]
+    @Binding var selectedSheet: showingSheets
+    
   var body: some View {
     NavigationStack{
       ZStack{
@@ -53,7 +55,7 @@ struct HumidityExtraInfo: View {
                   ButtonSubtitle(text: "Dew point: \(dailyForecasts[selectedTab].dew_point)º")
                 }
                 Spacer()
-                ExtraInfoScreenPicker(selectedInfo: "Humidity")
+                ExtraInfoScreenPicker(selectedInfo: $selectedSheet)
               }.padding(.leading)
               
               

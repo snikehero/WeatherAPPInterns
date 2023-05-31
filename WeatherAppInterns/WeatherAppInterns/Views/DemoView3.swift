@@ -143,7 +143,7 @@ struct DemoView3: View {
               }
             }
             .sheet(isPresented: $isShowing){
-              customView(isShowing: $isShowing, selectedSheet: $selectedSheet, forecastListVM: forecastListVM, dailyForecastListVM: dailyForecastListVM, airPollutionListVM: airPollutionListVM)
+              SheetView(isShowing: $isShowing, selectedSheet: $selectedSheet, forecastListVM: forecastListVM, dailyForecastListVM: dailyForecastListVM, airPollutionListVM: airPollutionListVM)
             }
             
           }
@@ -151,12 +151,9 @@ struct DemoView3: View {
             observeCoordinatesUpdates()
             observeLocationAccessDenied()
             deviceLocationService.requestLocationUpdates()
-            
           }
           Spacer()
         }
-        
-        
       }
       .toolbar{
         ToolbarItemGroup(placement: .bottomBar){
@@ -165,6 +162,7 @@ struct DemoView3: View {
       }
     }
   }
+    
   func observeCoordinatesUpdates()
   {
     deviceLocationService.coordinatesPublisher
@@ -211,35 +209,6 @@ struct DemoView3_Previews: PreviewProvider {
     DemoView3()
       .background(Color("BackgroundColor"))
   }
-}
-
-struct customView: View{
-    @Binding var isShowing: Bool
-    @Binding var selectedSheet: showingSheets
-    @StateObject var forecastListVM: ForecastListViewModel
-    @StateObject var dailyForecastListVM: DailyForecastListViewmodel
-    @StateObject var airPollutionListVM: AirPollutionListViewModel
-    
-    var body: some View{
-        switch selectedSheet {
-        case .precipitation:
-          PrecipitationExtraInfo(isShowing: $isShowing, forecasts: $forecastListVM.forecasts, dailyForecasts: $dailyForecastListVM.dailyForecasts)
-        case .visibility:
-          VisibilityExtraInfo(isShowing: $isShowing,forecasts: $forecastListVM.forecasts, dailyForecasts: $dailyForecastListVM.dailyForecasts)
-        case .wind:
-          WindExtraInfo(isShowing: $isShowing, forecasts: $forecastListVM.forecasts, dailyForecasts: $dailyForecastListVM.dailyForecasts)
-        case .uvIndex:
-          UvIndexExtraInfo(isShowing: $isShowing, forecasts: $forecastListVM.forecasts, dailyForecasts: $dailyForecastListVM.dailyForecasts)
-        case .feelsLike:
-          FeelsLikeExtraInfo(isShowing: $isShowing,forecasts: $forecastListVM.forecasts, dailyForecasts: $dailyForecastListVM.dailyForecasts)
-        case .humidity:
-          HumidityExtraInfo(isShowing: $isShowing, forecasts: $forecastListVM.forecasts, dailyForecasts: $dailyForecastListVM.dailyForecasts)
-        case .pressure:
-          PressureExtraInfo(isShowing: $isShowing,forecasts: $forecastListVM.forecasts, dailyForecasts: $dailyForecastListVM.dailyForecasts )
-        case .airQuality:
-          AirQualityExtraInfo(isShowing: $isShowing, airQuality: $airPollutionListVM.airPollutions)
-        }
-    }
 }
 
 

@@ -12,6 +12,8 @@ struct PressureExtraInfo: View {
     @State private var selectedTab = 0
     @Binding var forecasts: [ForecastViewModel]
     @Binding var dailyForecasts: [DailyForecastViewModel]
+    @Binding var selectedSheet: showingSheets
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -53,7 +55,7 @@ struct PressureExtraInfo: View {
 
                                 }
                                 Spacer()
-                                ExtraInfoScreenPicker(selectedInfo: "Pressure")
+                                ExtraInfoScreenPicker(selectedInfo: $selectedSheet)
                             }.padding(.leading)
                             
                            

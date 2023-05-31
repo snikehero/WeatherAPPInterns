@@ -13,6 +13,8 @@ struct FeelsLikeExtraInfo: View {
     @State private var selectedTab = 0
     @Binding var forecasts: [ForecastViewModel]
     @Binding var dailyForecasts: [DailyForecastViewModel]
+    @Binding var selectedSheet: showingSheets
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -54,7 +56,7 @@ struct FeelsLikeExtraInfo: View {
                                   ButtonSubtitle(text:"Actual \(forecasts.first?.current ?? "0")")
                                 }
                                 Spacer()
-                                ExtraInfoScreenPicker(selectedInfo: "Feels Like")
+                                ExtraInfoScreenPicker(selectedInfo: $selectedSheet)
                             }.padding(.leading)
                             
                            

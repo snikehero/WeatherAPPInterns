@@ -13,6 +13,7 @@ struct VisibilityExtraInfo: View {
   @State private var selectedTab = 0
   @Binding var forecasts: [ForecastViewModel]
   @Binding var dailyForecasts: [DailyForecastViewModel]
+    @Binding var selectedSheet: showingSheets
   var body: some View {
     NavigationStack{
       ZStack{
@@ -54,7 +55,7 @@ struct VisibilityExtraInfo: View {
                   ButtonSubtitle(text: forecasts.first?.visibilityDescription ?? "visibility description")
                 }
                 Spacer()
-                ExtraInfoScreenPicker(selectedInfo: "Visibility")
+                ExtraInfoScreenPicker(selectedInfo: $selectedSheet)
               }.padding(.leading)
               
               

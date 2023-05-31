@@ -55,7 +55,8 @@ struct PrecipitationExtraInfo: View {
   @Binding var isShowing : Bool
   @Binding var forecasts: [ForecastViewModel]
   @Binding var dailyForecasts: [DailyForecastViewModel]
-  //@Binding var dailyForecast: [DailyForecastViewModel]
+  @Binding var selectedSheet: showingSheets
+
   @State private var selectedTab = 0
   var body: some View {
     NavigationStack{
@@ -97,7 +98,7 @@ struct PrecipitationExtraInfo: View {
                   ButtonSubtitle(text: "In last 24h")
                 }
                 Spacer()
-                ExtraInfoScreenPicker(selectedInfo: "Precipitation")
+                  ExtraInfoScreenPicker(selectedInfo: $selectedSheet)
               }.padding(.leading)
               
               

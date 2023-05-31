@@ -7,6 +7,10 @@
 
 import Foundation
 
-enum showingSheets{
+enum showingSheets : String, CaseIterable, Identifiable{
+    var id: Self {
+      return self
+    }
+    
     case precipitation, visibility, wind, uvIndex, feelsLike, humidity, pressure, airQuality
 }

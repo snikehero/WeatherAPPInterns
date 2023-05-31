@@ -13,6 +13,8 @@ struct WindExtraInfo: View {
     @State private var selectedTab = 0
     @Binding var forecasts: [ForecastViewModel]
     @Binding var dailyForecasts: [DailyForecastViewModel]
+    @Binding var selectedSheet: showingSheets
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -54,7 +56,7 @@ struct WindExtraInfo: View {
                                   ButtonSubtitle(text: "Gusts: \(dailyForecasts[selectedTab].windGust)")
                                 }
                                 Spacer()
-                                ExtraInfoScreenPicker(selectedInfo: "Wind")
+                                ExtraInfoScreenPicker(selectedInfo: $selectedSheet)
                             }.padding(.leading)
                             
                            
