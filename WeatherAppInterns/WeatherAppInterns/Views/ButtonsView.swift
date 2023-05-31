@@ -91,13 +91,13 @@ struct DaysView: View{
                         NormalText(text: element.wrappedValue.emoji)
                         Spacer()
                         //minTemp
-                      TempSlider(value: "\(element.wrappedValue.current)", minValue: "\(element.wrappedValue.minTemp)", maxValue: "\(element.wrappedValue.maxTemp)")
-//                        NormalText(text: element.wrappedValue.minTemp)
-//                        Spacer()
-//                        NormalText(text: "------")
-//                        Spacer()
-//                        //maxtemp
-//                        NormalText(text: element.wrappedValue.maxTemp)
+                        TempSlider(value: "\(element.wrappedValue.current)", minValue: "\(element.wrappedValue.minTemp)", maxValue: "\(element.wrappedValue.maxTemp)")
+                        //                        NormalText(text: element.wrappedValue.minTemp)
+                        //                        Spacer()
+                        //                        NormalText(text: "------")
+                        //                        Spacer()
+                        //                        //maxtemp
+                        //                        NormalText(text: element.wrappedValue.maxTemp)
                     }
                 }
             }
@@ -283,8 +283,8 @@ struct Pressure: View {
             }
             HeaderDivider()
             Spacer()
-//            ButtonTitle(text: dailyForecasts.first?.pressure ?? "Pressure")
-//            ButtonDescription(text: forecasts.first?.pressureDescription ?? "Pressure Description")
+            //            ButtonTitle(text: dailyForecasts.first?.pressure ?? "Pressure")
+            //            ButtonDescription(text: forecasts.first?.pressureDescription ?? "Pressure Description")
             PressureGauge(value: dailyForecasts.first?.pressure ?? "1000")
             
             Spacer()
@@ -336,7 +336,7 @@ struct AirQualitySlider: View {
     var value: String
     
     var body: some View{
-        var valueDouble = Double(value) ?? 0.0
+        let valueDouble = Double(value) ?? 0.0
         Gauge(value: valueDouble, in: 0...5) {
             Text("Label")
         }
@@ -352,18 +352,18 @@ struct PressureGauge: View {
     var body: some View{
         let valueDouble = Double(value) ?? 0.0
         
-            Gauge(value: valueDouble, in: 0...2000) {
-                Text("Pressure")
-            } currentValueLabel: {
-                Text(value)
-            } minimumValueLabel: {
-                Text("L")
-            } maximumValueLabel: {
-                Text("H")
-            }
-            .gaugeStyle(.accessoryCircular)
-            .tint(.white)
-            .scaleEffect(1.8)
+        Gauge(value: valueDouble, in: 0...2000) {
+            Text("Pressure")
+        } currentValueLabel: {
+            Text(value)
+        } minimumValueLabel: {
+            Text("L")
+        } maximumValueLabel: {
+            Text("H")
+        }
+        .gaugeStyle(.accessoryCircular)
+        .tint(.white)
+        .scaleEffect(1.8)
         
     }
 }
@@ -380,18 +380,20 @@ struct TempSlider: View {
         let maxValueDouble = Double(maxValue) ?? 0.0
         let colors: [Color] = maxValueDouble <= 15 ? [Color(hue: 0.583, saturation: 0.82, brightness: 0.88)] : [.yellow, .orange, .red]
         
+        HStack {
+            Text("\(minValue)º")
+                .foregroundColor(.white)
+            
             Gauge(value: valueDouble, in: minValueDouble...maxValueDouble) {
                 Text("Temperature \(value)")
-            } currentValueLabel: {
-                Text(value)
-            } minimumValueLabel: {
-                Text("\(minValue)")
-            } maximumValueLabel: {
-                Text("\(maxValue)")
             }
             .gaugeStyle(.accessoryLinear)
             .tint(Gradient(colors: colors))
-            .frame(width: 150)
+            
+            Text("\(maxValue)º")
+                .foregroundColor(.white)
+        }
+        .frame(width: 150)
     }
 }
 
@@ -399,8 +401,8 @@ struct ButtonsView: View {
     
     var body: some View {
         ZStack {
-//            AirQualitySlider(value: "2.5")
-//            PressureGauge(value: "1010")
+            //            AirQualitySlider(value: "2.5")
+            //            PressureGauge(value: "1010")
             TempSlider(value: "25", minValue: "16", maxValue: "27")
         }
         
