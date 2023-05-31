@@ -12,5 +12,5 @@ enum showingSheets : String, CaseIterable, Identifiable{
       return self
     }
     
-    case precipitation, visibility, wind, uvIndex, feelsLike, humidity, pressure, airQuality
+    case precipitation, visibility, wind, uvIndex = "UV Index", feelsLike = "Feels Like", humidity, pressure, airQuality
 }
