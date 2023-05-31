@@ -28,7 +28,7 @@ struct CityViewModel {
 }
 extension CityViewModel {
   static var mock: Self {
-    .init(city: Forecast.City(id: 0, name: "0", sunrise: 0, sunset: 0))
+    .init(city: Forecast.City(id: 0, name: "Cupertino", sunrise: 0, sunset: 0))
   }
   
 }

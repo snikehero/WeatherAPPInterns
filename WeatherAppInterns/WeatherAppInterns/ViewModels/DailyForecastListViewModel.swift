@@ -10,7 +10,7 @@ import CoreLocation
 import SwiftUI
 class DailyForecastListViewmodel: ObservableObject {
   var coordinates: (lat: Double, lon: Double) = (0,0)
-  @Published var dailyForecasts: [DailyForecastViewModel] = [DailyForecastViewModel.mock, DailyForecastViewModel.mock,DailyForecastViewModel.mock, DailyForecastViewModel.mock,DailyForecastViewModel.mock, DailyForecastViewModel.mock,DailyForecastViewModel.mock]
+  @Published var dailyForecasts: [DailyForecastViewModel] = [DailyForecastViewModel.mock, DailyForecastViewModel.mock,DailyForecastViewModel.mock, DailyForecastViewModel.mock,DailyForecastViewModel.mock, DailyForecastViewModel.mock,DailyForecastViewModel.mock,DailyForecastViewModel.mock]
   private let APIKEY = "be2939953972b861ba74daace3cb370d"
   @AppStorage ("location") var location: String = ""
   var units: String = "metric"
@@ -35,10 +35,8 @@ class DailyForecastListViewmodel: ObservableObject {
       apiService.getJSON(urlString: "https://api.openweathermap.org/data/2.5/onecall?lat=\(self.coordinates.lat)&lon=\(self.coordinates.lon)&exclude=hourly,minutely&appid=\(self.APIKEY)&units=\(self.units)") { (result: Result<DailyForecast,ApiService.APIError>) in
           switch result {
           case .success(let dailyForecast):
-            //print(forecast)
-            print(self.coordinates.lat)
-            print(self.coordinates.lon)
             DispatchQueue.main.async {
+              print("DailyForecastListViewmodel")
               self.dailyForecasts = dailyForecast.daily.map{DailyForecastViewModel(dailyForecast: $0)}
             }
             case .failure(let apiError):
@@ -52,6 +50,8 @@ class DailyForecastListViewmodel: ObservableObject {
       //}
     }
   }
+  
+  
   
   
 }

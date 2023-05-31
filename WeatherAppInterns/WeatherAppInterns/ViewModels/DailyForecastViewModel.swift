@@ -10,8 +10,6 @@ import Foundation
 
 struct DailyForecastViewModel {
   let dailyForecast: DailyForecast.Daily
-  
-  
   private static var dateFormatterDayNumber: DateFormatter {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "d"
@@ -54,23 +52,18 @@ struct DailyForecastViewModel {
     // b(dataFormatter2.string(from: NSDate(timeIntervalSince1970: (forecast?.city.sunset)!) as Date))
   }
   var maxTemp: String {
-    return "\(Self.numberFormatter.string(for: dailyForecast.temp.max) ?? "0")°"
+    return "\(Self.numberFormatter.string(for: dailyForecast.temp.max) ?? "0")"
+  }
+  var current: String {
+    return "\(Self.numberFormatter.string(for: dailyForecast.temp.day) ?? "0")"
   }
   var minTemp: String {
-    return "\(Self.numberFormatter.string(for: dailyForecast.temp.min) ?? "0")°"
+    return "\(Self.numberFormatter.string(for: dailyForecast.temp.min) ?? "0")"
   }
   var uvi: String {
     return "\(Self.numberFormatter.string(for: dailyForecast.uvi) ?? "0")"
     //return "\(dailyForecast.uvi)"
   }
-//  let pressure: Double
-//  let humidity: Double
-//  let dew_point: Double
-//  let wind_speed: Double
-//  let wind_deg: Double
-//  let wind_gust: Double
-//  let pop: Double
-//  let uvi: Double
   var humidity: String {
     return "\(Self.numberFormatter.string(for: dailyForecast.humidity) ?? "0")"
   }
@@ -176,6 +169,6 @@ struct DailyForecastViewModel {
 }
 extension DailyForecastViewModel {
   static var mock: Self {
-    .init(dailyForecast: DailyForecast.Daily(dt: 0, pressure: 0, humidity: 0, dew_point: 0, wind_speed: 0, wind_deg: 0, wind_gust: 0, pop: 0, uvi: 0, weather: [DailyForecast.Daily.weather(id: 0, main: "", description: "")], temp: DailyForecast.Daily.temp(min: 0, max: 0, day: 0)))
+    .init(dailyForecast: DailyForecast.Daily(dt: 0, pressure: 0, humidity: 0, dew_point: 0, wind_speed: 0, wind_deg: 0, wind_gust: 0, pop: 0, uvi: 0, weather: [DailyForecast.Daily.weather(id: 0, main: "", description: "")], temp: DailyForecast.Daily.temp(day: 0, min: 0, max: 0, night: 0)))
   }
 }

@@ -91,12 +91,13 @@ struct DaysView: View{
                         NormalText(text: element.wrappedValue.emoji)
                         Spacer()
                         //minTemp
-                        NormalText(text: element.wrappedValue.minTemp)
-                        Spacer()
-                        NormalText(text: "------")
-                        Spacer()
-                        //maxtemp
-                        NormalText(text: element.wrappedValue.maxTemp)
+                      TempSlider(value: "\(element.wrappedValue.current)", minValue: "\(element.wrappedValue.minTemp)", maxValue: "\(element.wrappedValue.maxTemp)")
+//                        NormalText(text: element.wrappedValue.minTemp)
+//                        Spacer()
+//                        NormalText(text: "------")
+//                        Spacer()
+//                        //maxtemp
+//                        NormalText(text: element.wrappedValue.maxTemp)
                     }
                 }
             }
@@ -384,13 +385,13 @@ struct TempSlider: View {
             } currentValueLabel: {
                 Text(value)
             } minimumValueLabel: {
-                Text("\(minValue)º")
+                Text("\(minValue)")
             } maximumValueLabel: {
-                Text("\(maxValue)º")
+                Text("\(maxValue)")
             }
             .gaugeStyle(.accessoryLinear)
             .tint(Gradient(colors: colors))
-            .frame(width: 300)
+            .frame(width: 150)
     }
 }
 
@@ -400,7 +401,7 @@ struct ButtonsView: View {
         ZStack {
 //            AirQualitySlider(value: "2.5")
 //            PressureGauge(value: "1010")
-            TempSlider(value: "200", minValue: "10", maxValue: "28")
+            TempSlider(value: "25", minValue: "16", maxValue: "27")
         }
         
         
