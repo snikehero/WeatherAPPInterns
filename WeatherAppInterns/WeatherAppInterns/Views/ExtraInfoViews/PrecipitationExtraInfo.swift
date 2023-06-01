@@ -8,7 +8,6 @@
 import SwiftUI
 
 
-
 struct PrecipitationExtraInfo: View {
     @Binding var isShowing : Bool
     @Binding var forecasts: [ForecastViewModel]
