@@ -14,12 +14,7 @@ struct DemoView3: View {
   @State var selectedSheet: showingSheets = .precipitation
   @State var isShowing = false
   @State var airPollutionListVM = AirPollutionListViewModel()
-  let dataFormatter = DateFormatter()
-  let dataFormatter2 = DateFormatter()
-  init() {
-    dataFormatter.dateFormat = "EEEE, d, HH:mm"
-    dataFormatter2.dateFormat = "HH:mm"
-  }
+  var mockPreview = false
   var body: some View {
     NavigationStack {
       ZStack {
@@ -65,7 +60,7 @@ struct DemoView3: View {
                 Button{
                   print("UVIndex")
                   selectedSheet = .uvIndex
-                    print(selectedSheet)
+                  print(selectedSheet)
                   isShowing.toggle()
                 } label: {
                   UVIndex(dailyForecasts: $dailyForecastListVM.dailyForecasts)
@@ -154,7 +149,7 @@ struct DemoView3: View {
       }
     }
   }
-    
+  
   func observeCoordinatesUpdates()
   {
     deviceLocationService.coordinatesPublisher
@@ -182,16 +177,19 @@ struct DemoView3: View {
       .receive(on: DispatchQueue.main)
       .sink {
         print("Show some kind of alert to the user")
-//        self.coordinates = (37.3230,-122.0322)
-//        forecastListVM.coordinates = (37.3230,-122.0322)
-//        dailyForecastListVM.coordinates = (37.3230,-122.0322)
-//        airPollutionListVM.coordinates = (37.3230, -122.0322)
-//        forecastListVM.getWeatherForecast()
-//        forecastListVM.getCity()
-//        dailyForecastListVM.getDailyWeatherForecast()
-//        forecastListVM.location = "location"
-//        dailyForecastListVM.location = "location"
-//        airPollutionListVM.getAirPollution()
+        if mockPreview == false {
+          self.coordinates = (37.3230,-122.0322)
+          forecastListVM.coordinates = (37.3230,-122.0322)
+          dailyForecastListVM.coordinates = (37.3230,-122.0322)
+          airPollutionListVM.coordinates = (37.3230, -122.0322)
+          forecastListVM.getWeatherForecast()
+          forecastListVM.getCity()
+          dailyForecastListVM.getDailyWeatherForecast()
+          forecastListVM.location = "location"
+          dailyForecastListVM.location = "location"
+          airPollutionListVM.getAirPollution()
+        }
+        
       }
       .store(in: &tokens)
   }
