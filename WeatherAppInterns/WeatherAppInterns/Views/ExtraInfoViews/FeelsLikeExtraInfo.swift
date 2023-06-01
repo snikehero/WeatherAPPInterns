@@ -52,7 +52,7 @@ struct FeelsLikeExtraInfo: View {
                             HeaderDivider().padding()
                             HStack {
                                 VStack (alignment: .leading){
-                                  ButtonTitle(text: forecasts.first?.fellsLike ?? "0")
+                                  ButtonTitle(text: "\(forecasts.first?.fellsLike ?? "0")º")
                                   ButtonSubtitle(text:"Actual \(forecasts.first?.current ?? "0")")
                                 }
                                 Spacer()
@@ -72,7 +72,7 @@ struct FeelsLikeExtraInfo: View {
                             .frame(width: 300, height: 300)
                             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                             
-                          ExtraInfoSection(header: "Daily Summary", text: "The temperature currently feels like \(forecasts.first?.fellsLike ?? "0")º but it is actually \(forecasts.first?.current ?? "0")º. \(forecasts.first?.feelsLikeDescription ?? "0"). Today's temperature range felt like 16º to 31º")
+                          ExtraInfoSection(header: "Daily Summary", text: "The temperature currently feels like \(forecasts.first?.fellsLike ?? "0")º but it is actually \(forecasts.first?.current ?? "0")º. \(forecasts.first?.feelsLikeDescription ?? "0").")
                             ExtraInfoSection(header: "About the Feels Like Temperature", text: AboutConstants.feelsLike.rawValue)
                             
                         }

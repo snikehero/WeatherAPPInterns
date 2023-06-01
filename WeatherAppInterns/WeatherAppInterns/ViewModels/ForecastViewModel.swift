@@ -214,4 +214,26 @@ extension ForecastViewModel {
     static var mock: Self {
     .init(forecast: Forecast.List(dt: 0, main: Forecast.List.Main(temp: 0, feels_like: 0, temp_min: 0, temp_max: 0, pressure: 0, sea_level: 0, grnd_level: 0, humidity: 0), weather: [Forecast.List.Weather(id: 0, main: "", description: "", icon: "")], clouds: Forecast.List.Clouds(all: 0), wind: Forecast.List.Wind(speed: 0, deg: 0, gust: 0), pop: 0, visibility: 0))
   }
+  static var mock1: Self {
+    .init(forecast: Forecast.List(dt: 0, main: Forecast.List.Main(temp: 43, feels_like: 10, temp_min: 5, temp_max: 60, pressure: 999, sea_level: 65, grnd_level: 64, humidity: 20), weather: [Forecast.List.Weather(id: 0, main: "Thunderstorm", description: "Clouds", icon: "")], clouds: Forecast.List.Clouds(all: 100), wind: Forecast.List.Wind(speed: 35, deg: 90, gust: 43), pop: 0.1, visibility: 200))
+  }
+  static var mock2: Self {
+    .init(forecast: Forecast.List(dt: 0, main: Forecast.List.Main(temp: 10, feels_like: 5, temp_min: 0, temp_max: 10, pressure: 1020, sea_level: 65, grnd_level: 64, humidity: 50), weather: [Forecast.List.Weather(id: 0, main: "Tornado", description: "Clouds", icon: "")], clouds: Forecast.List.Clouds(all: 20), wind: Forecast.List.Wind(speed: 70, deg: 30, gust: 30), pop: 0.3, visibility: 10))
+  }
+  static var mock3: Self {
+    .init(forecast: Forecast.List(dt: 0, main: Forecast.List.Main(temp: 35, feels_like: 35, temp_min: 1, temp_max: 10, pressure: 1010, sea_level: 65, grnd_level: 64, humidity: 35), weather: [Forecast.List.Weather(id: 0, main: "Rain", description: "Clouds", icon: "")], clouds: Forecast.List.Clouds(all: 10), wind: Forecast.List.Wind(speed: 45, deg: 110, gust: 40), pop: 0.4, visibility: 100))
+  }
+  static var mock4: Self {
+    .init(forecast: Forecast.List(dt: 0, main: Forecast.List.Main(temp: 25, feels_like: 20, temp_min: 20, temp_max: 35, pressure: 999, sea_level: 65, grnd_level: 64, humidity: 45), weather: [Forecast.List.Weather(id: 0, main: "Snow", description: "Clouds", icon: "")], clouds: Forecast.List.Clouds(all: 30), wind: Forecast.List.Wind(speed: 35, deg: 90, gust: 43), pop: 0.1, visibility: 200))
+  }
+  static var mock5: Self {
+    .init(forecast: Forecast.List(dt: 0, main: Forecast.List.Main(temp: 43, feels_like: 10, temp_min: 5, temp_max: 60, pressure: 999, sea_level: 65, grnd_level: 64, humidity: 20), weather: [Forecast.List.Weather(id: 0, main: "Clouds", description: "few clouds", icon: "")], clouds: Forecast.List.Clouds(all: 100), wind: Forecast.List.Wind(speed: 55, deg: 20, gust: 50), pop: 0.5, visibility: 250))
+  }
+  static var mock6: Self {
+    .init(forecast: Forecast.List(dt: 0, main: Forecast.List.Main(temp: 35, feels_like: 200, temp_min: 20, temp_max: 40, pressure: 999, sea_level: 65, grnd_level: 64, humidity: 90), weather: [Forecast.List.Weather(id: 0, main: "Clouds", description: "overcast clouds", icon: "")], clouds: Forecast.List.Clouds(all: 100), wind: Forecast.List.Wind(speed: 65, deg: 270, gust: 79), pop: 0.6, visibility: 1000))
+  }
+  static var mock7: Self {
+    .init(forecast: Forecast.List(dt: 0, main: Forecast.List.Main(temp: 60, feels_like: 1000, temp_min: -5, temp_max: 30, pressure: 999, sea_level: 65, grnd_level: 64, humidity: 100), weather: [Forecast.List.Weather(id: 0, main: "Mist", description: "Clouds", icon: "")], clouds: Forecast.List.Clouds(all: 1000), wind: Forecast.List.Wind(speed: 90, deg: 0, gust: 39), pop: 0.7, visibility: 3000))
+  }
+  
 }

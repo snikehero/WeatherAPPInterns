@@ -51,7 +51,7 @@ struct VisibilityExtraInfo: View {
               HeaderDivider().padding()
               HStack {
                 VStack (alignment: .leading){
-                  ButtonTitle(text: forecasts.first?.visibility ?? "visibility")
+                  ButtonTitle(text: "\(forecasts.first?.visibility ?? "visibility")Km")
                   ButtonSubtitle(text: forecasts.first?.visibilityDescription ?? "visibility description")
                 }
                 Spacer()

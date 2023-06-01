@@ -10,7 +10,7 @@ import CoreLocation
 import SwiftUI
 class AirPollutionListViewModel: ObservableObject {
   var coordinates: (lat: Double, lon: Double) = (0,0)
-  @Published var airPollutions: [AirPollutionViewModel] = [AirPollutionViewModel.mock]
+  @Published var airPollutions: [AirPollutionViewModel] = [AirPollutionViewModel.mock1]
   @AppStorage ("location") var location: String = ""
   init() {
     if location != "" {
@@ -32,7 +32,7 @@ class AirPollutionListViewModel: ObservableObject {
 //      if let lat = placemarks?.first?.location?.coordinate.latitude,
 //         let lon = placemarks?.first?.location?.coordinate.longitude {
         print("Coordenadas antes: \(self.coordinates.lat), \(self.coordinates.lon)")
-      apiService.getJSON(urlString: "https://api.openweathermap.org/data/2.5/air_pollution?lat=\(self.coordinates.lat)&lon=\(self.coordinates.lon)&appid=23892ea6d93b8685d75fae33906a91ed") { (result: Result<AirPollution,ApiService.APIError>) in
+      apiService.getJSON(urlString: "https://api.openweathermap.org/data/2.5/air_pollution?lat=\(self.coordinates.lat)&lon=\(self.coordinates.lon)&appid=23892ea6d93b8685d75fae33906a91ed&units=metric") { (result: Result<AirPollution,ApiService.APIError>) in
           switch result {
           case .success(let airPollution):
             //print(forecast)

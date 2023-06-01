@@ -36,14 +36,6 @@ struct DemoView3: View {
                 VStack {
                   ScrollView{
                     VStack {
-                      Button {
-                        dailyForecastListVM.getDailyWeatherForecast()
-                        forecastListVM.location = "location"
-                        dailyForecastListVM.location = "location"
-                      } label: {
-                        Image(systemName: "magnifyingglass.circle.fill")
-                          .font(.title3)
-                      }
                       SummaryView(forecasts: $forecastListVM.forecasts,cityName: forecastListVM.city.cityName)
                       ButtonSubtitle(text: forecastListVM.forecasts.first?.overview ?? "overview")
                         .shadow(color: .black ,radius: 15, x: 2, y: 2)
@@ -190,16 +182,16 @@ struct DemoView3: View {
       .receive(on: DispatchQueue.main)
       .sink {
         print("Show some kind of alert to the user")
-        self.coordinates = (37.3230,-122.0322)
-        forecastListVM.coordinates = (37.3230,-122.0322)
-        dailyForecastListVM.coordinates = (37.3230,-122.0322)
-        airPollutionListVM.coordinates = (37.3230, -122.0322)
-        forecastListVM.getWeatherForecast()
-        forecastListVM.getCity()
-        dailyForecastListVM.getDailyWeatherForecast()
-        forecastListVM.location = "location"
-        dailyForecastListVM.location = "location"
-        airPollutionListVM.getAirPollution()
+//        self.coordinates = (37.3230,-122.0322)
+//        forecastListVM.coordinates = (37.3230,-122.0322)
+//        dailyForecastListVM.coordinates = (37.3230,-122.0322)
+//        airPollutionListVM.coordinates = (37.3230, -122.0322)
+//        forecastListVM.getWeatherForecast()
+//        forecastListVM.getCity()
+//        dailyForecastListVM.getDailyWeatherForecast()
+//        forecastListVM.location = "location"
+//        dailyForecastListVM.location = "location"
+//        airPollutionListVM.getAirPollution()
       }
       .store(in: &tokens)
   }

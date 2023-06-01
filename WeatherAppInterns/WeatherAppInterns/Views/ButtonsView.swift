@@ -225,7 +225,7 @@ struct FeelsLike: View {
                 Spacer()
             }
             HeaderDivider()
-            ButtonTitle(text: forecasts.first?.fellsLike ?? "feelslike")
+            ButtonTitle(text: "\(forecasts.first?.fellsLike ?? "feelslike")º")
             Spacer()
             ButtonDescription(text: forecasts.first?.feelsLikeDescription ?? "feelslikedescription")
             
@@ -244,7 +244,7 @@ struct Humidity: View {
                 Spacer()
             }
             HeaderDivider()
-            ButtonTitle(text: dailyForecasts.first?.humidity ?? "Humidity")
+            ButtonTitle(text: "\(dailyForecasts.first?.humidity ?? "Humidity")%")
             Spacer()
             
             ButtonDescription(text: "The dew point is \(dailyForecasts.first?.dew_point ?? "0")º right now.")
@@ -262,7 +262,7 @@ struct Visibility: View {
                 Spacer()
             }
             HeaderDivider()
-            ButtonTitle(text: forecasts.first?.visibility ?? "Visibility")
+            ButtonTitle(text: "\(forecasts.first?.visibility ?? "Visibility")Km")
             Spacer()
             
             ButtonDescription(text: forecasts.first?.visibilityDescription ??  "Visibility Description")

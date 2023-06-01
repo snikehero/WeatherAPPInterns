@@ -10,7 +10,7 @@ import CoreLocation
 import SwiftUI
 class ForecastListViewModel: ObservableObject {
   var coordinates: (lat: Double, lon: Double) = (0,0)
-  @Published var forecasts: [ForecastViewModel] = [ForecastViewModel.mock,ForecastViewModel.mock,ForecastViewModel.mock,ForecastViewModel.mock,ForecastViewModel.mock,ForecastViewModel.mock,ForecastViewModel.mock]
+  @Published var forecasts: [ForecastViewModel] = [ForecastViewModel.mock,ForecastViewModel.mock1,ForecastViewModel.mock2,ForecastViewModel.mock3,ForecastViewModel.mock4,ForecastViewModel.mock5,ForecastViewModel.mock6,ForecastViewModel.mock7]
   @Published var city: CityViewModel = CityViewModel.mock
   @AppStorage ("location") var location: String = ""
   init() {
@@ -63,7 +63,7 @@ class ForecastListViewModel: ObservableObject {
       //print("Hola Desde Ciudad1")
       //      if let lat = placemarks?.first?.location?.coordinate.latitude,
       //         let lon = placemarks?.first?.location?.coordinate.longitude {
-      apiService.getJSON(urlString: "https://api.openweathermap.org/data/2.5/forecast?lat=\(self.coordinates.lat)&lon=\(self.coordinates.lon)&appid=23892ea6d93b8685d75fae33906a91ed&units=standard") { (result: Result<Forecast,ApiService.APIError>) in
+      apiService.getJSON(urlString: "https://api.openweathermap.org/data/2.5/forecast?lat=\(self.coordinates.lat)&lon=\(self.coordinates.lon)&appid=23892ea6d93b8685d75fae33906a91ed&units=metric") { (result: Result<Forecast,ApiService.APIError>) in
         switch result {
         case .success(let forecast):
           DispatchQueue.main.async {
@@ -90,7 +90,7 @@ class ForecastListViewModel: ObservableObject {
       if let error = error {
         print(error.localizedDescription)
       }
-      let urlString = "https://api.openweathermap.org/data/2.5/forecast?q=\(cityName)&appid=23892ea6d93b8685d75fae33906a91ed&units=standard"
+      let urlString = "https://api.openweathermap.org/data/2.5/forecast?q=\(cityName)&appid=23892ea6d93b8685d75fae33906a91ed&units=metric"
       //      if let lat = placemarks?.first?.location?.coordinate.latitude,
       //         let lon = placemarks?.first?.location?.coordinate.longitude {
       print("Coordenadas antes: \(self.coordinates.lat), \(self.coordinates.lon)")

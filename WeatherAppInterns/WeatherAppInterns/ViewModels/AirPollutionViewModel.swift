@@ -98,5 +98,8 @@ extension AirPollutionViewModel {
   static var mock: Self {
     .init(airPollution: AirPollution.List(main: AirPollution.List.Main(aqi: 0), components: AirPollution.List.Components(co: 0, no: 0, no2: 0, o3: 0, so2: 0, pm2_5: 0, pm10: 0, nh3: 0)))
   }
+  static var mock1: Self {
+    .init(airPollution: AirPollution.List(main: AirPollution.List.Main(aqi: 4), components: AirPollution.List.Components(co: 0, no: 0, no2: 0, o3: 0, so2: 0, pm2_5: 0, pm10: 0, nh3: 0)))
+  }
 }
 

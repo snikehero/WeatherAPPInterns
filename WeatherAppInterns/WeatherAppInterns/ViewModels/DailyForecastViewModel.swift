@@ -171,4 +171,30 @@ extension DailyForecastViewModel {
   static var mock: Self {
     .init(dailyForecast: DailyForecast.Daily(dt: 0, pressure: 0, humidity: 0, dew_point: 0, wind_speed: 0, wind_deg: 0, wind_gust: 0, pop: 0, uvi: 0, weather: [DailyForecast.Daily.weather(id: 0, main: "", description: "")], temp: DailyForecast.Daily.temp(day: 0, min: 0, max: 0, night: 0)))
   }
+  static var mock1: Self {
+    .init(dailyForecast: DailyForecast.Daily(dt: 0, pressure: 999, humidity: 20, dew_point: 90, wind_speed: 35, wind_deg: 90, wind_gust: 43, pop: 0.1, uvi: 10, weather: [DailyForecast.Daily.weather(id: 0, main: "Thunderstorm", description: "Thunderstorm")], temp: DailyForecast.Daily.temp(day: 0, min: 5, max: 60, night: 0)))
+  }
+  static var mock2: Self {
+    .init(dailyForecast: DailyForecast.Daily(dt: 0, pressure: 1020, humidity: 50, dew_point: 10, wind_speed: 70, wind_deg: 30, wind_gust: 30, pop: 0.3, uvi: 3, weather: [DailyForecast.Daily.weather(id: 0, main: "Tornado", description: "Thunderstorm")], temp: DailyForecast.Daily.temp(day: 0, min: 0, max: 10, night: 0)))
+  }
+
+  static var mock3: Self {
+    .init(dailyForecast: DailyForecast.Daily(dt: 0, pressure: 1010, humidity: 35, dew_point: 40, wind_speed: 45, wind_deg: 110, wind_gust: 40, pop: 0.4, uvi: 2, weather: [DailyForecast.Daily.weather(id: 0, main: "Rain", description: "Thunderstorm")], temp: DailyForecast.Daily.temp(day: 0, min: 1, max: 10, night: 0)))
+  }
+  static var mock4: Self {
+    .init(dailyForecast: DailyForecast.Daily(dt: 0, pressure: 999, humidity: 20, dew_point: 90, wind_speed: 35, wind_deg: 90, wind_gust: 43, pop: 0.1, uvi: 10, weather: [DailyForecast.Daily.weather(id: 0, main: "Snow", description: "Thunderstorm")], temp: DailyForecast.Daily.temp(day: 0, min: 5, max: 60, night: 0)))
+  }
+  
+  static var mock5: Self {
+    .init(dailyForecast: DailyForecast.Daily(dt: 0, pressure: 999, humidity: 20, dew_point: 10, wind_speed: 55, wind_deg: 20, wind_gust: 50, pop: 0.5, uvi: 3, weather: [DailyForecast.Daily.weather(id: 0, main: "Clouds", description: "few clouds")], temp: DailyForecast.Daily.temp(day: 0, min: 20, max: 25, night: 0)))
+  }
+
+  static var mock6: Self {
+    .init(dailyForecast: DailyForecast.Daily(dt: 0, pressure: 999, humidity: 90, dew_point: 90, wind_speed: 65, wind_deg: 27, wind_gust: 79, pop: 0.6, uvi: 4, weather: [DailyForecast.Daily.weather(id: 0, main: "Thunderstorm", description: "overcast clouds")], temp: DailyForecast.Daily.temp(day: 0, min: 20, max: 40, night: 0)))
+  }
+  
+  static var mock7: Self {
+    .init(dailyForecast: DailyForecast.Daily(dt: 0, pressure: 999, humidity: 100, dew_point: 90, wind_speed: 90, wind_deg: 0, wind_gust: 39, pop: 0.7, uvi: 8, weather: [DailyForecast.Daily.weather(id: 0, main: "Mist", description: "Thunderstorm")], temp: DailyForecast.Daily.temp(day: 0, min: -5, max: 30, night: 0)))
+  }
+  
 }
