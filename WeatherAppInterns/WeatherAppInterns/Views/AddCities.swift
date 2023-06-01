@@ -18,7 +18,7 @@ struct AddCities: View {
     VStack {
       NavigationStack {
         Text("Searching for \(searchText)")
-          .navigationTitle("Searchable Example")
+          .navigationTitle("Weather")
         NavigationLink {
             EmptyView()
         } label: {
