@@ -20,9 +20,6 @@ class ForecastListViewModel: ObservableObject {
       
     }
   }
-  var id: UUID {
-    return UUID()
-  }
   
   var units: String = "metric"
   func getWeatherForecast(){
@@ -104,7 +101,6 @@ class ForecastListViewModel: ObservableObject {
           DispatchQueue.main.async {
             self.forecasts = forecast.list.map{ ForecastViewModel(forecast: $0)}
             self.city = CityViewModel(city: forecast.city )
-            //print(forecast.city.name)
 //            print("Hubo Resultado")
 //            print(self.forecasts)
              

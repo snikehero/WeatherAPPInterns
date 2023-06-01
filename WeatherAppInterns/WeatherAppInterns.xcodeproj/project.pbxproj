@@ -24,8 +24,6 @@
 		4A71016D2A1E8CE900E56F0A /* AirPollution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A71016C2A1E8CE900E56F0A /* AirPollution.swift */; };
 		4A71016F2A1E8D0300E56F0A /* AirPollutionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A71016E2A1E8D0300E56F0A /* AirPollutionListViewModel.swift */; };
 		4A7101712A1E8D2E00E56F0A /* AirPollutionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7101702A1E8D2E00E56F0A /* AirPollutionViewModel.swift */; };
-		4A8AC9372A293D2300A98D50 /* AddedCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8AC9362A293D2300A98D50 /* AddedCityView.swift */; };
-		4A8AC9392A293D4100A98D50 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8AC9382A293D4100A98D50 /* TestView.swift */; };
 		4A9080822A251947005A4535 /* DemoView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9080812A251947005A4535 /* DemoView3.swift */; };
 		4AB4BFCF2A13CDF60090863D /* WeatherAppInternsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB4BFCE2A13CDF60090863D /* WeatherAppInternsApp.swift */; };
 		4AB4BFD12A13CDF60090863D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB4BFD02A13CDF60090863D /* ContentView.swift */; };
@@ -48,6 +46,10 @@
 		7114EB892A2006C000F6F684 /* WeatherWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7114EB852A2006BE00F6F684 /* WeatherWidget.intentdefinition */; };
 		7114EB8A2A2006C000F6F684 /* WeatherWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7114EB852A2006BE00F6F684 /* WeatherWidget.intentdefinition */; };
 		7114EB8D2A2006C000F6F684 /* WeatherWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7114EB782A2006BE00F6F684 /* WeatherWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7114EB982A2009C600F6F684 /* SootyCloudy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7114EB932A2009C600F6F684 /* SootyCloudy.mp4 */; };
+		7114EB992A2009C600F6F684 /* SootyCloudy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7114EB932A2009C600F6F684 /* SootyCloudy.mp4 */; };
+		7114EB9A2A2009C600F6F684 /* MostlySunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7114EB942A2009C600F6F684 /* MostlySunny.mp4 */; };
+		7114EB9B2A2009C600F6F684 /* MostlySunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7114EB942A2009C600F6F684 /* MostlySunny.mp4 */; };
 		71476E852A282B0400B00782 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4268E05F2A153D8200FB403C /* TextViews.swift */; };
 		7170F7A12A2591B00091B47C /* WidgetTextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7170F7A02A2591B00091B47C /* WidgetTextViews.swift */; };
 		E61535DD2A1D110A0063BC53 /* PrecipitationExtraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61535DC2A1D110A0063BC53 /* PrecipitationExtraInfo.swift */; };
@@ -109,8 +111,6 @@
 		4A71016C2A1E8CE900E56F0A /* AirPollution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollution.swift; sourceTree = "<group>"; };
 		4A71016E2A1E8D0300E56F0A /* AirPollutionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionListViewModel.swift; sourceTree = "<group>"; };
 		4A7101702A1E8D2E00E56F0A /* AirPollutionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionViewModel.swift; sourceTree = "<group>"; };
-		4A8AC9362A293D2300A98D50 /* AddedCityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedCityView.swift; sourceTree = "<group>"; };
-		4A8AC9382A293D4100A98D50 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		4A9080812A251947005A4535 /* DemoView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView3.swift; sourceTree = "<group>"; };
 		4AB4BFCB2A13CDF60090863D /* WeatherAppInterns.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherAppInterns.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB4BFCE2A13CDF60090863D /* WeatherAppInternsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppInternsApp.swift; sourceTree = "<group>"; };
@@ -134,6 +134,8 @@
 		7114EB852A2006BE00F6F684 /* WeatherWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = WeatherWidget.intentdefinition; sourceTree = "<group>"; };
 		7114EB862A2006C000F6F684 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7114EB882A2006C000F6F684 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7114EB932A2009C600F6F684 /* SootyCloudy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SootyCloudy.mp4; sourceTree = "<group>"; };
+		7114EB942A2009C600F6F684 /* MostlySunny.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MostlySunny.mp4; sourceTree = "<group>"; };
 		7170F7A02A2591B00091B47C /* WidgetTextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextViews.swift; sourceTree = "<group>"; };
 		71B49EAF2A155001003F614D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E61535DC2A1D110A0063BC53 /* PrecipitationExtraInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecipitationExtraInfo.swift; sourceTree = "<group>"; };
@@ -212,6 +214,9 @@
 			isa = PBXGroup;
 			children = (
 				4AB4BFD52A13CDF70090863D /* Preview Assets.xcassets */,
+				7114EB942A2009C600F6F684 /* MostlySunny.mp4 */,
+				7114EB932A2009C600F6F684 /* SootyCloudy.mp4 */,
+				E69E0DE42A2024D600F434E9 /* SootyCloudy.mp4 */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -237,8 +242,6 @@
 				42B5E9772A1EEEBE00EE653B /* BackgroundView.swift */,
 				4A9080812A251947005A4535 /* DemoView3.swift */,
 				E6851FEC2A27B071009F318B /* SheetView.swift */,
-				4A8AC9362A293D2300A98D50 /* AddedCityView.swift */,
-				4A8AC9382A293D4100A98D50 /* TestView.swift */,
 				4A24E0142A26D2E70038A92A /* AddCities.swift */,
 				4A24E0162A26D8930038A92A /* CityView.swift */,
 			);
@@ -422,7 +425,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7114EB982A2009C600F6F684 /* SootyCloudy.mp4 in Resources */,
+				7114EB9A2A2009C600F6F684 /* MostlySunny.mp4 in Resources */,
 				4AB4BFD62A13CDF70090863D /* Preview Assets.xcassets in Resources */,
+				E69E0DE52A2024D600F434E9 /* SootyCloudy.mp4 in Resources */,
 				4AB4BFD32A13CDF70090863D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +438,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7114EB872A2006C000F6F684 /* Assets.xcassets in Resources */,
+				7114EB992A2009C600F6F684 /* SootyCloudy.mp4 in Resources */,
+				7114EB9B2A2009C600F6F684 /* MostlySunny.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,9 +455,7 @@
 				E6851FF02A295372009F318B /* ChartsMocks.swift in Sources */,
 				4AE221282A1C767A00BA42D9 /* CityViewModel.swift in Sources */,
 				4A5ABB332A1D40B4009BB13C /* DailyForecast.swift in Sources */,
-				4A8AC9372A293D2300A98D50 /* AddedCityView.swift in Sources */,
 				4A31CD382A2663B7008DDD8C /* MapView.swift in Sources */,
-				4A8AC9392A293D4100A98D50 /* TestView.swift in Sources */,
 				4A7101712A1E8D2E00E56F0A /* AirPollutionViewModel.swift in Sources */,
 				E6E1A3742A25489700B1AF09 /* showingSheets.swift in Sources */,
 				4AB4BFD12A13CDF60090863D /* ContentView.swift in Sources */,
