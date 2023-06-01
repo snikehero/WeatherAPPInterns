@@ -41,9 +41,9 @@ struct AddedCityView: View {
                            }
                            .padding()
                         }
-                        .onAppear(){
-                           forecastListVM.getCityByName(cityName: cityName)
-                        }
+//                        .onAppear(){
+//                           forecastListVM.getCityByName(cityName: cityName)
+//                        }
                      }
 
 

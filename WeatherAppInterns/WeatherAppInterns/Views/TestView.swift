@@ -10,12 +10,13 @@ import CoreLocation
 import Combine
 
 struct TestView: View {
-   var cont = 0
+   @State var cont = 0
    @State private var isSheetPresented = false
    @StateObject var forecastListVM = ForecastListViewModel()
    @StateObject var deviceLocationService = DeviceLocationService.shared
    @State var searchText = ""
    @State var tokens: Set<AnyCancellable> = []
+    @State var arrayOfCities = Array<ForecastListViewModel>()
     var body: some View {
         VStack {
            NavigationStack {
@@ -24,17 +25,15 @@ struct TestView: View {
              NavigationLink {
                  EmptyView()
              } label: {
-                CityView(cont: cont, forecasts: $forecastListVM.forecasts, city: $forecastListVM.city)
+               CityView(cont: cont, arrayOfCities: $arrayOfCities)
              }
            }
            .searchable(text: $searchText)
-           .onAppear()
-           {
-             observeCoordinatesUpdates()
-             observeLocationAccessDenied()
-           }
+          
            Button {
               isSheetPresented.toggle()
+             forecastListVM.getCityByName(cityName: searchText)
+             cityArray(forecast: forecastListVM)
            } label: {
              Text("hola")
            }
@@ -56,8 +55,7 @@ struct TestView: View {
                      .padding()
                      Spacer()
                      Button {
-                        forecastListVM.getCityByName(cityName: searchText)
-                        cityArray(forecast: forecastListVM)
+
 //                        observeCoordinatesUpdates()
 //                        observeLocationAccessDenied()
 //                        deviceLocationService.requestLocationUpdates()
@@ -82,10 +80,12 @@ struct TestView: View {
     }
    
 
-   func cityArray(forecast: ForecastListViewModel){
-      var cityCollection = [ForecastListViewModel()]
-      cityCollection.append(forecast)
-      print(cityCollection.count)
+  func cityArray(forecast: ForecastListViewModel){
+     arrayOfCities.append(forecast)
+    print(arrayOfCities)
+      cont += 1
+    print("Se anadio \(arrayOfCities.first?.city.cityName)")
+    
    }
    
    func observeCoordinatesUpdates()
