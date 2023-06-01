@@ -8,6 +8,39 @@
 import SwiftUI
 import Charts
 
+//################## TEST DATA ##########################
+
+
+
+struct FeelsLikeChartMock: View {
+    var data: [Registry] = [
+        Registry(hour: 0, value: 21),
+        Registry(hour: 6, value: 18),
+        Registry(hour: 12, value: 30),
+        Registry(hour: 16, value: 33),
+        Registry(hour: 18, value: 30),
+        Registry(hour: 24, value: 21),
+    ]
+    
+    var body: some View{
+        Chart (data){ registry in
+            AreaMark(
+                x: .value("Hour", registry.hour),
+                y: .value("Temperature", registry.value)
+            )
+            .interpolationMethod(.catmullRom)
+            .lineStyle(StrokeStyle(lineWidth: 5))
+            .foregroundStyle(Gradient(colors: [.red,.yellow,.blue,]))
+            
+        }
+        .padding()
+    }
+}
+
+
+
+//################## TEST DATA ##########################
+
 struct FeelsLikeExtraInfo: View {
     @Binding var isShowing : Bool
     @State private var selectedTab = 0
@@ -62,7 +95,7 @@ struct FeelsLikeExtraInfo: View {
                            
                             TabView(selection: $selectedTab) {
                                 ForEach(0..<11){ i in
-                                    ChartMock()
+                                    FeelsLikeChartMock()
                                         .tabItem {
                                             EmptyView()
                                         }

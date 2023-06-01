@@ -161,6 +161,19 @@ struct DescriptionWidget: View {
     }
 }
 
+struct ExtraInfoSection: View {
+    var header: String
+    var text: String
+    
+    var body: some View {
+        VStack {
+            NormalText(text: header)
+                .padding(.top)
+            ExtraInfoTextBox(text: text)
+        }
+    }
+}
+
 struct MaxMinWidget: View {
     var text: String
     

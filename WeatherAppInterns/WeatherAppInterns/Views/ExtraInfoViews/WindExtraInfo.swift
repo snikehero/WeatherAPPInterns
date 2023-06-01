@@ -8,6 +8,37 @@
 import SwiftUI
 import Charts
 
+//################## TEST DATA ##########################
+
+struct Registry: Identifiable {
+    var id = UUID()
+    var hour: Int
+    var value: Int
+}
+
+struct WindChartMock: View {
+    var data: [Registry] = [
+        Registry(hour: 0, value: 8),
+        Registry(hour: 6, value: 2),
+        Registry(hour: 12, value: 5),
+        Registry(hour: 18, value: 15),
+        Registry(hour: 24, value: 10),
+    ]
+    
+    var body: some View{
+        Chart (data){ registry in
+            AreaMark(
+                x: .value("Wind Speed", registry.hour),
+                y: .value("Hour", registry.value)
+            )
+            .interpolationMethod(.catmullRom)
+            .lineStyle(StrokeStyle(lineWidth: 5))
+            .foregroundStyle(Color.blue)
+        }
+        .padding()
+    }
+}
+
 struct WindExtraInfo: View {
     @Binding var isShowing : Bool
     @State private var selectedTab = 0
@@ -62,7 +93,7 @@ struct WindExtraInfo: View {
                            
                             TabView(selection: $selectedTab) {
                                 ForEach(0..<11){ i in
-                                    ChartMock()
+                                    WindChartMock()
                                         .tabItem {
                                             EmptyView()
                                         }

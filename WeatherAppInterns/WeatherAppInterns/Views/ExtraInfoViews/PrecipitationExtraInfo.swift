@@ -6,79 +6,6 @@
 //
 
 import SwiftUI
-import Charts
-
-
-struct ExtraInfoSection: View {
-    var header: String
-    var text: String
-    
-    var body: some View {
-        VStack {
-            NormalText(text: header)
-                .padding(.top)
-            ExtraInfoTextBox(text: text)
-        }
-    }
-}
-
-//################## TEST DATA ##########################
-//struct ToyShape: Identifiable {
-//  var type: String
-//  var count: Double
-//  var id = UUID()
-//}
-
-//struct ChartMock: View {
-//  var data: [ToyShape] = [
-//    .init(type: "Cube", count: 5),
-//    .init(type: "Sphere", count: 4),
-//    .init(type: "Pyramid", count: 4)
-//  ]
-//
-//  var body: some View{
-//    Chart{
-//      ForEach(data) { shape in
-//        LineMark(
-//          x: .value("Shape Type", shape.type),
-//          y: .value("Total Count", shape.count)
-//        ).lineStyle(StrokeStyle(lineWidth: 5))
-//      }
-//    }.padding()
-//  }
-//}
-
-struct WindRegistry: Identifiable {
-    var id = UUID()
-    var hour: Int
-    var value: Int
-}
-
-struct ChartMock: View {
-    var data: [WindRegistry] = [
-        WindRegistry(hour: 0, value: 8),
-        WindRegistry(hour: 6, value: 2),
-        WindRegistry(hour: 12, value: 5),
-        WindRegistry(hour: 18, value: 15),
-        WindRegistry(hour: 24, value: 10),
-    ]
-    
-    var body: some View{
-        Chart (data){ registry in
-            AreaMark(
-                x: .value("Wind Speed", registry.hour),
-                y: .value("Hour", registry.value)
-            )
-            .lineStyle(StrokeStyle(lineWidth: 5))
-            .foregroundStyle(Color.blue)
-        }
-        .padding()
-    }
-}
-
-
-
-//################## TEST DATA ##########################
 
 
 
@@ -135,7 +62,7 @@ struct PrecipitationExtraInfo: View {
                             
                             TabView(selection: $selectedTab) {
                                 ForEach(0..<11){ i in
-                                    ChartMock()
+                                    PrecipitationChartMock()
                                         .tabItem {
                                             EmptyView()
                                         }

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Charts
 
 struct VisibilityExtraInfo: View {
   @Binding var isShowing : Bool
@@ -61,7 +60,7 @@ struct VisibilityExtraInfo: View {
               
               TabView(selection: $selectedTab) {
                 ForEach(0..<11){ i in
-                  ChartMock()
+                  VisibilityChartMock()
                     .tabItem {
                       EmptyView()
                     }

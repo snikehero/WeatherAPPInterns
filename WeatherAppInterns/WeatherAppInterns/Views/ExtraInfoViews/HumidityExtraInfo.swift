@@ -6,6 +6,37 @@
 //
 
 import SwiftUI
+import Charts
+
+//################## TEST DATA ##########################
+
+struct HumidityChartMock: View {
+    var data: [Registry] = [
+        Registry(hour: 0, value: 50),
+        Registry(hour: 6, value: 70),
+        Registry(hour: 12, value: 20),
+        Registry(hour: 18, value: 18),
+        Registry(hour: 24, value: 50),
+    ]
+    
+    var body: some View{
+        Chart (data){ registry in
+            AreaMark(
+                x: .value("Hour", registry.hour),
+                y: .value("Humidity", registry.value)
+            )
+            .interpolationMethod(.catmullRom)
+            .lineStyle(StrokeStyle(lineWidth: 5))
+            .foregroundStyle(Gradient(colors: [.blue,.green]))
+            
+        }
+        .padding()
+    }
+}
+
+
+
+//################## TEST DATA ##########################
 
 struct HumidityExtraInfo: View {
   @Binding var isShowing : Bool
@@ -61,7 +92,7 @@ struct HumidityExtraInfo: View {
               
               TabView(selection: $selectedTab) {
                 ForEach(0..<11){ i in
-                  ChartMock()
+                  HumidityChartMock()
                     .tabItem {
                       EmptyView()
                     }

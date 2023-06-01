@@ -61,7 +61,7 @@ struct PressureExtraInfo: View {
                            
                             TabView(selection: $selectedTab) {
                                 ForEach(0..<11){ i in
-                                    ChartMock()
+                                    PressureChartMock()
                                         .tabItem {
                                             EmptyView()
                                         }
