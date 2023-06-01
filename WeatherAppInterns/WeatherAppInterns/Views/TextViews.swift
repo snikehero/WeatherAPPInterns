@@ -125,6 +125,54 @@ struct ExtraInfoTextBox: View {
     }
 }
 
+struct CityWidget: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+        .font(.footnote)
+        .fontWeight(.bold)
+        .minimumScaleFactor(0.6)
+        .foregroundColor(.white)
+    }
+}
+
+struct BigTempWigdet: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+        .font(.system(size: 60, weight: .light))
+
+      .minimumScaleFactor(0.6)
+      .foregroundColor(.white)
+    }
+}
+
+struct DescriptionWidget: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+      .font(.system(size: 11))
+      .fontWeight(.semibold)
+      .minimumScaleFactor(0.6)
+      .foregroundColor(.white)
+    }
+}
+
+struct MaxMinWidget: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+        .font(.footnote)
+        .fontWeight(.semibold)
+        .minimumScaleFactor(0.6)
+        .foregroundColor(.white)
+    }
+}
+
 
 struct TextViews_Previews: PreviewProvider {
     static var previews: some View {

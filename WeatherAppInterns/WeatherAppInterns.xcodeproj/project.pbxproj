@@ -50,6 +50,7 @@
 		7114EB992A2009C600F6F684 /* SootyCloudy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7114EB932A2009C600F6F684 /* SootyCloudy.mp4 */; };
 		7114EB9A2A2009C600F6F684 /* MostlySunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7114EB942A2009C600F6F684 /* MostlySunny.mp4 */; };
 		7114EB9B2A2009C600F6F684 /* MostlySunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7114EB942A2009C600F6F684 /* MostlySunny.mp4 */; };
+		71476E852A282B0400B00782 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4268E05F2A153D8200FB403C /* TextViews.swift */; };
 		7170F7A12A2591B00091B47C /* WidgetTextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7170F7A02A2591B00091B47C /* WidgetTextViews.swift */; };
 		E61535DD2A1D110A0063BC53 /* PrecipitationExtraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61535DC2A1D110A0063BC53 /* PrecipitationExtraInfo.swift */; };
 		E61535E12A1E74990063BC53 /* UvIndexExtraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61535E02A1E74990063BC53 /* UvIndexExtraInfo.swift */; };
@@ -491,6 +492,7 @@
 				7114EB802A2006BE00F6F684 /* WeatherWidgetBundle.swift in Sources */,
 				7114EB822A2006BE00F6F684 /* WeatherWidgetLiveActivity.swift in Sources */,
 				7114EB842A2006BE00F6F684 /* WeatherWidget.swift in Sources */,
+				71476E852A282B0400B00782 /* TextViews.swift in Sources */,
 				7114EB892A2006C000F6F684 /* WeatherWidget.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

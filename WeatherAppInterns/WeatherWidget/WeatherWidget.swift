@@ -40,51 +40,34 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct WeatherWidgetEntryView : View {
+  @Environment(\.widgetFamily) var family
   var body: some View {
     
-
-    ZStack {
-      ContainerRelativeShape()
-        .fill(Color.blue.opacity(0.6))
-        .shadow(color: .black ,radius: 15, x: 2, y: 2)
-      
-      VStack{
-        
-          VStack(alignment: .leading, spacing: 4) {
-            Text("Ciudad de mexico")
-              .font(.footnote)
-              .fontWeight(.bold)
-              .minimumScaleFactor(0.6)
-              .foregroundColor(.white)
-            Text("27°")
-              .font(.system(size: 60, weight: .light))
-
-              .minimumScaleFactor(0.6)
-              .foregroundColor(.white)
-            Text("🌦️")
-              .font(.body)
-            Text("Parcialmente Nublado")
-              .font(.system(size: 11))
-              .fontWeight(.semibold)
-              .minimumScaleFactor(0.6)
-              .foregroundColor(.white)
-            Text("Max.: 25° Min.:20°")
-              .font(.footnote)
-              .fontWeight(.semibold)
-              .minimumScaleFactor(0.6)
-              .foregroundColor(.white)   
-        }
-      }
-      .padding()
+    if family == .systemSmall{
+      SmallWeatherWidget(date: "27", temp: 23, emoji: "🌦️", city: "Aguascalientes", description: "Parcialmente Nublado", tempMax: 12, tempMin: 35)
+    }
+    if family == .systemMedium{
+      MediumWeatherWidget(date: "27", temp: 23, emoji: "🌦️", city: "Aguascalientes", description: "Parcialmente Nublado", tempMax: 12, tempMin: 35)
+    }
+    if family == .systemLarge{
+      LargeWeatherWidget(date: "27", temp: 23, emoji: "🌦️", city: "Aguascalientes", description: "Parcialmente Nublado", tempMax: 12, tempMin: 35)
+    }
     }
   }
-}
+
 
 
 
 
 
 struct SmallWeatherWidget: View {
+  var date: String
+  var temp: Double
+  var emoji: String
+  var city: String
+  var description: String
+  var tempMax: Double
+  var tempMin: Double
   var body: some View {
     ZStack {
       ContainerRelativeShape()
@@ -92,32 +75,15 @@ struct SmallWeatherWidget: View {
         .shadow(color: .black ,radius: 15, x: 2, y: 2)
       
       VStack{
-          VStack(alignment: .leading, spacing: 4) {
-            Text("Ciudad de mexico")
-              .font(.footnote)
-              .fontWeight(.bold)
-              .minimumScaleFactor(0.6)
-              .foregroundColor(.white)
-            Text("27°")
-              .font(.system(size: 60, weight: .light))
-
-              .minimumScaleFactor(0.6)
-              .foregroundColor(.white)
-            Text("🌦️")
-              .font(.body)
-            Text("Parcialmente Nublado")
-              .font(.system(size: 11))
-              .fontWeight(.semibold)
-              .minimumScaleFactor(0.6)
-              .foregroundColor(.white)
-            Text("Max.: 25° Min.:20°")
-              .font(.footnote)
-              .fontWeight(.semibold)
-              .minimumScaleFactor(0.6)
-              .foregroundColor(.white)
+        VStack(alignment: .leading, spacing: 4) {
+          CityWidget(text: city)
+          BigTempWigdet(text: "\(String(temp.formatted()))°")
+          Text(emoji)
+            .font(.body)
+          DescriptionWidget(text: description)
+          MaxMinWidget(text: "Min:.\(String (tempMin.formatted()))°Max:.\(String (tempMax.formatted()))°")
         }
-      }
-      .padding()
+      } .padding()
     }
   }
 }
@@ -133,54 +99,40 @@ struct MediumWeatherWidget: View {
   var body: some View {
     
     VStack (spacing: 7){
-          VStack(alignment: .leading, spacing: 4) {
-            
-            HStack(){
-              
-              Text(city)
-                .font(.footnote)
-                .fontWeight(.bold)
-                .minimumScaleFactor(0.6)
-                .foregroundColor(.white)
-                Spacer()
-              Text(emoji)
-                .font(.body)
+              VStack(alignment: .leading, spacing: 4) {
+                
+                HStack(){
+                  
+                  CityWidget(text: city)
+                    Spacer()
+                  Text(emoji)
+                    .font(.body)
+                }
+                HStack{
+                  
+                  BigTempWigdet(text: "\(String(temp.formatted()))°")
+                  Spacer()
+                  
+                  VStack{
+                    DescriptionWidget(text: description)
+                    MaxMinWidget(text: "Min:.\(String (tempMin.formatted()))°Max:.\(String (tempMax.formatted()))°")
+                  }
+                }
             }
-            HStack{
-              
-              Text("\(String(temp.formatted()))°")
-                .font(.system(size: 30, weight: .light))
-                .foregroundColor(.white)
-              Spacer()
-              
-              VStack{
-                Text(description)
-                  .font(.system(size: 11))
-                  .fontWeight(.semibold)
-                  .minimumScaleFactor(0.6)
-                  .foregroundColor(.white)
-                Text("Max.: \(String(tempMin.formatted()))° Min.\(String(tempMax.formatted()))°")
-                  .font(.footnote)
-                  .fontWeight(.semibold)
-                  .minimumScaleFactor(0.6)
-                  .foregroundColor(.white)
-              }
-            }
-        }
-        VStack{
-          HStack(spacing: 28){
-            ForEach(1..<7){ element in
-              VStack(spacing: 3){
-                Text(date)
-                  .foregroundColor(.white)
-                Text(emoji)
-                Text("\(String(temp.formatted()))°")
-                  .foregroundColor(.white)
+            VStack{
+              HStack(spacing: 28){
+                ForEach(1..<7){ element in
+                  VStack(spacing: 3){
+                    Text(date)
+                      .foregroundColor(.white)
+                    Text(emoji)
+                    Text("\(String(temp.formatted()))°")
+                      .foregroundColor(.white)
+                  }
+                }
               }
             }
           }
-        }
-      }
       .padding()
       .background(Color.blue.opacity(0.6))
       .shadow(color: .black ,radius: 15, x: 2, y: 2)
@@ -200,79 +152,65 @@ struct LargeWeatherWidget: View {
   var tempMin: Double
   var body: some View {
     VStack{
-      VStack (spacing: 7){
-        VStack(alignment: .leading, spacing: 4) {
-          
-          HStack(){
-            
-            Text(city)
-              .font(.footnote)
-              .fontWeight(.bold)
-              .minimumScaleFactor(0.6)
-              .foregroundColor(.white)
-            Spacer()
-            Text(emoji)
-              .font(.body)
-          }
-          HStack{
-            
-            Text("\(String(temp.formatted()))°")
-              .font(.system(size: 30, weight: .light))
-              .foregroundColor(.white)
-            
-            Spacer()
-            VStack(alignment: .trailing) {
-              Text(description)
-                .font(.system(size: 11))
-                .fontWeight(.semibold)
-                .minimumScaleFactor(0.6)
-                .foregroundColor(.white)
+          VStack (spacing: 7){
+            VStack(alignment: .leading, spacing: 4) {
               
-              Text("Max.: \(String(tempMin.formatted()))° Min.\(String(tempMax.formatted()))°")
-                .font(.footnote)
-                .fontWeight(.semibold)
-                .minimumScaleFactor(0.6)
-                .foregroundColor(.white)
-            }
-          }
-        }
-        Divider()
-          .overlay(.white)
-        
-        VStack{
-          HStack(spacing: 28){
-            ForEach(1..<7){ element in
-              VStack(spacing: 3){
-                Text(date)
-                  .foregroundColor(.white)
+              HStack(){
+                
+                CityWidget(text: city)
+                Spacer()
                 Text(emoji)
-                Text("\(String(temp.formatted()))°")
-                  .foregroundColor(.white)
+                  .font(.body)
+              }
+              HStack{
+                
+                BigTempWigdet(text: "\(String(temp.formatted()))°")
+                
+                Spacer()
+                VStack(alignment: .trailing) {
+                  DescriptionWidget(text: description)
+                  
+                  MaxMinWidget(text: "Min:.\(String (tempMin.formatted()))°Max:.\(String (tempMax.formatted()))°")
+                }
+              }
+            }
+            Divider()
+              .overlay(.white)
+            
+            VStack{
+              HStack(spacing: 28){
+                ForEach(1..<7){ element in
+                  VStack(spacing: 3){
+                    Text(date)
+                      .foregroundColor(.white)
+                    Text(emoji)
+                    Text("\(String(temp.formatted()))°")
+                      .foregroundColor(.white)
+                  }
+                }
+              }
+            }
+            Divider()
+              .overlay(.white)
+            
+            VStack(spacing: 18) {
+              ForEach(1..<6){ row in
+                VStack(){
+                  HStack(spacing: 20){
+                    Text(date)
+                      .foregroundColor(.white)
+                    Text(emoji)
+                    Text("\(String(tempMin.formatted()))°")
+                      .foregroundColor(.white)
+                    Text("------------")
+                      .foregroundColor(.white)
+                    Text("\(String(tempMax.formatted()))°")
+                      .foregroundColor(.white)
+                  }
+                }
               }
             }
           }
-        }
-        Divider()
-          .overlay(.white)
-        
-        VStack(spacing: 18) {
-          ForEach(1..<6){ row in
-            VStack(){
-              HStack(spacing: 20){
-                Text(date)
-                  .foregroundColor(.white)
-                Text(emoji)
-                Text("\(String(tempMin.formatted()))°")
-                  .foregroundColor(.white)
-                Text("------------")
-                  .foregroundColor(.white)
-                Text("\(String(tempMax.formatted()))°")
-                  .foregroundColor(.white)
-              }
-            }
-          }
-        }
-      }
       .padding()
       .background(Color.blue.opacity(0.6))
       .shadow(color: .black ,radius: 15, x: 2, y: 2)
@@ -302,7 +240,7 @@ struct WeatherWidget: Widget {
 
 struct WeatherWidget_Previews: PreviewProvider {
     static var previews: some View {
-      SmallWeatherWidget()
+      SmallWeatherWidget(date: "27", temp: 23, emoji: "🌦️", city: "Aguascalientes", description: "Parcialmente Nublado", tempMax: 12, tempMin: 35)
             .previewContext(WidgetPreviewContext(family: .systemSmall))
       MediumWeatherWidget(date: "27", temp: 23, emoji: "🌦️", city: "Aguascalientes", description: "Parcialmente Nublado", tempMax: 12, tempMin: 35)
             .previewContext(WidgetPreviewContext(family: .systemMedium))
