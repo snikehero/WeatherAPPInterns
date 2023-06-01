@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CityView: View {
+   var cont: Int
   @Binding var forecasts: [ForecastViewModel]
   @Binding var city: CityViewModel
     var body: some View {
@@ -16,11 +17,11 @@ struct CityView: View {
                 .font(.system(size: 30, weight: .medium, design: .rounded))
                 .padding(.vertical, 5)
 
-          Text(forecasts.first?.clouds ?? "0")
+           Text(forecasts[cont].clouds)
                 .font(.system(size: 20, weight: .regular, design: .rounded))
                 .padding(.vertical, 5)
 
-          Text(forecasts.first?.current ?? "0")
+          Text(forecasts[cont].current)
                 .font(.system(size: 16, weight: .regular, design: .rounded))
                 .padding(.vertical, 5)
         }

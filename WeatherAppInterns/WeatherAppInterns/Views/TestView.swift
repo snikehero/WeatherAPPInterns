@@ -10,10 +10,11 @@ import CoreLocation
 import Combine
 
 struct TestView: View {
-    @State private var isSheetPresented = false
+   var cont = 0
+   @State private var isSheetPresented = false
    @StateObject var forecastListVM = ForecastListViewModel()
    @StateObject var deviceLocationService = DeviceLocationService.shared
-   @State private var searchText = ""
+   @State var searchText = ""
    @State var tokens: Set<AnyCancellable> = []
     var body: some View {
         VStack {
@@ -23,7 +24,7 @@ struct TestView: View {
              NavigationLink {
                  EmptyView()
              } label: {
-               CityView(forecasts: $forecastListVM.forecasts, city: $forecastListVM.city)
+                CityView(cont: cont, forecasts: $forecastListVM.forecasts, city: $forecastListVM.city)
              }
            }
            .searchable(text: $searchText)
@@ -41,7 +42,7 @@ struct TestView: View {
         .sheet(isPresented: $isSheetPresented) {
             ZStack {
                
-                     DemoView3()
+               AddedCityView(cityName: searchText)
                      
                VStack {
                   HStack{
@@ -56,9 +57,10 @@ struct TestView: View {
                      Spacer()
                      Button {
                         forecastListVM.getCityByName(cityName: searchText)
-                        observeCoordinatesUpdates()
-                        observeLocationAccessDenied()
-                        deviceLocationService.requestLocationUpdates()
+                        cityArray(forecast: forecastListVM)
+//                        observeCoordinatesUpdates()
+//                        observeLocationAccessDenied()
+//                        deviceLocationService.requestLocationUpdates()
                         isSheetPresented.toggle()
                         
                      } label: {
@@ -78,6 +80,13 @@ struct TestView: View {
             .edgesIgnoringSafeArea(.bottom)
         }
     }
+   
+
+   func cityArray(forecast: ForecastListViewModel){
+      var cityCollection = [ForecastListViewModel()]
+      cityCollection.append(forecast)
+      print(cityCollection.count)
+   }
    
    func observeCoordinatesUpdates()
    {

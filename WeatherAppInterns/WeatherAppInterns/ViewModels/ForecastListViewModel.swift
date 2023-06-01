@@ -101,8 +101,8 @@ class ForecastListViewModel: ObservableObject {
           DispatchQueue.main.async {
             self.forecasts = forecast.list.map{ ForecastViewModel(forecast: $0)}
             self.city = CityViewModel(city: forecast.city )
-            print("Hubo Resultado")
-            print(self.forecasts)
+//            print("Hubo Resultado")
+//            print(self.forecasts)
              
           }
         case .failure(let apiError):
