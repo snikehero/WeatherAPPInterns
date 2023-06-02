@@ -50,7 +50,7 @@ struct Forecast: Decodable {
   let list: [List]
   struct City: Decodable {
     let id: Double
-    let name: String
+    var name: String
     let sunrise: Double
     let sunset: Double
     enum CodingKeys: String, CodingKey {

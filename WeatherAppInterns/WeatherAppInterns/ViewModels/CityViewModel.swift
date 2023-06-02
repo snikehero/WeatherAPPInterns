@@ -8,7 +8,7 @@
 import Foundation
 
 struct CityViewModel {
-  let city: Forecast.City
+  var city: Forecast.City
   private static var dateFormatter: DateFormatter {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "HH:mm"
@@ -24,7 +24,9 @@ struct CityViewModel {
      return ("\(Self.dateFormatter.string(from: NSDate(timeIntervalSince1970: city.sunset) as Date))")
      //return ("\(Self.dateFormatter.string(for: city.sunset) ?? "0")")
    }
- 
+  var id: UUID {
+    return UUID()
+  }
 }
 extension CityViewModel {
   static var mock: Self {

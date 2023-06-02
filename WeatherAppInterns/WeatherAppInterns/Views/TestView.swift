@@ -10,12 +10,13 @@ import CoreLocation
 import Combine
 
 struct TestView: View {
-   var cont = 0
    @State private var isSheetPresented = false
-   @StateObject var forecastListVM = ForecastListViewModel()
+  @StateObject var forecastListVM = ForecastListViewModel()
    @StateObject var deviceLocationService = DeviceLocationService.shared
    @State var searchText = ""
    @State var tokens: Set<AnyCancellable> = []
+  @State var arrayCitis = [ForecastViewModel]()
+  @State var arrayNames = [CityViewModel]()
     var body: some View {
         VStack {
            NavigationStack {
@@ -24,26 +25,22 @@ struct TestView: View {
              NavigationLink {
                  EmptyView()
              } label: {
-                CityView(cont: cont, forecasts: $forecastListVM.forecasts, city: $forecastListVM.city)
+               CityView(arraycitis: $arrayCitis,cityName: $arrayNames)
              }
            }
            .searchable(text: $searchText)
-           .onAppear()
-           {
-             observeCoordinatesUpdates()
-             observeLocationAccessDenied()
-           }
+          
            Button {
               isSheetPresented.toggle()
+             cityArray(forecast: forecastListVM.forecasts.first ?? ForecastViewModel.mock)
+             cityArrayNames(cityName: forecastListVM.city)
            } label: {
-             Text("hola")
+             Text("Buscar Ciudad")
            }
         }
         .sheet(isPresented: $isSheetPresented) {
             ZStack {
-               
                AddedCityView(cityName: searchText)
-                     
                VStack {
                   HStack{
                      Button(action: {
@@ -57,12 +54,10 @@ struct TestView: View {
                      Spacer()
                      Button {
                         forecastListVM.getCityByName(cityName: searchText)
-                        cityArray(forecast: forecastListVM)
-//                        observeCoordinatesUpdates()
-//                        observeLocationAccessDenied()
-//                        deviceLocationService.requestLocationUpdates()
+                     
                         isSheetPresented.toggle()
-                        
+                     
+                       
                      } label: {
                         NormalText(text: "Add")
                      }
@@ -82,11 +77,14 @@ struct TestView: View {
     }
    
 
-   func cityArray(forecast: ForecastListViewModel){
-      var cityCollection = [ForecastListViewModel()]
-      cityCollection.append(forecast)
-      print(cityCollection.count)
+   func cityArray(forecast: ForecastViewModel){
+     arrayCitis.append(forecast)
    }
+  func cityArrayNames(cityName: CityViewModel)
+  {
+    arrayNames.append(cityName)
+  }
+
    
    func observeCoordinatesUpdates()
    {

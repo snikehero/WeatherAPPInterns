@@ -35,8 +35,7 @@ struct AddedCityView: View {
                                  SummaryView(forecasts: $forecastListVM.forecasts,cityName: forecastListVM.city.cityName)
                                  ButtonSubtitle(text: forecastListVM.forecasts.first?.overview ?? "overview")
                                     .shadow(color: .black ,radius: 15, x: 2, y: 2)
-                                 HourlyView(forecasts: $forecastListVM.forecasts)
-                                 
+                                 //HourlyView(forecasts: $forecastListVM.forecasts)
                               }
                            }
                            .padding()

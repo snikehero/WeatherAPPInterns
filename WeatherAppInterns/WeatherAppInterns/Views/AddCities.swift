@@ -22,7 +22,7 @@ struct AddCities: View {
         NavigationLink {
             EmptyView()
         } label: {
-           CityView(cont: 0,forecasts: $forecastListVM.forecasts, city: $forecastListVM.city)
+          //CityView(arraycitis: <#T##Binding<[ForecastViewModel]>#>)
         }
       }
       .searchable(text: $searchText)

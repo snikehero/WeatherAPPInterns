@@ -8,24 +8,37 @@
 import SwiftUI
 
 struct CityView: View {
-   var cont: Int
-  @Binding var forecasts: [ForecastViewModel]
-  @Binding var city: CityViewModel
-    var body: some View {
-        VStack(alignment: .leading) {
-          Text(city.cityName)
-                .font(.system(size: 30, weight: .medium, design: .rounded))
-                .padding(.vertical, 5)
-
-           Text(forecasts[cont].clouds)
-                .font(.system(size: 20, weight: .regular, design: .rounded))
-                .padding(.vertical, 5)
-
-          Text(forecasts[cont].current)
-                .font(.system(size: 16, weight: .regular, design: .rounded))
-                .padding(.vertical, 5)
-        }
+  @Binding var arraycitis: [ForecastViewModel]
+  @Binding var cityName: [CityViewModel]
+  var body: some View {
+   
+    ForEach(cityName, id: \.id) { element in
+      VStack() {
+        Text(element.cityName)
+      }
     }
+    ForEach($arraycitis, id: \.id) { element in
+      VStack(spacing: 10) {
+       
+        VStack(alignment: .leading) {
+          Text(element.wrappedValue.high)
+            .font(.system(size: 30, weight: .medium, design: .rounded))
+            .padding(.vertical, 5)
+          
+        
+          
+//
+//          Text(element.wrappedValue.current)
+//            .font(.system(size: 20, weight: .regular, design: .rounded))
+//            .padding(.vertical, 5)
+//          
+//          Text(element.wrappedValue.current)
+//            .font(.system(size: 16, weight: .regular, design: .rounded))
+//            .padding(.vertical, 5)
+        }
+      }
+    }
+  }
 }
 
 struct CityView_Previews: PreviewProvider {
