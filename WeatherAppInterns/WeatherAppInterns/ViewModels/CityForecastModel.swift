@@ -1,5 +1,5 @@
 //
-//  ForecastListViewModel.swift
+//  CtyForecastModel.swift
 //  WeatherAppInterns
 //
 //  Created by Moises Lopez on 22/05/23.
@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 import SwiftUI
-class ForecastListViewModel: ObservableObject {
+class CityForecastModel: ObservableObject {
   var coordinates: (lat: Double, lon: Double) = (0,0)
   @Published var forecasts: [ForecastViewModel] = [ForecastViewModel.mock,ForecastViewModel.mock1,ForecastViewModel.mock2,ForecastViewModel.mock3,ForecastViewModel.mock4,ForecastViewModel.mock5,ForecastViewModel.mock6,ForecastViewModel.mock7]
   @Published var city: CityViewModel = CityViewModel.mock
@@ -99,7 +99,7 @@ class ForecastListViewModel: ObservableObject {
         case .success(let forecast):
           //print(forecast)
           DispatchQueue.main.async {
-            self.forecasts = forecast.list.map{ ForecastViewModel(forecast: $0)}
+            self.forecasts = forecast.list.map(ForecastViewModel.init)
             self.city = CityViewModel(city: forecast.city )
 //            print("Hubo Resultado")
 //            print(self.forecasts)

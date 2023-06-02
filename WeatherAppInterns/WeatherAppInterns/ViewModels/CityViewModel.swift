@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CityViewModel {
+struct CityViewModel { //Cambiar a class
   var city: Forecast.City
   private static var dateFormatter: DateFormatter {
     let dateFormatter = DateFormatter()
@@ -28,6 +28,7 @@ struct CityViewModel {
     return UUID()
   }
 }
+//Agregar forecasts...
 extension CityViewModel {
   static var mock: Self {
     .init(city: Forecast.City(id: 0, name: "Cupertino", sunrise: 0, sunset: 0))

@@ -10,7 +10,7 @@ import CoreLocation
 import Combine
 
 struct AddCities: View {
-  @StateObject var forecastListVM = ForecastListViewModel()
+  @StateObject var forecastListVM = CityForecastModel()
   @StateObject var deviceLocationService = DeviceLocationService.shared
   @State private var searchText = ""
   @State var tokens: Set<AnyCancellable> = []

@@ -12,7 +12,7 @@ import CoreLocation
 
 struct AddedCityView: View {
    var cityName : String
-   @StateObject var forecastListVM = ForecastListViewModel()
+   @StateObject var forecastListVM = CityForecastModel()
    @StateObject var deviceLocationService = DeviceLocationService.shared
    @State var tokens: Set<AnyCancellable> = []
    @State var coordinates: (lat: Double, lon: Double) = (0,0)
