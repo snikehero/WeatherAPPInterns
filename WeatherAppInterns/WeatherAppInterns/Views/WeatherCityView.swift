@@ -20,10 +20,11 @@ struct WeatherCityView: View {
   var body: some View {
     VStack {
       NavigationStack {
-        Text("Searching for \(searchText)")
+        Text("")
           .navigationTitle("Weather")
         NavigationLink {
-          EmptyView()
+    
+            
         } label: {
 //          CityView(arraycitis: $forecastListVM.forecasts,cityName: $forecastListVM.city)
           CityView(cities: $cityListVM.cities,citiesList: cityListVM)
@@ -31,7 +32,7 @@ struct WeatherCityView: View {
           // 4.-Pasar CityForecastModel
         }
       }
-      .searchable(text: $searchText)
+      .searchable(text: $searchText, prompt: "Search city or airport")
       .onSubmit(of: .search) {
         isSheetPresented.toggle()
       }

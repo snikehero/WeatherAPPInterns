@@ -59,7 +59,7 @@ struct WeatherWidgetEntryView : View {
 
 struct SmallWeatherWidget: View {
   
-  @StateObject var forecastListVM = ForecastListViewModel()
+  @StateObject var forecastListVM = CityForecastModel()
   @StateObject var deviceLocationService = DeviceLocationService.shared
   @StateObject private var dailyForecastListVM = DailyForecastListViewmodel()
   @State var coordinates: (lat: Double, lon: Double) = (0,0)

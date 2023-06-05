@@ -46,20 +46,25 @@ struct CityView: View {
 //    }
     
     //New2
-    VStack {
-      Text("CitiesList")
+    
       List {
         ForEach(citiesList.cities, id: \.id) { element in
           VStack{
-            Text(element.city.cityName)
-            Text("\(element.forecasts.first?.current ?? "0") º")
+              HStack{
+                  CityWidget(text: element.city.cityName )
+                  Spacer()
+                  BigTempWigdet(text: "\(element.forecasts.first?.current ?? "0") º" )
+              }
             Text("H: \(element.forecasts.first?.high ?? "0") º")
             Text("L: \(element.forecasts.first?.low ?? "0") º")
           }
+          .background(Color("BackgroundColor"))
+          .clipShape(RoundedRectangle(cornerRadius: 15))
         }
       }
+      .listRowInsets(.init(top: 16, leading: .zero, bottom: 16, trailing: .zero))
+      .listRowSeparator(.hidden)
     }
-  }
 }
 
 struct CityView_Previews: PreviewProvider {
