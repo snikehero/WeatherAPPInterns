@@ -1,5 +1,5 @@
 //
-//  ForecastListViewModel.swift
+//  CtyForecastModel.swift
 //  WeatherAppInterns
 //
 //  Created by Moises Lopez on 22/05/23.
@@ -8,17 +8,14 @@
 import Foundation
 import CoreLocation
 import SwiftUI
-class ForecastListViewModel: ObservableObject {
+class CityForecastModel: ObservableObject {
   var coordinates: (lat: Double, lon: Double) = (0,0)
   @Published var forecasts: [ForecastViewModel] = [ForecastViewModel.mock,ForecastViewModel.mock1,ForecastViewModel.mock2,ForecastViewModel.mock3,ForecastViewModel.mock4,ForecastViewModel.mock5,ForecastViewModel.mock6,ForecastViewModel.mock7]
   @Published var city: CityViewModel = CityViewModel.mock
   @AppStorage ("location") var location: String = ""
-  init() {
-    if location != "" {
-      //getWeatherForecast()
-      //getCity()
-      
-    }
+  //5.'=
+  var id: UUID {
+    return UUID()
   }
   
   var units: String = "metric"
@@ -83,9 +80,9 @@ class ForecastListViewModel: ObservableObject {
     //}
     
   }
-  func getCityByName(cityName: String) {
+  func getCityByName(cityName: String) -> CityForecastModel {
+    var temp = CityForecastModel()
     let apiService = ApiService.shared
-    
     CLGeocoder().geocodeAddressString(location) { placemarks, error in
       if let error = error {
         print(error.localizedDescription)
@@ -97,13 +94,13 @@ class ForecastListViewModel: ObservableObject {
       apiService.getJSON(urlString: urlString) { (result: Result<Forecast,ApiService.APIError>) in
         switch result {
         case .success(let forecast):
-          //print(forecast)
           DispatchQueue.main.async {
-            self.forecasts = forecast.list.map{ ForecastViewModel(forecast: $0)}
-            self.city = CityViewModel(city: forecast.city )
-//            print("Hubo Resultado")
-//            print(self.forecasts)
-             
+           
+            temp.forecasts = forecast.list.map(ForecastViewModel.init)
+            temp.city = CityViewModel(city: forecast.city )
+
+            //print("Success")
+            //print(forecast)
           }
         case .failure(let apiError):
           switch apiError {
@@ -114,5 +111,41 @@ class ForecastListViewModel: ObservableObject {
       }
       //}
     }
+    return temp
   }
+  
+  func getCityByNameCityView(cityName: String){
+    let apiService = ApiService.shared
+    CLGeocoder().geocodeAddressString(location) { placemarks, error in
+      if let error = error {
+        print(error.localizedDescription)
+      }
+      let urlString = "https://api.openweathermap.org/data/2.5/forecast?q=\(cityName)&appid=23892ea6d93b8685d75fae33906a91ed&units=metric"
+      //      if let lat = placemarks?.first?.location?.coordinate.latitude,
+      //         let lon = placemarks?.first?.location?.coordinate.longitude {
+      print("Coordenadas antes: \(self.coordinates.lat), \(self.coordinates.lon)")
+      apiService.getJSON(urlString: urlString) { (result: Result<Forecast,ApiService.APIError>) in
+        switch result {
+        case .success(let forecast):
+          DispatchQueue.main.async {
+           
+            self.forecasts = forecast.list.map(ForecastViewModel.init)
+            self.city = CityViewModel(city: forecast.city )
+
+            //print("Success")
+            //print(forecast)
+          }
+        case .failure(let apiError):
+          switch apiError {
+          case .error(let errorString):
+            print(errorString)
+          }
+        }
+      }
+      //}
+    }
+
+  }
+
+
 }

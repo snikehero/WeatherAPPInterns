@@ -10,7 +10,7 @@ import SwiftUI
 struct SheetView: View{
     @Binding var isShowing: Bool
     @Binding var selectedSheet: showingSheets
-    @StateObject var forecastListVM: ForecastListViewModel
+    @StateObject var forecastListVM: CityForecastModel
     @StateObject var dailyForecastListVM: DailyForecastListViewmodel
     @StateObject var airPollutionListVM: AirPollutionListViewModel
     

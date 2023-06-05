@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NavBarView: View {
+  @State var isPresented: Bool = false
     var body: some View {
           HStack{
              Button {
@@ -19,9 +20,15 @@ struct NavBarView: View {
               
              Button {
                //Open maps view
+               isPresented.toggle()
+                 
              } label: {
+                
                 ButtonView(systemName: "list.dash")
              }
+             .fullScreenCover(isPresented: $isPresented, content: {
+                         WeatherCityView()
+                     })
 
           }
 
