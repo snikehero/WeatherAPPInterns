@@ -4,6 +4,7 @@ import Combine
 
 
 struct DemoView3: View {
+
   @StateObject var forecastListVM = CityForecastModel()
   @StateObject var deviceLocationService = DeviceLocationService.shared
   @StateObject private var dailyForecastListVM = DailyForecastListViewmodel()

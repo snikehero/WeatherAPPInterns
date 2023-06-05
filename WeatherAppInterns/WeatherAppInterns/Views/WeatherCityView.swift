@@ -9,16 +9,14 @@ import SwiftUI
 import CoreLocation
 import Combine
 
-struct TestView: View {
+struct WeatherCityView: View {
   //Seria WeatherCityView ya que vive todo aqui...
   @State private var isSheetPresented = false
   @StateObject var forecastListVM = CityForecastModel()
   @StateObject var cityListVM = CityListViewModel()
-  @StateObject var deviceLocationService = DeviceLocationService.shared
   @State var searchText = ""
-  @State var tokens: Set<AnyCancellable> = []
-  //@State var arrayCitis = [ForecastViewModel]()
-  //@State var arrayNames = [CityViewModel]()
+   @State var temp = CityForecastModel()
+  @State private var isPresented = false
   var body: some View {
     VStack {
       NavigationStack {
@@ -27,8 +25,10 @@ struct TestView: View {
         NavigationLink {
           EmptyView()
         } label: {
-          CityView(arraycitis: $forecastListVM.forecasts,cityName: $forecastListVM.city)
-          //Pasar CityForecastModel
+//          CityView(arraycitis: $forecastListVM.forecasts,cityName: $forecastListVM.city)
+          CityView(cities: $cityListVM.cities,citiesList: cityListVM)
+          
+          // 4.-Pasar CityForecastModel
         }
       }
       .searchable(text: $searchText)
@@ -39,6 +39,7 @@ struct TestView: View {
     .sheet(isPresented: $isSheetPresented) {
       ZStack {
         AddedCityView(cityName: searchText)
+        EmptyView()
         VStack {
           HStack{
             Button(action: {
@@ -51,8 +52,11 @@ struct TestView: View {
             .padding()
             Spacer()
             Button {
-              forecastListVM.getCityByName(cityName: searchText)
-              //Anadir el CityListViewModel
+              temp = forecastListVM.getCityByName(cityName: searchText)
+              //forecastListVM.getCityByName(cityName: searchText)
+              //Anadir el CityListViewModel 2.-
+              cityListVM.addCity(cityToAdd: temp)
+              
               isSheetPresented.toggle()
               
               
@@ -74,40 +78,10 @@ struct TestView: View {
     }
   }
   
-  func observeCoordinatesUpdates()
-  {
-    deviceLocationService.coordinatesPublisher
-      .receive(on: DispatchQueue.main)
-      .sink {completion in
-        if case .failure (let error) = completion {
-          print(error)
-        }
-      } receiveValue: { coordinates in
-        forecastListVM.getCityByName(cityName: searchText)
-        //         forecastListVM.getWeatherForecast()
-        //         forecastListVM.getCity()
-        //         forecastListVM.location = "location"
-      }
-      .store(in: &tokens)
-  }
-  func observeLocationAccessDenied() {
-    deviceLocationService.deniedLocationAccessPublisher
-      .receive(on: DispatchQueue.main)
-      .sink {
-        print("Show some kind of alert to the user")
-        forecastListVM.getCityByName(cityName: "Cupertino")
-        //         forecastListVM.getWeatherForecast()
-        //         forecastListVM.getCity()
-        //         forecastListVM.location = "location"
-      }
-      .store(in: &tokens)
-  }
-  
-  
 }
 
 struct TestView_Previews: PreviewProvider {
   static var previews: some View {
-    TestView()
+    WeatherCityView(temp: CityForecastModel.init())
   }
 }
