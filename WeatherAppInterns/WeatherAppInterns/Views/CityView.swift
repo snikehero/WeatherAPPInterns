@@ -46,24 +46,30 @@ struct CityView: View {
 //    }
     
     //New2
-    
-      List {
         ForEach(citiesList.cities, id: \.id) { element in
           VStack{
               HStack{
-                  CityWidget(text: element.city.cityName )
+                  TitleTextCities(text: element.city.cityName )
                   Spacer()
                   BigTempWigdet(text: "\(element.forecasts.first?.current ?? "0") º" )
               }
-            Text("H: \(element.forecasts.first?.high ?? "0") º")
-            Text("L: \(element.forecasts.first?.low ?? "0") º")
+              .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
+              HStack{
+                  NormalText(text:"Summary")
+                  Spacer()
+                  NormalText(text: "H: \(element.forecasts.first?.high ?? "0") º")
+                  NormalText(text: "L: \(element.forecasts.first?.low ?? "0") º")
+              }
+              .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
+
+
           }
           .background(Color("BackgroundColor"))
+          .ignoresSafeArea()
           .clipShape(RoundedRectangle(cornerRadius: 15))
+          .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
         }
-      }
-      .listRowInsets(.init(top: 16, leading: .zero, bottom: 16, trailing: .zero))
-      .listRowSeparator(.hidden)
+      Spacer()
     }
 }
 

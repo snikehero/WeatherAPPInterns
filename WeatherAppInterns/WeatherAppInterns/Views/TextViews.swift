@@ -53,6 +53,16 @@ struct TitleText: View{
    }
 }
 
+struct TitleTextCities: View{
+   var text: String
+   var body: some View{
+      Text(text)
+           .foregroundColor(.white)
+           .font(.title)
+           .fontWeight(.heavy)
+   }
+}
+
 struct NormalText: View{
    var text:String
    var body: some View{
@@ -198,6 +208,8 @@ struct TextViews_Previews: PreviewProvider {
                 ExtraInfoTextBox(text: "Today, the visibility will be perfectly clear, at 26 to 26km")
 
               ExtraInfoTextBox(text: "Today, the visibility will be perfectly clrear, at 26 to 26km")
+                
+                TitleTextCities(text: "Miami")
 
             }
         }
