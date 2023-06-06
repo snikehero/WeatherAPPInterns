@@ -77,5 +77,6 @@ struct CityView_Previews: PreviewProvider {
     static var previews: some View {
 //      CityView(arraycitis: .constant([ForecastViewModel.mock]), cityName: .constant(.mock))      //Text("Preview")
       CityView(cities: .constant([CityForecastModel.init()]),citiesList:  CityListViewModel.init())
+      
     }
 }

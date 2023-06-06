@@ -15,28 +15,32 @@ struct WeatherCityView: View {
     @State private var isSheetPresented = false
     @StateObject var forecastListVM = CityForecastModel()
     @StateObject var cityListVM = CityListViewModel()
+  @StateObject var deviceLocationService = DeviceLocationService.shared
     @State var searchText = ""
     @State var temp = CityForecastModel()
     @State private var isPresented = false
     var body: some View{
         
         NavigationStack{
+          ScrollView {
             VStack {
-                Button {
-                    isPresented.toggle()
-                } label: {
-                    VStack{
-                        CityView(cities: $cityListVM.cities,citiesList: cityListVM )
-                    }
+              Button {
+                isPresented.toggle()
+                
+              } label: {
+                VStack{
+                  CityView(cities: $cityListVM.cities,citiesList: cityListVM )
                 }
-                .fullScreenCover(isPresented: $isPresented, content: {
-                    DemoView3()
-                })
+              }
+              //                .fullScreenCover(isPresented: $isPresented, content: {
+              //                    DemoView3()
+              //                })
             }
             Spacer()
-                .navigationTitle("Weather")
-                .toolbarBackground(.visible, for: .navigationBar)
-                .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
+              .navigationTitle("Weather")
+              .toolbarBackground(.visible, for: .navigationBar)
+              .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
+          }
             
         }
         
@@ -81,11 +85,13 @@ struct WeatherCityView: View {
             }
         }
     }
+  
     
 }
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {
         WeatherCityView(temp: CityForecastModel.init())
+      
     }
 }

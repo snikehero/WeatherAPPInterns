@@ -1,10 +1,16 @@
+//
+//  DemoView4.swift
+//  WeatherAppInterns
+//
+//  Created by Moises Lopez on 05/06/23.
+//
+
 import SwiftUI
 import CoreLocation
 import Combine
 
 
-struct DemoView3: View {
-
+struct DemoView4: View {
   @StateObject var forecastListVM = CityForecastModel()
   @StateObject var deviceLocationService = DeviceLocationService.shared
   @StateObject private var dailyForecastListVM = DailyForecastListViewmodel()
@@ -17,8 +23,8 @@ struct DemoView3: View {
   var body: some View {
     NavigationStack {
       ZStack {
-        //BackgroundView()x
-        Color("BackgroundColor")
+        BackgroundView()
+        //Color("BackgroundColor")
           .ignoresSafeArea()
           .opacity(50)
         
@@ -30,7 +36,7 @@ struct DemoView3: View {
                 VStack {
                   ScrollView{
                     VStack {
-
+                      //WeatherCityView()
                       SummaryView(forecasts: $forecastListVM.forecasts,cityName: forecastListVM.city.cityName)
                       ButtonSubtitle(text: forecastListVM.forecasts.first?.overview ?? "overview")
                         .shadow(color: .black ,radius: 15, x: 2, y: 2)
@@ -142,11 +148,11 @@ struct DemoView3: View {
           Spacer()
         }
       }
-      .toolbar{
-        ToolbarItemGroup(placement: .bottomBar){
-          NavBarView()
-        }
-      }
+//      .toolbar{
+//        ToolbarItemGroup(placement: .bottomBar){
+//          NavBarView()
+//        }
+     // }
     }
   }
   
@@ -197,13 +203,15 @@ struct DemoView3: View {
       }
       .store(in: &tokens)
   }
+
 }
-struct DemoView3_Previews: PreviewProvider {
+struct DemoView4_Previews: PreviewProvider {
   static var previews: some View {
-    DemoView3()
+    DemoView4()
       .background(Color("BackgroundColor"))
   }
 }
+
 
 
 
