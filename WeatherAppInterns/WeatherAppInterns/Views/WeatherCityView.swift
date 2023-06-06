@@ -21,12 +21,13 @@ struct WeatherCityView: View {
     var body: some View{
         
         NavigationStack{
-            
             VStack {
                 Button {
                     isPresented.toggle()
                 } label: {
-                    CityView(cities: $cityListVM.cities,citiesList: cityListVM )
+                    VStack{
+                        CityView(cities: $cityListVM.cities,citiesList: cityListVM )
+                    }
                 }
                 .fullScreenCover(isPresented: $isPresented, content: {
                     DemoView3()
