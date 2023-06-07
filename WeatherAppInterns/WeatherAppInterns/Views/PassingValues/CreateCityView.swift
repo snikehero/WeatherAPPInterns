@@ -32,14 +32,30 @@ struct CreateCityView: View {
               }
               .pickerStyle(SegmentedPickerStyle())
               .frame(width:100)
-              Button {
-                isPresented.toggle()
-              } label: {
-                VStack{
-                  CityCardView()
-                    .environmentObject(cityListVM)
-                }
+//              Button {
+//                isPresented.toggle()
+//              } label: {
+//                VStack{
+//                  CityCardView()
+//                    .environmentObject(cityListVM)
+//                }
+              
+              
+                ForEach(cityListVM.cities, id: \.id ) { element in
+                  Button {
+                    isPresented.toggle()
+                    WeatherView()
+                      .environmentObject(element)
+                  } label: {
+                    VStack{
+                      CityCardView()
+                        .environmentObject(element)
+                    }
+                  }
+
               }
+              
+              
             }
             Spacer()
               .navigationTitle("Weather")
