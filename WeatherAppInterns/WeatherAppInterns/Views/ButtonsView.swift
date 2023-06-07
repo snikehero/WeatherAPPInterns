@@ -26,16 +26,17 @@ struct ExtraInfoButton: ViewModifier {
 }
 
 struct HourlyView: View{
-    @Binding var forecasts: [ForecastViewModel]
+    @EnvironmentObject var forecastListVM: CityForecastModel
+    //@Binding var forecasts: [ForecastViewModel]
     var testing = false
     var body: some View{
         VStack{
-            ButtonDescription(text: "\(forecasts.first?.weatherDescription ?? "Cloudy conditions") expected")
+          ButtonDescription(text: "\(forecastListVM.forecasts.first?.weatherDescription ?? "Cloudy conditions") expected")
             HeaderDivider()
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
                     
-                    ForEach($forecasts, id: \.id) { element in
+                  ForEach($forecastListVM.forecasts, id: \.id) { element in
                         VStack(spacing: 10) {
                             NormalText(text: element.wrappedValue.hourDay)
                             NormalText(text: element.wrappedValue.emoji)
@@ -59,16 +60,17 @@ struct HourlyView: View{
     }
 }
 struct SummaryView: View{
-    @Binding var forecasts: [ForecastViewModel]
-    var cityName: String
+  @EnvironmentObject var forecastListVM: CityForecastModel
+  //@Binding var forecasts: [ForecastViewModel]
+    //var cityName: String
     var body: some View{
         VStack{
-            TitleText(text: cityName)
-            BigNumberText(text: "\(forecasts.first?.current ?? "0")º")
+          TitleText(text: forecastListVM.city.cityName)
+          BigNumberText(text: "\(forecastListVM.forecasts.first?.current ?? "0")º")
             HStack{
-                ButtonSubtitle(text: "Low: \(forecasts.first?.low ?? "0")º")
+              ButtonSubtitle(text: "Low: \(forecastListVM.forecasts.first?.low ?? "0")º")
                     .shadow(color: .black ,radius: 15, x: 2, y: 2)
-                ButtonSubtitle(text: "High: \(forecasts.first?.high ?? "0")º")
+              ButtonSubtitle(text: "High: \(forecastListVM.forecasts.first?.high ?? "0")º")
                     .shadow(color: .black ,radius: 15, x: 2, y: 2)
             }
         }
@@ -77,9 +79,10 @@ struct SummaryView: View{
     }
 }
 struct DaysView: View{
-    @Binding var dailyForecasts: [DailyForecastViewModel]
+  @EnvironmentObject var dailyForecastListVM: DailyForecastListViewmodel
+    //@Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View{
-        ForEach($dailyForecasts, id: \.id) { element in
+      ForEach($dailyForecastListVM.dailyForecasts, id: \.id) { element in
             VStack{
                 Button {
                 } label: {
@@ -105,16 +108,19 @@ struct DaysView: View{
     }
 }
 struct AirPollutionView: View {
-    @Binding var airPollution: [AirPollutionViewModel]
+  @EnvironmentObject var airPollutionListVM: AirPollutionListViewModel
+    //@Binding var airPollution: [AirPollutionViewModel]
     var body: some View {
         VStack(alignment: .leading) {
             ButtonHeader(text: "Air Quality".uppercased(), systemImage: "aqi.medium")
             HeaderDivider()
-            ButtonSubtitle(text: airPollution.first?.index ?? "0")
-            ButtonDescription(text: airPollution.first?.airPollutionDescription ?? "0")
-            //agregar la grafica y modificar su valor dependiendo de airpollution.indexRectangle()
-            AirQualitySlider(value: airPollution.first?.index ?? "0")
-            
+          ButtonSubtitle(text: airPollutionListVM.airPollutions.first?.index  ?? "0")
+          ButtonDescription(text: airPollutionListVM.airPollutions.first?.airPollutionDescription ?? "0")
+          AirQualitySlider(value: airPollutionListVM.airPollutions.first?.index ?? "0")
+          //ButtonSubtitle(text: airPollutionListVM.airPollutions.airPollution.first?.index ?? "0")
+          //ButtonDescription(text: $airPollutionListVM.airPollutions.airPollution.first?.airPollutionDescription ?? "0")
+          //AirQualitySlider(value: $airPollutionListVM.airPollutions.airPollution.first?.index ?? "0")
+          //agregar la grafica y modificar su valor dependiendo de airpollution.indexRectangle()
         }
         .frame(maxWidth: 350)
         .multilineTextAlignment(.leading)
@@ -126,16 +132,17 @@ struct AirPollutionView: View {
 }
 //Buttons View
 struct UVIndex: View {
-    @Binding var dailyForecasts: [DailyForecastViewModel]
+    @EnvironmentObject var dailyForecastListVM: DailyForecastListViewmodel
+    //@Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         
         VStack(alignment: .leading) {
             ButtonHeader(text: "UV INDEX", systemImage: "sun.max.fill")
             
             HeaderDivider()
-            ButtonTitle(text: dailyForecasts.first?.uvi ?? "UVI")
-            ButtonSubtitle(text: dailyForecasts.first?.subtitle ?? "Subitle")
-            ButtonDescription(text: dailyForecasts.first?.description ?? "Description")
+          ButtonTitle(text: dailyForecastListVM.dailyForecasts.first?.uvi ?? "UVI")
+          ButtonSubtitle(text: dailyForecastListVM.dailyForecasts.first?.subtitle ?? "Subitle")
+          ButtonDescription(text: dailyForecastListVM.dailyForecasts.first?.description ?? "Description")
             Spacer()
         }
         .padding()
@@ -143,9 +150,8 @@ struct UVIndex: View {
 }
 
 struct Sunset: View {
-    var title: String
-    var description: String
-    
+    @EnvironmentObject var forecastListVM: CityForecastModel
+  //@Binding var forecasts: [ForecastViewModel]
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -153,16 +159,18 @@ struct Sunset: View {
                 Spacer()
             }
             HeaderDivider()
-            ButtonTitle(text: title)
-            ButtonDescription(text: description)
+          ButtonTitle(text: forecastListVM.city.sunset)
+          ButtonDescription(text: "Sunrise: \(forecastListVM.city.sunrise)")
             Spacer()
         }.padding()
     }
 }
 
 struct Wind: View {
-    @Binding var forecasts: [ForecastViewModel]
-    @Binding var dailyForecasts: [DailyForecastViewModel]
+    @EnvironmentObject var dailyForecastListVM: DailyForecastListViewmodel
+    @EnvironmentObject var forecastListVM: CityForecastModel
+  //  @Binding var forecasts: [ForecastViewModel]
+  //  @Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         
         ZStack {
@@ -171,7 +179,7 @@ struct Wind: View {
                 .frame(maxWidth: 130, maxHeight: 130)
                 .padding(.top, 30)
             Image("Arrow")
-                .rotationEffect(.degrees(Double(dailyForecasts.first?.windDeg ?? "0") ?? 0))
+            .rotationEffect(.degrees(Double(dailyForecastListVM.dailyForecasts.first?.windDeg ?? "0") ?? 0))
                 .padding(.top, 15)
             Text("34")
                 .foregroundColor(.white)
@@ -196,8 +204,10 @@ struct Wind: View {
 }
 
 struct Precipitation: View {
-    @Binding var forecasts: [ForecastViewModel]
-    @Binding var dailyForecasts: [DailyForecastViewModel]
+    @EnvironmentObject var dailyForecastListVM: DailyForecastListViewmodel
+    @EnvironmentObject var forecastListVM: CityForecastModel
+  //  @Binding var forecasts: [ForecastViewModel]
+  //  @Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         VStack (alignment: .leading){
             HStack {
@@ -205,10 +215,10 @@ struct Precipitation: View {
                 Spacer()
             }
             HeaderDivider()
-            ButtonTitle(text: dailyForecasts.first?.pop ?? "Precipitation")
+          ButtonTitle(text: dailyForecastListVM.dailyForecasts.first?.pop ?? "Precipitation")
             ButtonSubtitle(text: "in last 24 h")
             Spacer()
-            ButtonDescription(text: forecasts.first?.popDescription ?? "POP description")
+          ButtonDescription(text: forecastListVM.forecasts.first?.popDescription ?? "POP description")
             
             Spacer()
         }.padding()
@@ -216,8 +226,8 @@ struct Precipitation: View {
 }
 
 struct FeelsLike: View {
-    @Binding var forecasts: [ForecastViewModel]
-    
+    @EnvironmentObject var forecastListVM: CityForecastModel
+  //@Binding var forecasts: [ForecastViewModel]
     var body: some View {
         VStack (alignment: .leading){
             HStack {
@@ -225,9 +235,9 @@ struct FeelsLike: View {
                 Spacer()
             }
             HeaderDivider()
-            ButtonTitle(text: "\(forecasts.first?.fellsLike ?? "feelslike")º")
+          ButtonTitle(text: "\(forecastListVM.forecasts.first?.fellsLike ?? "feelslike")º")
             Spacer()
-            ButtonDescription(text: forecasts.first?.feelsLikeDescription ?? "feelslikedescription")
+          ButtonDescription(text: forecastListVM.forecasts.first?.feelsLikeDescription ?? "feelslikedescription")
             
             Spacer()
         }.padding()
@@ -235,8 +245,10 @@ struct FeelsLike: View {
 }
 
 struct Humidity: View {
-    @Binding var forecasts: [ForecastViewModel]
-    @Binding var dailyForecasts: [DailyForecastViewModel]
+    @EnvironmentObject var dailyForecastListVM: DailyForecastListViewmodel
+    @EnvironmentObject var forecastListVM: CityForecastModel
+//  @Binding var forecasts: [ForecastViewModel]
+//  @Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         VStack (alignment: .leading){
             HStack {
@@ -244,17 +256,18 @@ struct Humidity: View {
                 Spacer()
             }
             HeaderDivider()
-            ButtonTitle(text: "\(dailyForecasts.first?.humidity ?? "Humidity")%")
+          ButtonTitle(text: "\(dailyForecastListVM.dailyForecasts.first?.humidity ?? "Humidity")%")
             Spacer()
             
-            ButtonDescription(text: "The dew point is \(dailyForecasts.first?.dew_point ?? "0")º right now.")
+          ButtonDescription(text: "The dew point is \(dailyForecastListVM.dailyForecasts.first?.dew_point ?? "0")º right now.")
             Spacer()
         }.padding()
     }
 }
 
 struct Visibility: View {
-    @Binding var forecasts: [ForecastViewModel]
+    @EnvironmentObject var forecastListVM: CityForecastModel
+    //@Binding var forecasts: [ForecastViewModel]
     var body: some View {
         VStack (alignment: .leading){
             HStack {
@@ -262,10 +275,10 @@ struct Visibility: View {
                 Spacer()
             }
             HeaderDivider()
-            ButtonTitle(text: "\(forecasts.first?.visibility ?? "Visibility")Km")
+          ButtonTitle(text: "\(forecastListVM.forecasts.first?.visibility ?? "Visibility")Km")
             Spacer()
             
-            ButtonDescription(text: forecasts.first?.visibilityDescription ??  "Visibility Description")
+          ButtonDescription(text: forecastListVM.forecasts.first?.visibilityDescription ??  "Visibility Description")
             
             Spacer()
         }.padding()
@@ -273,8 +286,10 @@ struct Visibility: View {
 }
 
 struct Pressure: View {
-    @Binding var forecasts: [ForecastViewModel]
-    @Binding var dailyForecasts: [DailyForecastViewModel]
+    @EnvironmentObject var dailyForecastListVM: DailyForecastListViewmodel
+    @EnvironmentObject var forecastListVM: CityForecastModel
+    //@Binding var forecasts: [ForecastViewModel]
+    //@Binding var dailyForecasts: [DailyForecastViewModel]
     var body: some View {
         VStack {
             HStack {
@@ -285,7 +300,7 @@ struct Pressure: View {
             Spacer()
             //            ButtonTitle(text: dailyForecasts.first?.pressure ?? "Pressure")
             //            ButtonDescription(text: forecasts.first?.pressureDescription ?? "Pressure Description")
-            PressureGauge(value: dailyForecasts.first?.pressure ?? "1000")
+          PressureGauge(value: dailyForecastListVM.dailyForecasts.first?.pressure ?? "1000")
             
             Spacer()
         }.padding()

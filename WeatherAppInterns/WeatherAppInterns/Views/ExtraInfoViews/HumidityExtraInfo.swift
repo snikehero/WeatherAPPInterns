@@ -41,8 +41,10 @@ struct HumidityChartMock: View {
 struct HumidityExtraInfo: View {
   @Binding var isShowing : Bool
   @State private var selectedTab = 0
-  @Binding var forecasts: [ForecastViewModel]
-  @Binding var dailyForecasts: [DailyForecastViewModel]
+//  @Binding var forecasts: [ForecastViewModel]
+//  @Binding var dailyForecasts: [DailyForecastViewModel]
+  @EnvironmentObject var forecastListVM: CityForecastModel
+  @EnvironmentObject var dailyForecastListVM: DailyForecastListViewmodel
     @Binding var selectedSheet: showingSheets
     
   var body: some View {
@@ -58,16 +60,16 @@ struct HumidityExtraInfo: View {
                 HStack {
                   ForEach(0..<7) { element in
                     VStack(spacing : 1){
-                      Text(dailyForecasts[element].exactDayName)
+                      Text(dailyForecastListVM.dailyForecasts[element].exactDayName)
                         .fontWeight(.semibold)
                       Button(action: {
                         selectedTab = element // Cambiar a la pestaña 0
                       }) {
                         if selectedTab == element {
-                          SelectedRoundedFill(text: String(dailyForecasts[element].dayNumber))
+                          SelectedRoundedFill(text: String(dailyForecastListVM.dailyForecasts[element].dayNumber))
                         } else {
                           
-                          Text(String(dailyForecasts[element].dayNumber))
+                          Text(String(dailyForecastListVM.dailyForecasts[element].dayNumber))
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
                             .padding()
@@ -82,8 +84,8 @@ struct HumidityExtraInfo: View {
               HeaderDivider().padding()
               HStack {
                 VStack (alignment: .leading){
-                  ButtonTitle(text: "\(dailyForecasts[selectedTab].humidity )%")
-                  ButtonSubtitle(text: "Dew point: \(dailyForecasts[selectedTab].dew_point)º")
+                  ButtonTitle(text: "\(dailyForecastListVM.dailyForecasts[selectedTab].humidity )%")
+                  ButtonSubtitle(text: "Dew point: \(dailyForecastListVM.dailyForecasts[selectedTab].dew_point)º")
                 }
                 Spacer()
                 ExtraInfoScreenPicker(selectedInfo: $selectedSheet)
@@ -102,7 +104,7 @@ struct HumidityExtraInfo: View {
               .frame(width: 300, height: 300)
               .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
               
-              ExtraInfoSection(header: "Daily Summary", text: "Today, the average humidity is \(dailyForecasts[selectedTab].humidity)% The dew point is \(dailyForecasts[selectedTab].dew_point)º")
+              ExtraInfoSection(header: "Daily Summary", text: "Today, the average humidity is \(dailyForecastListVM.dailyForecasts[selectedTab].humidity)% The dew point is \(dailyForecastListVM.dailyForecasts[selectedTab].dew_point)º")
               ExtraInfoSection(header: "About the Relative Humidity", text: AboutConstants.humidity.rawValue)
               ExtraInfoSection(header: "About the Dew Point", text: AboutConstants.dewPoint.rawValue)
               

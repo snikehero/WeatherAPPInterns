@@ -42,8 +42,10 @@ struct WindChartMock: View {
 struct WindExtraInfo: View {
     @Binding var isShowing : Bool
     @State private var selectedTab = 0
-    @Binding var forecasts: [ForecastViewModel]
-    @Binding var dailyForecasts: [DailyForecastViewModel]
+    //@Binding var forecasts: [ForecastViewModel]
+    //@Binding var dailyForecasts: [DailyForecastViewModel]
+    @EnvironmentObject var forecastListVM: CityForecastModel
+    @EnvironmentObject var dailyForecastListVM: DailyForecastListViewmodel
     @Binding var selectedSheet: showingSheets
     
     var body: some View {
@@ -59,16 +61,16 @@ struct WindExtraInfo: View {
                                 HStack {
                                     ForEach(0..<7) { element in
                                         VStack(spacing : 1){
-                                            Text(dailyForecasts[element].exactDayName)
+                                          Text(dailyForecastListVM.dailyForecasts[element].exactDayName)
                                                 .fontWeight(.semibold)
                                             Button(action: {
                                                 selectedTab = element // Cambiar a la pestaña 0
                                             }) {
                                                 if selectedTab == element {
-                                                    SelectedRoundedFill(text: String(dailyForecasts[element].dayNumber))
+                                                  SelectedRoundedFill(text: String(dailyForecastListVM.dailyForecasts[element].dayNumber))
                                                 } else {
                                                     
-                                                    Text(String(dailyForecasts[element].dayNumber))
+                                                  Text(String(dailyForecastListVM.dailyForecasts[element].dayNumber))
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(.white)
                                                         .padding()
@@ -83,8 +85,8 @@ struct WindExtraInfo: View {
                             HeaderDivider().padding()
                             HStack {
                                 VStack (alignment: .leading){
-                                  ButtonTitle(text: "\(dailyForecasts[selectedTab].windSpeed )km/h")
-                                  ButtonSubtitle(text: "Gusts: \(dailyForecasts[selectedTab].windGust)")
+                                  ButtonTitle(text: "\(dailyForecastListVM.dailyForecasts[selectedTab].windSpeed )km/h")
+                                  ButtonSubtitle(text: "Gusts: \(dailyForecastListVM.dailyForecasts[selectedTab].windGust)")
                                 }
                                 Spacer()
                                 ExtraInfoScreenPicker(selectedInfo: $selectedSheet)
@@ -103,7 +105,7 @@ struct WindExtraInfo: View {
                             .frame(width: 300, height: 300)
                             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                             
-                          ExtraInfoSection(header: "Daily Summary", text: "Wind is currently \(dailyForecasts[selectedTab].windSpeed ) km/h from the west-northwest. Today, wind speeds are \(dailyForecasts[selectedTab].windSpeed ) km/h to \(forecasts.last?.windSpeed ?? "0") km/h, with gusts up to \(dailyForecasts[selectedTab].windGust ) km/h.")
+                          ExtraInfoSection(header: "Daily Summary", text: "Wind is currently \(dailyForecastListVM.dailyForecasts[selectedTab].windSpeed ) km/h from the west-northwest. Today, wind speeds are \(dailyForecastListVM.dailyForecasts[selectedTab].windSpeed ) km/h to \(forecastListVM.forecasts.last?.windSpeed ?? "0") km/h, with gusts up to \(dailyForecastListVM.dailyForecasts[selectedTab].windGust ) km/h.")
                             ExtraInfoSection(header: "About Wind Speed and Gusts", text: AboutConstants.wind.rawValue)
                             
                         }

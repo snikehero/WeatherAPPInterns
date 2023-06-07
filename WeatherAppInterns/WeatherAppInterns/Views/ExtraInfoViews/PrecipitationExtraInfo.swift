@@ -9,11 +9,12 @@ import SwiftUI
 
 
 struct PrecipitationExtraInfo: View {
+  
     @Binding var isShowing : Bool
-    @Binding var forecasts: [ForecastViewModel]
-    @Binding var dailyForecasts: [DailyForecastViewModel]
+    @EnvironmentObject var forecastListVM: CityForecastModel
+    @EnvironmentObject var dailyForecastListVM: DailyForecastListViewmodel
     @Binding var selectedSheet: showingSheets
-    
+    //@Binding var dailyForecastListVM: [DailyForecastViewModel]
     @State private var selectedTab = 0
     var body: some View {
         NavigationStack{
@@ -27,16 +28,16 @@ struct PrecipitationExtraInfo: View {
                                 HStack {
                                     ForEach(0..<7) { element in
                                         VStack(spacing : 1){
-                                            Text(dailyForecasts[element].exactDayName )
+                                          Text(dailyForecastListVM.dailyForecasts[element].exactDayName )
                                                 .fontWeight(.semibold)
                                             Button(action: {
                                                 selectedTab = element // Cambiar a la pestaña 0
                                             }) {
                                                 if selectedTab == element {
-                                                    SelectedRoundedFill(text: String(dailyForecasts[element].dayNumber ))
+                                                  SelectedRoundedFill(text: String(dailyForecastListVM.dailyForecasts[element].dayNumber ))
                                                 } else {
                                                     
-                                                    Text(String(dailyForecasts[element].dayNumber))
+                                                  Text(String(dailyForecastListVM.dailyForecasts[element].dayNumber))
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(.white)
                                                         .padding()
@@ -51,7 +52,7 @@ struct PrecipitationExtraInfo: View {
                             HeaderDivider().padding()
                             HStack {
                                 VStack (alignment: .leading){
-                                    ButtonTitle(text: dailyForecasts[selectedTab].pop )
+                                  ButtonTitle(text: dailyForecastListVM.dailyForecasts[selectedTab].pop )
                                     ButtonSubtitle(text: "In last 24h")
                                 }
                                 Spacer()
@@ -71,7 +72,7 @@ struct PrecipitationExtraInfo: View {
                             .frame(width: 300, height: 300)
                             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                             
-                            ExtraInfoSection(header: "Daily Summary", text: "There has been \(dailyForecasts[selectedTab].pop ) of precipitation in the last 24 hours. Today's precipitation will be \(dailyForecasts[selectedTab].pop )")
+                          ExtraInfoSection(header: "Daily Summary", text: "There has been \(dailyForecastListVM.dailyForecasts[selectedTab].pop ) of precipitation in the last 24 hours. Today's precipitation will be \(dailyForecastListVM.dailyForecasts[selectedTab].pop )")
                         }
                         .foregroundColor(.white)
                     }

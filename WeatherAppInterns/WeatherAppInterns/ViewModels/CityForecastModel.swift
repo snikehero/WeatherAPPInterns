@@ -14,6 +14,14 @@ class CityForecastModel: ObservableObject {
   @Published var city: CityViewModel = CityViewModel.mock
   @AppStorage ("location") var location: String = ""
   //5.'=
+  var system: Int = 0 {
+    didSet {
+      for i in 0..<forecasts.count {
+        forecasts[i].system = system
+      }
+    }
+  }
+  
   var id: UUID {
     return UUID()
   }
@@ -35,7 +43,7 @@ class CityForecastModel: ObservableObject {
         case .success(let forecast):
           //print(forecast)
           DispatchQueue.main.async {
-            self.forecasts = forecast.list.map{ ForecastViewModel(forecast: $0)}
+            self.forecasts = forecast.list.map{ ForecastViewModel(forecast: $0, system: self.system)}
             print("DispatchQueue getWeatherForecast")
             print(self.coordinates.lat)
             print(self.coordinates.lon)
@@ -96,7 +104,7 @@ class CityForecastModel: ObservableObject {
         case .success(let forecast):
           DispatchQueue.main.async {
            
-            temp.forecasts = forecast.list.map(ForecastViewModel.init)
+            temp.forecasts = forecast.list.map{ForecastViewModel(forecast: $0, system: self.system)}
             temp.city = CityViewModel(city: forecast.city )
 
             //print("Success")
@@ -129,7 +137,7 @@ class CityForecastModel: ObservableObject {
         case .success(let forecast):
           DispatchQueue.main.async {
            
-            self.forecasts = forecast.list.map(ForecastViewModel.init)
+            self.forecasts = forecast.list.map{ ForecastViewModel(forecast: $0, system: self.system)}
             self.city = CityViewModel(city: forecast.city )
 
             //print("Success")

@@ -10,8 +10,10 @@ import SwiftUI
 struct UvIndexExtraInfo: View {
     @Binding var isShowing : Bool
     @State private var selectedTab = 0
-    @Binding var forecasts: [ForecastViewModel]
-    @Binding var dailyForecasts: [DailyForecastViewModel]
+//    @Binding var forecasts: [ForecastViewModel]
+//    @Binding var dailyForecasts: [DailyForecastViewModel]
+    @EnvironmentObject var forecastListVM: CityForecastModel
+    @EnvironmentObject var dailyForecastListVM: DailyForecastListViewmodel
     @Binding var selectedSheet: showingSheets
     
     var body: some View {
@@ -27,16 +29,16 @@ struct UvIndexExtraInfo: View {
                                 HStack {
                                     ForEach(0..<7) { element in
                                         VStack(spacing : 1){
-                                          Text(dailyForecasts[element].exactDayName)
+                                          Text(dailyForecastListVM.dailyForecasts[element].exactDayName)
                                                 .fontWeight(.semibold)
                                             Button(action: {
                                                 selectedTab = element // Cambiar a la pestaña 0
                                             }) {
                                                 if selectedTab == element {
-                                                    SelectedRoundedFill(text: String(dailyForecasts[element].dayNumber))
+                                                  SelectedRoundedFill(text: String(dailyForecastListVM.dailyForecasts[element].dayNumber))
                                                 } else {
                                                     
-                                                    Text(String(dailyForecasts[element].dayNumber))
+                                                  Text(String(dailyForecastListVM.dailyForecasts[element].dayNumber))
                                                         .fontWeight(.semibold)
                                                         .foregroundColor(.white)
                                                         .padding()
@@ -51,7 +53,7 @@ struct UvIndexExtraInfo: View {
                             HeaderDivider().padding()
                             HStack {
                                 VStack (alignment: .leading){
-                                  ButtonTitle(text: "\(dailyForecasts[selectedTab].uvi ) \(dailyForecasts[selectedTab].description )")
+                                  ButtonTitle(text: "\(dailyForecastListVM.dailyForecasts[selectedTab].uvi ) \(dailyForecastListVM.dailyForecasts[selectedTab].description )")
                                     ButtonSubtitle(text: "World Health Organization UVI")
                                 }
                                 Spacer()
@@ -71,7 +73,7 @@ struct UvIndexExtraInfo: View {
                             .frame(width: 300, height: 300)
                             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                             
-                          ExtraInfoSection(header: "Daily Summary", text: "\(dailyForecasts[selectedTab].description ). Levels of \(dailyForecasts[selectedTab].subtitle ) or higher are reached from 9:00 to 18:00.")
+                          ExtraInfoSection(header: "Daily Summary", text: "\(dailyForecastListVM.dailyForecasts[selectedTab].description ). Levels of \(dailyForecastListVM.dailyForecasts[selectedTab].subtitle ) or higher are reached from 9:00 to 18:00.")
                             ExtraInfoSection(header: "About the UV Index", text: AboutConstants.uvIndex.rawValue)
                         }
                         .foregroundColor(.white)

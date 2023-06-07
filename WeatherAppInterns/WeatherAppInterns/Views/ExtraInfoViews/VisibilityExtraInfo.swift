@@ -10,8 +10,10 @@ import SwiftUI
 struct VisibilityExtraInfo: View {
   @Binding var isShowing : Bool
   @State private var selectedTab = 0
-  @Binding var forecasts: [ForecastViewModel]
-  @Binding var dailyForecasts: [DailyForecastViewModel]
+//  @Binding var forecasts: [ForecastViewModel]
+//  @Binding var dailyForecasts: [DailyForecastViewModel]
+  @EnvironmentObject var forecastListVM: CityForecastModel
+  @EnvironmentObject var dailyForecastListVM: DailyForecastListViewmodel
     @Binding var selectedSheet: showingSheets
   var body: some View {
     NavigationStack{
@@ -26,16 +28,16 @@ struct VisibilityExtraInfo: View {
                 HStack {
                   ForEach(0..<7) { element in
                     VStack(spacing : 1){
-                      Text(dailyForecasts[element].exactDayName)
+                      Text(dailyForecastListVM.dailyForecasts[element].exactDayName)
                         .fontWeight(.semibold)
                       Button(action: {
                         selectedTab = element // Cambiar a la pestaña 0
                       }) {
                         if selectedTab == element {
-                          SelectedRoundedFill(text: String(dailyForecasts[element].dayNumber))
+                          SelectedRoundedFill(text: String(dailyForecastListVM.dailyForecasts[element].dayNumber))
                         } else {
                           
-                          Text(String(dailyForecasts[element].dayNumber))
+                          Text(String(dailyForecastListVM.dailyForecasts[element].dayNumber))
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
                             .padding()
@@ -50,8 +52,8 @@ struct VisibilityExtraInfo: View {
               HeaderDivider().padding()
               HStack {
                 VStack (alignment: .leading){
-                  ButtonTitle(text: "\(forecasts.first?.visibility ?? "visibility")Km")
-                  ButtonSubtitle(text: forecasts.first?.visibilityDescription ?? "visibility description")
+                  ButtonTitle(text: "\(forecastListVM.forecasts.first?.visibility ?? "visibility")Km")
+                  ButtonSubtitle(text: forecastListVM.forecasts.first?.visibilityDescription ?? "visibility description")
                 }
                 Spacer()
                 ExtraInfoScreenPicker(selectedInfo: $selectedSheet)
@@ -70,7 +72,7 @@ struct VisibilityExtraInfo: View {
               .frame(width: 300, height: 300)
               .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
               
-              ExtraInfoSection(header: "Daily Summary", text: "Today the visibility will be: \(forecasts.first?.visibility ?? "0") to \(forecasts.first?.visibility ?? "0")")
+              ExtraInfoSection(header: "Daily Summary", text: "Today the visibility will be: \(forecastListVM.forecasts.first?.visibility ?? "0") to \(forecastListVM.forecasts.first?.visibility ?? "0")")
               ExtraInfoSection(header: "About Visibility", text: AboutConstants.visibility.rawValue)
             }
             .foregroundColor(.white)

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct AirQualityExtraInfo: View {
   @Binding var isShowing : Bool
-  @Binding var airQuality: [AirPollutionViewModel]
+  //@Binding var airQuality: [AirPollutionViewModel]
+  @EnvironmentObject var airPollutionListVM: AirPollutionListViewModel
   @State private var selectedTab = 0
    var aqiIndex = 0
   var body: some View {
@@ -26,10 +27,9 @@ struct AirQualityExtraInfo: View {
               }
               .frame(width: 300, height: 300)
               .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-              
-              ExtraInfoSection(header: airQuality.first?.airPollutionDescription ?? "0", text: "Air Quality Index is \(airQuality.first?.index ?? "0"), which is similar to yesterday at about this time.")
-              AirQualitySlider(value: airQuality.first?.index ?? "0")
-              ExtraInfoSection(header: "Healh Information", text: airQuality.first?.airPollutionHealth ?? "0")
+              ExtraInfoSection(header: airPollutionListVM.airPollutions.first?.airPollutionDescription ?? "0", text: "Air Quality Index is \(airPollutionListVM.airPollutions.first?.index ?? "0"), which is similar to yesterday at about this time.")
+              AirQualitySlider(value: airPollutionListVM.airPollutions.first?.index ?? "0")
+              ExtraInfoSection(header: "Healh Information", text: airPollutionListVM.airPollutions.first?.airPollutionHealth ?? "0")
               ExtraInfoSection(header: "Primary Pollutant", text: AboutConstants.airQuality.rawValue)
             }
             .foregroundColor(.white)
@@ -40,7 +40,7 @@ struct AirQualityExtraInfo: View {
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .principal) {
-          ExtraInfoHeader(systemImage: airQuality.first?.aqiIcon ?? "aqi.low", title: "Air Quality")
+          ExtraInfoHeader(systemImage: airPollutionListVM.airPollutions.first?.aqiIcon ?? "aqi.low", title: "Air Quality")
         }
         ToolbarItem(placement: .primaryAction) {
           Button{

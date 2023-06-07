@@ -37,22 +37,22 @@ struct DemoView4: View {
                   ScrollView{
                     VStack {
                       //WeatherCityView()
-                      SummaryView(forecasts: $forecastListVM.forecasts,cityName: forecastListVM.city.cityName)
+                      //SummaryView(forecasts: $forecastListVM.forecasts,cityName: forecastListVM.city.cityName)
                       ButtonSubtitle(text: forecastListVM.forecasts.first?.overview ?? "overview")
                         .shadow(color: .black ,radius: 15, x: 2, y: 2)
-                      HourlyView(forecasts: $forecastListVM.forecasts)
+                      //HourlyView(forecasts: $forecastListVM.forecasts)
                       Button{
                         print("AirQuality")
                         selectedSheet = .airQuality
                         isShowing.toggle()
                       } label: {
-                        AirPollutionView(airPollution: $airPollutionListVM.airPollutions)
+                        //AirPollutionView(airPollution: $airPollutionListVM.airPollutions)
                       }
                       
                       VStack(alignment: .leading, spacing: 10){
                         ButtonHeader(text: "8 - DAY FORECAST", systemImage: "calendar")
                         HeaderDivider()
-                        DaysView(dailyForecasts: $dailyForecastListVM.dailyForecasts)
+                        //DaysView(dailyForecasts: $dailyForecastListVM.dailyForecasts)
                       }
                       .padding()
                       .background(.ultraThinMaterial)
@@ -69,15 +69,15 @@ struct DemoView4: View {
                   print(selectedSheet)
                   isShowing.toggle()
                 } label: {
-                  UVIndex(dailyForecasts: $dailyForecastListVM.dailyForecasts)
+                  UVIndex()
                     .modifier(ExtraInfoButton())
                 }
                 Button{
                   print("Sunset")
                   
                 } label: {
-                  Sunset(title: forecastListVM.city.sunset, description: "Sunrise: \(forecastListVM.city.sunrise)")
-                    .modifier(ExtraInfoButton())
+//                  Sunset(title: forecastListVM.city.sunset, description: "Sunrise: \(forecastListVM.city.sunrise)")
+//                    .modifier(ExtraInfoButton())
                 }
               }
               HStack {
@@ -86,16 +86,16 @@ struct DemoView4: View {
                   selectedSheet = .wind
                   isShowing.toggle()
                 } label: {
-                  Wind(forecasts: $forecastListVM.forecasts, dailyForecasts: $dailyForecastListVM.dailyForecasts)
-                    .modifier(ExtraInfoButton())
+//                  Wind(forecasts: $forecastListVM.forecasts, dailyForecasts: $dailyForecastListVM.dailyForecasts)
+//                    .modifier(ExtraInfoButton())
                 }
                 Button{
                   print("Precipitation")
                   selectedSheet = .precipitation
                   isShowing.toggle()
                 } label: {
-                  Precipitation(forecasts: $forecastListVM.forecasts, dailyForecasts: $dailyForecastListVM.dailyForecasts)
-                    .modifier(ExtraInfoButton())
+//                  Precipitation(forecasts: $forecastListVM.forecasts, dailyForecasts: $dailyForecastListVM.dailyForecasts)
+//                    .modifier(ExtraInfoButton())
                 }
               }
               HStack {
@@ -104,16 +104,16 @@ struct DemoView4: View {
                   selectedSheet = .feelsLike
                   isShowing.toggle()
                 } label: {
-                  FeelsLike(forecasts: $forecastListVM.forecasts)
-                    .modifier(ExtraInfoButton())
+//                  FeelsLike(forecasts: $forecastListVM.forecasts)
+//                    .modifier(ExtraInfoButton())
                 }
                 Button{
                   print("Humidity")
                   selectedSheet = .humidity
                   isShowing.toggle()
                 } label: {
-                  Humidity(forecasts: $forecastListVM.forecasts, dailyForecasts: $dailyForecastListVM.dailyForecasts)
-                    .modifier(ExtraInfoButton())
+//                  Humidity(forecasts: $forecastListVM.forecasts, dailyForecasts: $dailyForecastListVM.dailyForecasts)
+//                    .modifier(ExtraInfoButton())
                 }
               }
               HStack {
@@ -122,21 +122,21 @@ struct DemoView4: View {
                   selectedSheet = .visibility
                   isShowing.toggle()
                 } label: {
-                  Visibility(forecasts: $forecastListVM.forecasts)
-                    .modifier(ExtraInfoButton())
+//                  Visibility(forecasts: $forecastListVM.forecasts)
+//                    .modifier(ExtraInfoButton())
                 }
                 Button{
                   print("Pressure")
                   selectedSheet = .pressure
                   isShowing.toggle()
                 } label: {
-                  Pressure(forecasts: $forecastListVM.forecasts, dailyForecasts: $dailyForecastListVM.dailyForecasts)
-                    .modifier(ExtraInfoButton())
+//                  Pressure(forecasts: $forecastListVM.forecasts, dailyForecasts: $dailyForecastListVM.dailyForecasts)
+//                    .modifier(ExtraInfoButton())
                 }
               }
             }
             .sheet(isPresented: $isShowing){
-              SheetView(isShowing: $isShowing, selectedSheet: $selectedSheet, forecastListVM: forecastListVM, dailyForecastListVM: dailyForecastListVM, airPollutionListVM: airPollutionListVM)
+              //SheetView(isShowing: $isShowing, selectedSheet: $selectedSheet, forecastListVM: forecastListVM, dailyForecastListVM: dailyForecastListVM, airPollutionListVM: airPollutionListVM)
             }
             
           }
