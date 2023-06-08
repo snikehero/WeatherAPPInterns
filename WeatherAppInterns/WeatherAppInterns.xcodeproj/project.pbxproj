@@ -23,10 +23,8 @@
 		4A502D802A295A4100939367 /* WeatherCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A502D7E2A295A4000939367 /* WeatherCityView.swift */; };
 		4A5A83D32A2ED4EF006DA5AE /* DemoView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A83D22A2ED4EF006DA5AE /* DemoView4.swift */; };
 		4A5A83D72A2ED788006DA5AE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5A83D62A2ED788006DA5AE /* MainView.swift */; };
-		4A5A83DC2A2EE253006DA5AE /* SunnyCloudy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A5A83D82A2EE252006DA5AE /* SunnyCloudy.mp4 */; };
 		4A5A83DD2A2EE253006DA5AE /* SootyCloudy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A5A83D92A2EE253006DA5AE /* SootyCloudy.mp4 */; };
 		4A5A83DE2A2EE253006DA5AE /* MostlySunny.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A5A83DA2A2EE253006DA5AE /* MostlySunny.mp4 */; };
-		4A5A83DF2A2EE253006DA5AE /* MostlyClear.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A5A83DB2A2EE253006DA5AE /* MostlyClear.mp4 */; };
 		4A5ABB2F2A1D408B009BB13C /* DailyForecastListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5ABB2E2A1D408B009BB13C /* DailyForecastListViewModel.swift */; };
 		4A5ABB312A1D40A0009BB13C /* DailyForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5ABB302A1D40A0009BB13C /* DailyForecastViewModel.swift */; };
 		4A5ABB332A1D40B4009BB13C /* DailyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5ABB322A1D40B4009BB13C /* DailyForecast.swift */; };
@@ -133,10 +131,8 @@
 		4A502D7E2A295A4000939367 /* WeatherCityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCityView.swift; sourceTree = "<group>"; };
 		4A5A83D22A2ED4EF006DA5AE /* DemoView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView4.swift; sourceTree = "<group>"; };
 		4A5A83D62A2ED788006DA5AE /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = WeatherAppInterns/Views/MainView.swift; sourceTree = SOURCE_ROOT; };
-		4A5A83D82A2EE252006DA5AE /* SunnyCloudy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SunnyCloudy.mp4; sourceTree = "<group>"; };
 		4A5A83D92A2EE253006DA5AE /* SootyCloudy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SootyCloudy.mp4; sourceTree = "<group>"; };
 		4A5A83DA2A2EE253006DA5AE /* MostlySunny.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MostlySunny.mp4; sourceTree = "<group>"; };
-		4A5A83DB2A2EE253006DA5AE /* MostlyClear.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MostlyClear.mp4; sourceTree = "<group>"; };
 		4A5ABB2E2A1D408B009BB13C /* DailyForecastListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastListViewModel.swift; sourceTree = "<group>"; };
 		4A5ABB302A1D40A0009BB13C /* DailyForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastViewModel.swift; sourceTree = "<group>"; };
 		4A5ABB322A1D40B4009BB13C /* DailyForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecast.swift; sourceTree = "<group>"; };
@@ -262,10 +258,8 @@
 		4AB4BFD42A13CDF70090863D /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				4A5A83DB2A2EE253006DA5AE /* MostlyClear.mp4 */,
 				4A5A83DA2A2EE253006DA5AE /* MostlySunny.mp4 */,
 				4A5A83D92A2EE253006DA5AE /* SootyCloudy.mp4 */,
-				4A5A83D82A2EE252006DA5AE /* SunnyCloudy.mp4 */,
 				4AB4BFD52A13CDF70090863D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -488,8 +482,6 @@
 				4A5A83DE2A2EE253006DA5AE /* MostlySunny.mp4 in Resources */,
 				4AB4BFD62A13CDF70090863D /* Preview Assets.xcassets in Resources */,
 				4AB4BFD32A13CDF70090863D /* Assets.xcassets in Resources */,
-				4A5A83DC2A2EE253006DA5AE /* SunnyCloudy.mp4 in Resources */,
-				4A5A83DF2A2EE253006DA5AE /* MostlyClear.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

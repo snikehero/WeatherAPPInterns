@@ -48,7 +48,14 @@ Thumbs.db
 *.mov
 *.wmv
 
-WeatherAppInterns/WeatherAppInterns.xcodeproj/project.xcworkspace/xcuserdata/msanchezlopez.xcuserdatad/UserInterfaceState.xcuserstate
 *.xcuserstate
 *.pbxproj
-*.xcuserstate
+
+## User settings
+xcuserdata/
+
+### Xcode Patch ###
+*.xcodeproj/*
+!*.xcodeproj/xcshareddata/
+/*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
