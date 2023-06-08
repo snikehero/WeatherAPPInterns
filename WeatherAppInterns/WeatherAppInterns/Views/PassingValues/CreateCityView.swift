@@ -112,6 +112,7 @@ struct CreateCityView: View {
 struct CreateCityView_Previews: PreviewProvider {
     static var previews: some View {
         CreateCityView(temp: CityForecastModel.init())
+            .environmentObject(CityListViewModel())
       
     }
 }

@@ -8,7 +8,16 @@
 import Foundation
 import CoreLocation
 import SwiftUI
-class CityForecastModel: ObservableObject {
+class CityForecastModel: ObservableObject, Equatable, Hashable {
+    static func == (lhs: CityForecastModel, rhs: CityForecastModel) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+    }
+    
   var coordinates: (lat: Double, lon: Double) = (0,0)
   @Published var forecasts: [ForecastViewModel] = [ForecastViewModel.mock,ForecastViewModel.mock1,ForecastViewModel.mock2,ForecastViewModel.mock3,ForecastViewModel.mock4,ForecastViewModel.mock5,ForecastViewModel.mock6,ForecastViewModel.mock7]
   @Published var city: CityViewModel = CityViewModel.mock

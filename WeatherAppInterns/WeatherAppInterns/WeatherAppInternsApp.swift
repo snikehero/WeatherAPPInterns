@@ -14,6 +14,7 @@ struct WeatherAppInternsApp: App {
         WindowGroup {
             MainView()
             .environmentObject(networkMonitor)
+
         }
     }
 }
