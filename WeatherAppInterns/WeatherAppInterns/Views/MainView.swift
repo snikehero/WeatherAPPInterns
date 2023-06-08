@@ -18,7 +18,7 @@ struct MainView: View {
   @State var tokens: Set<AnyCancellable> = []
   @State var coordinates: (lat: Double, lon: Double) = (0,0)
   @State var selectedSheet: showingSheets = .precipitation
-
+  @EnvironmentObject var networkMonitor: NetworkMonitor //:)
   var mockPreview = false
     var body: some View {
       TabView {

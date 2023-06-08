@@ -41,7 +41,6 @@ struct Provider: IntentTimelineProvider {
 struct WeatherWidgetEntryView : View {
   @Environment(\.widgetFamily) var family
   var body: some View {
-    
     if family == .systemSmall{
       SmallWeatherWidget(forecastListVM: CityForecastModel(), deviceLocationService: DeviceLocationService.shared, date: "27", temp: 23, emoji: "🌦️", city: "Aguascalientes", description: "Parcialmente Nublado", tempMax: 12, tempMin: 35)
     }
