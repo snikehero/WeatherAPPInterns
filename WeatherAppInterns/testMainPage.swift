@@ -37,7 +37,7 @@ struct testMainPage: View {
                             CityCardView()
                                 .environmentObject(city)
                         }
-                        .deleteDisabled(cityListVM.cities.count < 2 || cityListVM.cities[0])
+                        .deleteDisabled(cityListVM.cities.count < 2)
                     }
                     .onMove(perform: move)
                     .onDelete(perform: delete)
