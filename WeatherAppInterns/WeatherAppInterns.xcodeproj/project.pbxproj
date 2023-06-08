@@ -71,6 +71,7 @@
 		7114EB892A2006C000F6F684 /* WeatherWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7114EB852A2006BE00F6F684 /* WeatherWidget.intentdefinition */; };
 		7114EB8A2A2006C000F6F684 /* WeatherWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7114EB852A2006BE00F6F684 /* WeatherWidget.intentdefinition */; };
 		7114EB8D2A2006C000F6F684 /* WeatherWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7114EB782A2006BE00F6F684 /* WeatherWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		713C01332A3158600000A10B /* NetworkMonitor .swift in Sources */ = {isa = PBXBuildFile; fileRef = 713C01322A3158600000A10B /* NetworkMonitor .swift */; };
 		71476E852A282B0400B00782 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4268E05F2A153D8200FB403C /* TextViews.swift */; };
 		7170F7A12A2591B00091B47C /* WidgetTextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7170F7A02A2591B00091B47C /* WidgetTextViews.swift */; };
 		E61535DD2A1D110A0063BC53 /* PrecipitationExtraInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61535DC2A1D110A0063BC53 /* PrecipitationExtraInfo.swift */; };
@@ -168,6 +169,7 @@
 		7114EB852A2006BE00F6F684 /* WeatherWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = WeatherWidget.intentdefinition; sourceTree = "<group>"; };
 		7114EB862A2006C000F6F684 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7114EB882A2006C000F6F684 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		713C01322A3158600000A10B /* NetworkMonitor .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkMonitor .swift"; sourceTree = "<group>"; };
 		7170F7A02A2591B00091B47C /* WidgetTextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTextViews.swift; sourceTree = "<group>"; };
 		71B49EAF2A155001003F614D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E61535DC2A1D110A0063BC53 /* PrecipitationExtraInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecipitationExtraInfo.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			children = (
 				4AEE291B2A15C03000C37B31 /* ApiService.swift */,
 				4AC2F3D52A1405F40001130A /* DeviceLocationService.swift */,
+				713C01322A3158600000A10B /* NetworkMonitor .swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				E6851FED2A27B071009F318B /* SheetView.swift in Sources */,
 				E63D67782A16AECE00DD8852 /* ButtonsView.swift in Sources */,
 				4A9535292A2A7D4F00281B9E /* CityListViewModel.swift in Sources */,
+				713C01332A3158600000A10B /* NetworkMonitor .swift in Sources */,
 				4A24E0172A26D8930038A92A /* CityView.swift in Sources */,
 				E61535EE2A1E78EF0063BC53 /* AboutConstants.swift in Sources */,
 				4A5A83D72A2ED788006DA5AE /* MainView.swift in Sources */,

@@ -50,3 +50,5 @@ Thumbs.db
 
 WeatherAppInterns/WeatherAppInterns.xcodeproj/project.xcworkspace/xcuserdata/msanchezlopez.xcuserdatad/UserInterfaceState.xcuserstate
 *.xcuserstate
+*.pbxproj
+*.xcuserstate
