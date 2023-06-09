@@ -12,7 +12,7 @@ struct WeatherAppInternsApp: App {
   @StateObject var networkMonitor = NetworkMonitor()
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainTestView()
             .environmentObject(networkMonitor)
 
         }
