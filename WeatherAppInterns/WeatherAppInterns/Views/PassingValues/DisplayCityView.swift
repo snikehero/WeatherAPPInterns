@@ -27,7 +27,7 @@ struct DisplayCityView: View {
             }
         }
         .tabViewStyle(.page)
-        .ignoresSafeArea()
+        
   }
 }
 
