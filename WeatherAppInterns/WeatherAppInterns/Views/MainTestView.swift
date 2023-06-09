@@ -27,6 +27,6 @@ struct MainTestView: View {
 struct MainTestView_Previews: PreviewProvider {
     static var previews: some View {
       MainTestView()
-        .environmentObject(NetworkMonitor.init(isConnected: false))  // atte jimbo
+       // .environmentObject(NetworkMonitor.init(isConnected: false))  // atte jimbo
     }
 }

@@ -26,10 +26,10 @@ struct DisplayCityView: View {
             }
             .tag(index)
         }
+        .tabViewStyle(.page)
       }
-      .tabViewStyle(.page)
+      .ignoresSafeArea(.container, edges: .top)
     }
-    .ignoresSafeArea(.container, edges: .top)
   }
 }
 
