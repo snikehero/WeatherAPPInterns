@@ -21,8 +21,8 @@ struct WeatherView: View {
   var body: some View {
     NavigationStack {
       ZStack {
-        BackgroundView()
-        //Color("BackgroundColor")
+        //BackgroundView()
+        Color("BackgroundColor")
           .ignoresSafeArea()
           .opacity(50)
         

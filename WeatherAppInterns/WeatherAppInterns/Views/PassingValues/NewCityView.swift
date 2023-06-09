@@ -21,6 +21,7 @@ struct NewCityView: View {
                 .opacity(50)
              
              VStack {
+               
                 Spacer()
                 ScrollView (showsIndicators: false){
                    VStack (spacing: 10){
@@ -38,10 +39,10 @@ struct NewCityView: View {
                             }
                             .padding()
                          }
-                        .onAppear(){
-                          print(cityName)
-                           cityForecast.getCityByName(cityName: cityName)
-                         }
+//                        .onAppear(){
+//                          print(cityName)
+//                           cityForecast.getCityByName(cityName: cityName)
+//                         }
                       }
                    }
                 }

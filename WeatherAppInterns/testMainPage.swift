@@ -30,18 +30,19 @@ struct testMainPage: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .frame(width:100)
-                
                 List {
                     ForEach(cityListVM.cities, id: \.id ) { city in
                         NavigationLink(value: city) {
                             CityCardView()
                                 .environmentObject(city)
                         }
+                       
                         .deleteDisabled(cityListVM.cities.count < 2)
                     }
                     .onMove(perform: move)
                     .onDelete(perform: delete)
                 }
+              
                 .navigationDestination(for: CityForecastModel.self) { cityforecast in
                     NewCityView(cityName: cityforecast.city.cityName)
                         .environmentObject(cityListVM)
@@ -57,7 +58,9 @@ struct testMainPage: View {
                 .toolbar {
                     EditButton()
                 }
+              
         }
+      
         .searchable(text: $searchText, prompt: "Search city or airport")
         .onSubmit(of: .search) {
             isSheetPresented.toggle()

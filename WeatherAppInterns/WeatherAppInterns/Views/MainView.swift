@@ -21,15 +21,8 @@ struct MainView: View {
     @EnvironmentObject var networkMonitor: NetworkMonitor //:)
     var mockPreview = false
     var body: some View {
+      
         TabView {
-            //        CreateCityView()
-            //          .environmentObject(deviceLocationService)
-            //          .environmentObject(cityListVM)
-            //          .tabItem {
-            //            Label("", systemImage: "list.bullet")
-            //              .font(.body.bold())
-            //               .symbolVariant(.fill)
-            //          }
             testMainPage()
                 .environmentObject(cityListVM)
                       .tabItem {
@@ -37,7 +30,12 @@ struct MainView: View {
                           .font(.body.bold())
                            .symbolVariant(.fill)
                       }
-            
+          DisplayCityView() //Llamada a la vista
+            .environmentObject(cityListVM)
+            .tabItem{
+              Label("",systemImage: "building.2.fill")
+            }
+            .environmentObject(cityListVM)
             WeatherView()
                 .environmentObject(forecastListVM)
                 .environmentObject(dailyForecastListVM)
@@ -48,6 +46,7 @@ struct MainView: View {
                         .font(.body.bold())
                         .symbolVariant(.fill)
                 }
+          
             
         }
         .onAppear {
