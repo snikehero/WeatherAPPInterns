@@ -15,19 +15,21 @@ struct DisplayCityView: View {
   @State private var index = 0
   var body: some View {
     //NavigationStack {
-        TabView(selection: $selectedTab) {
-          ForEach(cityListVM.cities,id : \.id){ city in
-            NewCityView(cityName: "")
-                .environmentObject(cityListVM)
-                .environmentObject(city ?? CityForecastModel.init())
-                    .tabItem {
-                      Label(city.city.cityName,systemImage: "1.circle")
-                    }
-                    .tag(city.id)
+    ZStack {
+      TabView(selection: $selectedTab) {
+        ForEach(Array(cityListVM.cities.enumerated()),id : \.offset){ index,city in
+          NewCityView(cityName: "")
+            .environmentObject(cityListVM)
+            .environmentObject(city)
+            .tabItem {
+              Label(city.city.cityName,systemImage: "1.circle")
             }
+            .tag(index)
         }
-        .tabViewStyle(.page)
-        .ignoresSafeArea()
+      }
+      .tabViewStyle(.page)
+    }
+    .ignoresSafeArea(.container, edges: .top)
   }
 }
 
